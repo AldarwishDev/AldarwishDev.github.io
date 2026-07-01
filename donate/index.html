@@ -1,51 +1,58 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ادعم تطوير مشاريعنا</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <title>Support My Work | Ahmad Aldarwish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
     <style>
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: #f4f8f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
+        :root {
+            --primary: #f59e0b; /* لون ذهبي/أمبير فخم */
+            --bg-dark: #0f1115;
+            --surface: rgba(30, 32, 40, 0.6);
         }
-        .donate-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 500px;
-            width: 90%;
-        }
-        h1 { color: #006d40; }
-        p { color: #555; font-size: 1.2rem; margin-bottom: 30px; }
-        .donate-btn {
-            display: inline-block;
-            background: #ffba00;
-            color: #1a1c1e;
-            padding: 15px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: 0.3s;
-        }
-        .donate-btn:hover { background: #e5a700; transform: scale(1.05); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--bg-dark); color: #fff; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+        html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
+        
+        /* خلفية فخمة */
+        .bg-glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(245,158,11,0.15) 0%, rgba(15,17,21,0) 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1; pointer-events: none; }
+
+        .donate-card { background: var(--surface); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.05); padding: 60px 40px; border-radius: 30px; text-align: center; max-width: 550px; width: 90%; box-shadow: 0 20px 50px rgba(0,0,0,0.5); position: relative; }
+        
+        .icon-circle { width: 80px; height: 80px; background: rgba(245, 158, 11, 0.1); border: 2px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; color: var(--primary); }
+        .icon-circle span { font-size: 40px; }
+        
+        h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 15px; }
+        p { color: #a0a0b5; font-size: 1.15rem; line-height: 1.8; margin-bottom: 40px; }
+        
+        /* زر الدفع - قم بوضع رابط Ko-fi أو PayPal الخاص بك مكان # */
+        .btn-donate { display: inline-flex; align-items: center; gap: 12px; background: var(--primary); color: #000; padding: 18px 40px; border-radius: 30px; text-decoration: none; font-size: 1.2rem; font-weight: 900; transition: 0.3s; box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3); }
+        .btn-donate:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5); }
+        
+        .back-link { position: absolute; top: 30px; left: 30px; color: #a0a0b5; text-decoration: none; display: flex; align-items: center; gap: 5px; font-weight: bold; transition: 0.3s; }
+        html[dir="rtl"] .back-link { left: auto; right: 30px; }
+        .back-link:hover { color: #fff; }
+        html[dir="ltr"] .back-link .material-symbols-outlined { transform: rotate(180deg); }
     </style>
 </head>
 <body>
+    <div class="bg-glow"></div>
+    <a href="/" class="back-link"><span class="material-symbols-outlined">arrow_forward</span> Back</a>
+    
     <div class="donate-card">
-        <h1>شكراً لدعمك! ❤️</h1>
-        <p>دعمك يساعدني على الاستمرار في تطوير تطبيقات إسلامية ذكية ومفانية خالية من الإعلانات المزعجة.</p>
-        <!-- سيتم ربط هذا الزر ببوابة الدفع لاحقاً -->
-        <a href="#" class="donate-btn">تبرع الآن</a>
+        <div class="icon-circle">
+            <span class="material-symbols-outlined">favorite</span>
+        </div>
+        <h1>Support My Work</h1>
+        <p>I build free, privacy-first, and ad-free applications. Your support helps me cover server costs and dedicate more time to creating valuable digital tools.</p>
+        
+        <!-- هنا تضع رابط منصة Ko-fi أو PayPal الخاصة بك -->
+        <a href="https://ko-fi.com/YOUR_USERNAME" target="_blank" class="btn-donate">
+            <span class="material-symbols-outlined">coffee</span>
+            Buy me a coffee
+        </a>
     </div>
 </body>
 </html>
