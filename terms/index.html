@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شروط الاستخدام | Ahmad Aldarwish</title>
+    
+    <!-- الخطوط -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Roboto:wght@400;500;700;900&family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,6 +17,7 @@
         body { font-family: 'Tajawal', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; transition: 0.3s; display: flex; flex-direction: column; min-height: 100vh; }
         html[dir="ltr"] body { font-family: 'Roboto', sans-serif; }
 
+        /* Header */
         header { position: sticky; top: 0; background-color: rgba(var(--bg-color), 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); z-index: 1000; padding: 15px 0; }
         .nav-container { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
         .back-link { font-size: 1.1rem; font-weight: 700; color: var(--text-main); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: 0.2s; }
@@ -26,6 +29,7 @@
         .icon-btn:hover, .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
         .lang-btn { font-family: var(--code-font); font-weight: bold; width: auto; padding: 0 12px; }
 
+        /* Main Content */
         .container { max-width: 800px; margin: 60px auto; padding: 0 20px; flex: 1; width: 100%; text-align: center;}
         .section-tag { font-family: var(--code-font); font-size: 0.9rem; font-weight: 700; color: var(--text-sec); letter-spacing: 2px; margin-bottom: 20px; display: block; }
         h1 { font-size: 2.5rem; color: var(--text-main); font-weight: 900; margin-bottom: 30px; }
@@ -36,6 +40,7 @@
         .content-card h2 { color: var(--accent); font-size: 1.4rem; margin-top: 30px; margin-bottom: 15px; font-family: var(--code-font); }
         .content-card p { font-size: 1.1rem; color: var(--text-sec); line-height: 1.8; margin-bottom: 15px; }
 
+        /* Footer */
         footer { padding: 40px 20px; border-top: 1px solid var(--border-color); margin-top: 40px; text-align: center; }
         .social-links { display: flex; justify-content: center; gap: 25px; margin-bottom: 15px; }
         .social-links a { color: var(--text-sec); font-size: 1.4rem; transition: 0.2s; }
@@ -47,15 +52,21 @@
 
     <header>
         <div class="nav-container">
-            <a href="/" class="back-link"><span class="material-symbols-outlined">arrow_forward</span><span data-i18n="back">العودة للرئيسية</span></a>
+            <a href="/" class="back-link">
+                <span class="material-symbols-outlined">arrow_forward</span>
+                <span data-i18n="back">العودة للرئيسية</span>
+            </a>
             <div class="header-controls">
-                <button class="icon-btn" onclick="toggleTheme()"><span class="material-symbols-outlined" id="theme-icon">dark_mode</span></button>
+                <button class="icon-btn" onclick="toggleTheme()" title="Toggle Theme">
+                    <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+                </button>
                 <button class="lang-btn" onclick="toggleLanguage()" id="lang-btn-text">EN</button>
             </div>
         </div>
     </header>
 
     <div class="container">
+        <!-- الوسم البرمجي والعنوان لصفحة الشروط -->
         <span class="section-tag">/* TERMS OF USE */</span>
         <h1 data-i18n="title">شروط استخدام الموقع</h1>
         
@@ -84,22 +95,49 @@
     </footer>
 
     <script>
+        // نصوص الترجمة الخاصة بصفحة "شروط الاستخدام" حصراً
         const translations = {
-            ar: { back: "العودة للرئيسية", title: "شروط الاستخدام", intro: "باستخدامك لموقعي الشخصي، فإنك توافق على الشروط البسيطة التالية:", h1: "// الملكية الفكرية", p1: "جميع التصاميم، الأكواد، والنصوص المعروضة في هذا الموقع هي ملكية خاصة للمطور أحمد الدرويش. لا يُسمح بنسخ أو إعادة استخدام أي جزء من الموقع لأغراض تجارية دون إذن مسبق.", h2: "// التطبيقات المشار إليها", p2: "التطبيقات المعروضة في الموقع (مثل تطبيق وصل) لها سياسات خصوصية وشروط استخدام منفصلة خاصة بها، يُرجى مراجعتها داخل الصفحات المخصصة لكل تطبيق.", h3: "// إخلاء المسؤولية", p3: "المعلومات الواردة في هذا الموقع مقدمة 'كما هي' لأغراض العرض والتعريف. المطور غير مسؤول عن أي أضرار قد تنتج عن استخدام الروابط الخارجية المدرجة في الموقع." },
-            en: { back: "Back to Home", title: "Terms of Use", intro: "By using my personal website, you agree to the following simple terms:", h1: "// Intellectual Property", p1: "All designs, codes, and texts displayed on this site are the exclusive property of developer Ahmad Aldarwish. Copying or reusing any part of the site for commercial purposes without prior permission is prohibited.", h2: "// Referenced Apps", p2: "The applications showcased on the site (like the Wasl app) have their own separate privacy policies and terms of use. Please review them on their respective pages.", h3: "// Disclaimer", p3: "The information on this site is provided 'as is' for portfolio purposes. The developer is not liable for any damages resulting from the use of external links provided on the site." }
+            ar: { 
+                back: "العودة للرئيسية", 
+                title: "شروط استخدام الموقع", 
+                intro: "باستخدامك لموقعي الشخصي، فإنك توافق على الشروط البسيطة التالية:", 
+                h1: "// الملكية الفكرية", 
+                p1: "جميع التصاميم، الأكواد، والنصوص المعروضة في هذا الموقع هي ملكية خاصة للمطور أحمد الدرويش. لا يُسمح بنسخ أو إعادة استخدام أي جزء من الموقع لأغراض تجارية دون إذن مسبق.", 
+                h2: "// التطبيقات المشار إليها", 
+                p2: "التطبيقات المعروضة في الموقع (مثل تطبيق وصل) لها سياسات خصوصية وشروط استخدام منفصلة خاصة بها، يُرجى مراجعتها داخل الصفحات المخصصة لكل تطبيق.", 
+                h3: "// إخلاء المسؤولية", 
+                p3: "المعلومات الواردة في هذا الموقع مقدمة 'كما هي' لأغراض العرض والتعريف. المطور غير مسؤول عن أي أضرار قد تنتج عن استخدام الروابط الخارجية المدرجة في الموقع." 
+            },
+            en: { 
+                back: "Back to Home", 
+                title: "Terms of Use", 
+                intro: "By using my personal website, you agree to the following simple terms:", 
+                h1: "// Intellectual Property", 
+                p1: "All designs, codes, and texts displayed on this site are the exclusive property of developer Ahmad Aldarwish. Copying or reusing any part of the site for commercial purposes without prior permission is prohibited.", 
+                h2: "// Referenced Apps", 
+                p2: "The applications showcased on the site (like the Wasl app) have their own separate privacy policies and terms of use. Please review them on their respective pages.", 
+                h3: "// Disclaimer", 
+                p3: "The information on this site is provided 'as is' for portfolio purposes. The developer is not liable for any damages resulting from the use of external links provided on the site." 
+            }
         };
-        // [نفس كود التبديل]
+
         function setLanguage(lang) {
             localStorage.setItem('preferredLang', lang);
             document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
             document.documentElement.setAttribute('lang', lang);
             document.getElementById('lang-btn-text').textContent = lang === 'ar' ? 'EN' : 'AR';
+            
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang] && translations[lang][key]) el.innerHTML = translations[lang][key];
             });
         }
-        function toggleLanguage() { setLanguage(document.documentElement.getAttribute('lang') === 'ar' ? 'en' : 'ar'); }
+
+        function toggleLanguage() { 
+            const currentLang = document.documentElement.getAttribute('lang') || 'ar';
+            setLanguage(currentLang === 'ar' ? 'en' : 'ar'); 
+        }
+
         function toggleTheme() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -107,11 +145,18 @@
             document.getElementById('theme-icon').textContent = newTheme === 'dark' ? 'light_mode' : 'dark_mode';
             localStorage.setItem('preferredTheme', newTheme);
         }
+
         window.onload = () => {
-            let savedTheme = localStorage.getItem('preferredTheme') || 'light';
+            let savedTheme = localStorage.getItem('preferredTheme');
+            if (!savedTheme) {
+                savedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
             document.documentElement.setAttribute('data-theme', savedTheme);
             document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? 'light_mode' : 'dark_mode';
-            setLanguage(localStorage.getItem('preferredLang') || 'ar');
+            
+            // قراءة اللغة المحفوظة أو تعيين العربية كافتراضية
+            const savedLang = localStorage.getItem('preferredLang') || 'ar';
+            setLanguage(savedLang);
         };
     </script>
 </body>
