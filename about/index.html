@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نبذة عني | Ahmad Aldarwish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Roboto:wght@400;500;700;900&family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root { --bg-color: #ffffff; --text-main: #111827; --text-sec: #6b7280; --accent: #10b981; --border-color: #e5e7eb; --card-bg: #f9fafb; --code-font: 'Fira Code', monospace; }
+        [data-theme="dark"] { --bg-color: #0d1117; --text-main: #e6edf3; --text-sec: #8b949e; --accent: #34d399; --border-color: #30363d; --card-bg: #161b22; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Tajawal', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; transition: 0.3s; display: flex; flex-direction: column; min-height: 100vh; }
+        html[dir="ltr"] body { font-family: 'Roboto', sans-serif; }
+
+        header { position: sticky; top: 0; background-color: rgba(var(--bg-color), 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); z-index: 1000; padding: 15px 0; }
+        .nav-container { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .back-link { font-size: 1.1rem; font-weight: 700; color: var(--text-main); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: 0.2s; }
+        .back-link:hover { color: var(--accent); }
+        html[dir="ltr"] .back-link .material-symbols-outlined { transform: rotate(180deg); }
+
+        .header-controls { display: flex; align-items: center; gap: 10px; }
+        .icon-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-main); cursor: pointer; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; transition: 0.2s; }
+        .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+        
+        .lang-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-main); padding: 5px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.2s; font-family: var(--code-font); }
+        .lang-btn.active, .lang-btn:hover { background: var(--text-main); color: var(--bg-color); border-color: var(--text-main); }
+
+        .container { max-width: 800px; margin: 60px auto; padding: 0 20px; flex: 1; width: 100%; text-align: center;}
+        
+        .section-tag { font-family: var(--code-font); font-size: 0.9rem; font-weight: 700; color: var(--text-sec); letter-spacing: 2px; margin-bottom: 20px; display: block; }
+        h1 { font-size: 3rem; color: var(--text-main); font-weight: 900; margin-bottom: 30px; letter-spacing: -1px; }
+        
+        .content-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 24px; padding: 40px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .profile-icon { font-size: 60px; color: var(--accent); margin-bottom: 20px; }
+        .content-card p { font-size: 1.15rem; color: var(--text-sec); line-height: 1.8; margin-bottom: 20px; }
+
+        footer { padding: 40px 20px; border-top: 1px solid var(--border-color); margin-top: 40px; text-align: center; }
+        .social-links { display: flex; justify-content: center; gap: 25px; margin-bottom: 15px; }
+        .social-links a { color: var(--text-sec); font-size: 1.4rem; transition: 0.2s; }
+        .social-links a:hover { color: var(--accent); transform: translateY(-3px); }
+        .copyright { color: var(--text-sec); font-size: 0.95rem; font-family: var(--code-font); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="/" class="back-link">
+                <span class="material-symbols-outlined">arrow_forward</span>
+                <span data-i18n="back">العودة للرئيسية</span>
+            </a>
+            <div class="header-controls">
+                <button class="icon-btn" onclick="toggleTheme()"><span class="material-symbols-outlined" id="theme-icon">dark_mode</span></button>
+                <button class="lang-btn" onclick="toggleLanguage()" id="lang-btn-text">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <span class="section-tag">/* ABOUT ME */</span>
+        <h1 data-i18n="title">نبذة عني</h1>
+        
+        <div class="content-card">
+            <span class="material-symbols-outlined profile-icon">terminal</span>
+            <p data-i18n="p1">مرحباً، أنا أحمد الدرويش. مطور برمجيات شغوف بكتابة أكواد نظيفة (Clean Code) وتصميم واجهات مستخدم سلسة وخالية من التعقيد.</p>
+            <p data-i18n="p2">أؤمن بأن البرمجيات يجب أن تحل مشاكل حقيقية بطريقة بسيطة وفعالة. أركز في عملي على تطوير تطبيقات الأندرويد والويب باستخدام أحدث التقنيات وأفضل الممارسات الهندسية.</p>
+            <p data-i18n="p3">هدفي الدائم هو الارتقاء بالتجربة الرقمية وتقديم منتجات تحترم خصوصية المستخدم وووقته.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <!-- ضع رابط حسابك في إكس (تويتر) هنا -->
+            <a href="YOUR_X_LINK" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <!-- ضع رابط حسابك في جيت هاب هنا -->
+            <a href="YOUR_GITHUB_LINK" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <p class="copyright">© 2026 Ahmad.dev</p>
+    </footer>
+
+    <script>
+        const translations = {
+            ar: { back: "العودة للرئيسية", title: "نبذة عني", p1: "مرحباً، أنا أحمد الدرويش. مطور برمجيات شغوف بكتابة أكواد نظيفة (Clean Code) وتصميم واجهات مستخدم سلسة وخالية من التعقيد.", p2: "أؤمن بأن البرمجيات يجب أن تحل مشاكل حقيقية بطريقة بسيطة وفعالة. أركز في عملي على تطوير تطبيقات الأندرويد والويب باستخدام أحدث التقنيات وأفضل الممارسات الهندسية.", p3: "هدفي الدائم هو الارتقاء بالتجربة الرقمية وتقديم منتجات تحترم خصوصية المستخدم وووقته." },
+            en: { back: "Back to Home", title: "About Me", p1: "Hi, I'm Ahmad Aldarwish. A software developer passionate about writing Clean Code and designing seamless, clutter-free user interfaces.", p2: "I believe software should solve real problems simply and efficiently. I focus on developing Android and Web apps using the latest technologies and best engineering practices.", p3: "My constant goal is to elevate the digital experience and deliver products that respect user privacy and time." }
+        };
+
+        function setLanguage(lang) {
+            localStorage.setItem('preferredLang', lang);
+            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            document.documentElement.setAttribute('lang', lang);
+            document.getElementById('lang-btn-text').textContent = lang === 'ar' ? 'EN' : 'AR';
+            
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) element.innerHTML = translations[lang][key];
+            });
+        }
+
+        function toggleLanguage() {
+            const currentLang = document.documentElement.getAttribute('lang') || 'ar';
+            setLanguage(currentLang === 'ar' ? 'en' : 'ar');
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            document.getElementById('theme-icon').textContent = newTheme === 'dark' ? 'light_mode' : 'dark_mode';
+            localStorage.setItem('preferredTheme', newTheme);
+        }
+
+        window.onload = () => {
+            let savedTheme = localStorage.getItem('preferredTheme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? 'light_mode' : 'dark_mode';
+            setLanguage(localStorage.getItem('preferredLang') || 'ar');
+        };
+    </script>
+</body>
+</html>
