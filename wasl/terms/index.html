@@ -1,128 +1,220 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" id="html-root">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شروط الاستخدام | تطبيق وصل</title>
+    <title>Terms of Use | Wasl App</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    
     <style>
         :root {
             --md-sys-color-primary: #006d40;
-            --md-sys-color-background: #f4f8f5;
+            --md-sys-color-background: #f8fafd;
             --md-sys-color-surface: rgba(255, 255, 255, 0.85);
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
-            --glass-blur: blur(16px);
+            --md-sys-color-on-surface: #1a1c1e;
+            --text-muted: #555555;
+            --card-border: rgba(0, 109, 64, 0.1);
+            --glass-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.04);
+            --glass-blur: blur(20px);
         }
+
+        [data-theme="dark"] {
+            --md-sys-color-primary: #2bc07b;
+            --md-sys-color-background: #0b0d10;
+            --md-sys-color-surface: rgba(20, 22, 28, 0.85);
+            --md-sys-color-on-surface: #e2e2e9;
+            --text-muted: #a0a0b5;
+            --card-border: rgba(255, 255, 255, 0.05);
+            --glass-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4);
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Tajawal', 'Roboto', sans-serif;
-            background-color: var(--md-sys-color-background);
-            color: #1a1c1e;
-            line-height: 1.8;
-            transition: all 0.3s ease;
-        }
-        html[dir="ltr"] body { font-family: 'Roboto', sans-serif; }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--md-sys-color-background); color: var(--md-sys-color-on-surface); line-height: 1.8; transition: 0.4s; display: flex; flex-direction: column; min-height: 100vh; }
         html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
+
+        /* الهيدر المصغر */
+        header { background: var(--md-sys-color-surface); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--card-border); position: sticky; top: 0; z-index: 1000; padding: 15px 0; transition: 0.4s; }
+        .nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 20px; font-weight: 900; color: var(--md-sys-color-primary); text-decoration: none; display: flex; align-items: center; gap: 8px;}
+        html[dir="ltr"] .logo .material-symbols-outlined { transform: rotate(180deg); }
         
-        header { padding: 15px 20px; text-align: center; }
-        .lang-switcher { display: inline-flex; gap: 10px; margin-top: 10px; }
-        .lang-btn {
-            background: transparent; border: 2px solid var(--md-sys-color-primary); color: var(--md-sys-color-primary);
-            padding: 5px 12px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: all 0.2s;
-        }
-        .lang-btn:hover, .lang-btn.active { background: var(--md-sys-color-primary); color: white; }
+        .header-controls { display: flex; align-items: center; gap: 15px; }
+        .theme-btn { background: transparent; border: none; color: var(--md-sys-color-primary); cursor: pointer; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; transition: 0.3s; }
+        .theme-btn:hover { background: rgba(43, 192, 123, 0.15); }
+        .dropdown { position: relative; display: inline-block; }
+        .dropbtn { background: transparent; border: 2px solid var(--md-sys-color-primary); color: var(--md-sys-color-primary); padding: 5px 14px; border-radius: 20px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: 0.3s; }
+        .dropbtn:hover { background: var(--md-sys-color-primary); color: var(--md-sys-color-background); }
+        .dropdown-content { display: none; position: absolute; top: 100%; right: 0; margin-top: 10px; background: var(--md-sys-color-surface); min-width: 120px; box-shadow: var(--glass-shadow); border-radius: 16px; overflow: hidden; z-index: 1; border: 1px solid var(--card-border); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); }
+        .dropdown:hover .dropdown-content { display: block; }
+        html[dir="ltr"] .dropdown-content { right: 0; left: auto; }
+        .dropdown-content button { color: var(--md-sys-color-on-surface); padding: 12px 15px; text-decoration: none; display: block; width: 100%; text-align: left; background: none; border: none; font-family: inherit; font-size: 1rem; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        html[dir="rtl"] .dropdown-content button { text-align: right; }
+        .dropdown-content button:hover { background: var(--md-sys-color-primary); color: #fff; }
+
+        /* حاوية النص القانوني */
+        .legal-container { max-width: 800px; margin: 40px auto; padding: 40px; background: var(--md-sys-color-surface); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--card-border); border-radius: 24px; box-shadow: var(--glass-shadow); flex: 1; transition: 0.4s;}
         
-        .container { max-width: 900px; margin: 20px auto 40px; padding: 0 20px; }
-        .terms-card {
-            background: var(--md-sys-color-surface); backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur); border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 28px; box-shadow: var(--glass-shadow); padding: 50px;
+        .page-title { font-size: 2.2rem; color: var(--md-sys-color-primary); font-weight: 900; margin-bottom: 10px; }
+        .last-updated { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 40px; border-bottom: 1px solid var(--card-border); padding-bottom: 20px; }
+        
+        .legal-content h2 { font-size: 1.4rem; color: var(--md-sys-color-on-surface); margin: 35px 0 15px; font-weight: 700; }
+        .legal-content p { color: var(--text-muted); margin-bottom: 15px; font-size: 1.05rem; }
+        .legal-content ul { color: var(--text-muted); margin-bottom: 15px; padding-inline-start: 25px; font-size: 1.05rem; }
+        .legal-content li { margin-bottom: 8px; }
+
+        @media (max-width: 768px) {
+            .legal-container { margin: 20px; padding: 25px; }
+            .page-title { font-size: 1.8rem; }
         }
-        h1 { color: var(--md-sys-color-primary); font-weight: 900; border-bottom: 2px solid #e0e0e0; padding-bottom: 15px; margin-bottom: 30px; }
-        h2 { color: #00639b; margin-top: 30px; font-size: 1.4rem; }
-        p { font-size: 1.1rem; color: #444; margin-bottom: 15px; }
-        .back-btn {
-            display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
-            color: var(--md-sys-color-primary); font-weight: bold; margin-bottom: 20px; transition: 0.3s;
-        }
-        .back-btn:hover { color: #004d2d; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="lang-switcher">
-            <button class="lang-btn active" onclick="setLanguage('ar')">AR</button>
-            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-            <button class="lang-btn" onclick="setLanguage('de')">DE</button>
+        <div class="nav-container">
+            <a href="/wasl" class="logo">
+                <span class="material-symbols-outlined">arrow_back</span>
+                <span data-i18n="back_to_wasl">Back to Wasl App</span>
+            </a>
+            <div class="header-controls">
+                <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()">
+                    <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+                </button>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <span id="current-lang-text">EN</span>
+                        <span class="material-symbols-outlined" style="font-size: 18px;">language</span>
+                    </button>
+                    <div class="dropdown-content">
+                        <button onclick="setLanguage('en')">English</button>
+                        <button onclick="setLanguage('ar')">العربية</button>
+                        <button onclick="setLanguage('de')">Deutsch</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <div class="container">
-        <a href="/" class="back-btn">
-            <span class="material-symbols-outlined" id="back-icon">arrow_forward</span>
-            <span data-i18n="back_btn">العودة للرئيسية</span>
-        </a>
-        
-        <div class="terms-card">
-            <h1 data-i18n="title">شروط الاستخدام</h1>
-            <p data-i18n="last_update">تاريخ التحديث: يوليو 2026</p>
-            <p data-i18n="intro">مرحباً بك في تطبيق "وصل". باستخدامك لهذا التطبيق، فإنك توافق على الشروط والأحكام التالية التي يحددها المطور أحمد الدرويش:</p>
+    <div class="legal-container">
+        <h1 class="page-title" data-i18n="page_title">Terms of Use</h1>
+        <div class="last-updated" data-i18n="last_updated">Last Updated: July 2026</div>
 
-            <h2 data-i18n="sec1_title">1. الاستخدام الشخصي</h2>
-            <p data-i18n="sec1_desc">التطبيق مخصص للاستخدام الشخصي غير التجاري. يمنع تعديل، أو إعادة توزيع أي جزء من التطبيق دون إذن مسبق.</p>
+        <div class="legal-content">
+            <p data-i18n="intro_text">By downloading or using the Wasl app, these terms will automatically apply to you. Please read them carefully before using the app.</p>
 
-            <h2 data-i18n="sec2_title">2. دقة المواقيت (إخلاء مسؤولية)</h2>
-            <p data-i18n="sec2_desc">نستخدم مكتبات برمجية متقدمة لحساب أوقات الصلاة. ومع ذلك، تقع مسؤولية التحقق من الأوقات الدقيقة على عاتقك، ولا نتحمل مسؤولية أي أخطاء في الحساب.</p>
+            <h2 data-i18n="h_license">1. License and Usage</h2>
+            <p data-i18n="p_license_1">Developer Ahmad Aldarwish grants you a personal, non-exclusive, non-transferable license to use the Wasl app on your personal compatible devices.</p>
+            <ul>
+                <li data-i18n="li_license_1">You are not allowed to copy, modify the app, or use our trademarks in any way.</li>
+                <li data-i18n="li_license_2">You are not allowed to attempt to extract the source code of the app or translate it.</li>
+            </ul>
 
-            <h2 data-i18n="sec3_title">3. وضع التركيز</h2>
-            <p data-i18n="sec3_desc">يوفر التطبيق ميزة وضع التركيز لحجب التطبيقات. أنت توافق على منح الصلاحيات اللازمة وتتحمل مسؤولية تفعيل هذه الميزة.</p>
+            <h2 data-i18n="h_accuracy">2. Timing Accuracy (Disclaimer)</h2>
+            <p data-i18n="p_accuracy_1">The app calculates prayer times based on your location using global standards. However:</p>
+            <ul>
+                <li data-i18n="li_accuracy_1">Slight variations may occur due to geographical or jurisprudential factors.</li>
+                <li data-i18n="li_accuracy_2">You acknowledge and agree that verifying actual prayer times is your responsibility. The developer is not liable for any miscalculations.</li>
+            </ul>
+
+            <h2 data-i18n="h_permissions">3. Permissions and Focus Mode</h2>
+            <p data-i18n="p_permissions_1">The app relies on permissions like exact alarms. Regarding Focus Mode:</p>
+            <ul>
+                <li data-i18n="li_permissions_1">This mode requires additional permissions to block distracting apps during prayer.</li>
+                <li data-i18n="li_permissions_2">Using this feature is entirely optional, and you are responsible for the apps you choose to block.</li>
+            </ul>
+
+            <h2 data-i18n="h_network">4. Smart Cast and Network</h2>
+            <p data-i18n="p_network_1">To cast the Adhan, the app searches your local network for compatible devices. We do not collect or transmit your home device information. The process is completely local.</p>
+
+            <h2 data-i18n="h_ip">5. Intellectual Property</h2>
+            <p data-i18n="p_ip_1">All intellectual property rights belong exclusively to the developer. Embedded media assets are used under fair use for non-profit religious purposes.</p>
+
+            <h2 data-i18n="h_changes">6. Changes to Terms</h2>
+            <p data-i18n="p_changes_1">We reserve the right to update these terms at any time. Your continued use of the app constitutes your acceptance of the new terms.</p>
+
+            <h2 data-i18n="h_contact">7. Contact Us</h2>
+            <p data-i18n="p_contact_1">If you have any questions regarding these Terms of Use, please contact us via email:</p>
+            <p><strong>contact@ahmadaldarwish.com</strong></p>
         </div>
     </div>
 
     <script>
         const translations = {
             ar: {
-                back_btn: "العودة للرئيسية", title: "شروط الاستخدام", last_update: "تاريخ التحديث: يوليو 2026",
-                intro: "مرحباً بك في تطبيق وصل. باستخدامك لهذا التطبيق، فإنك توافق على الشروط والأحكام التالية التي يحددها المطور أحمد الدرويش:",
-                sec1_title: "1. الاستخدام الشخصي", sec1_desc: "التطبيق مخصص للاستخدام الشخصي غير التجاري. يمنع تعديل، أو إعادة توزيع أي جزء من التطبيق دون إذن مسبق.",
-                sec2_title: "2. دقة المواقيت (إخلاء مسؤولية)", sec2_desc: "نستخدم مكتبات برمجية متقدمة لحساب أوقات الصلاة. ومع ذلك، تقع مسؤولية التحقق من الأوقات الدقيقة على عاتقك، ولا نتحمل مسؤولية أي أخطاء في الحساب.",
-                sec3_title: "3. وضع التركيز", sec3_desc: "يوفر التطبيق ميزة وضع التركيز لحجب التطبيقات. أنت توافق على منح الصلاحيات اللازمة وتتحمل مسؤولية تفعيل هذه الميزة."
+                back_to_wasl: "العودة لتطبيق وصل", page_title: "شروط الاستخدام", last_updated: "آخر تحديث: يوليو 2026",
+                intro_text: "بتحميلك أو استخدامك لتطبيق (وصل)، فإن هذه الشروط تنطبق عليك تلقائياً. يُرجى قراءتها بعناية قبل استخدام التطبيق.",
+                h_license: "1. الترخيص والاستخدام", p_license_1: "يمنحك المطور أحمد الدرويش ترخيصاً شخصياً، غير حصري، وغير قابل للتحويل، لاستخدام تطبيق وصل على أجهزتك الشخصية المتوافقة.",
+                li_license_1: "يُمنع نسخ أو تعديل التطبيق أو أي جزء منه، أو استخدام علاماتنا التجارية.", li_license_2: "يُمنع محاولة استخراج الكود المصدري (Source Code) للتطبيق أو ترجمته.",
+                h_accuracy: "2. دقة المواقيت (إخلاء مسؤولية)", p_accuracy_1: "يقوم التطبيق بحساب أوقات الصلاة بناءً على إحداثيات موقعك باستخدام معايير حسابية عالمية. ومع ذلك:",
+                li_accuracy_1: "قد يحدث تفاوت طفيف في الأوقات بسبب عوامل جغرافية أو فقهية.", li_accuracy_2: "أنت تقر وتوافق على أن مسؤولية التحقق من أوقات الصلاة تقع على عاتقك، والمطور لا يتحمل أي مسؤولية عن أي خطأ.",
+                h_permissions: "3. الصلاحيات ووضع التركيز", p_permissions_1: "يعتمد التطبيق على صلاحيات مثل (المنبهات الدقيقة). بخصوص ميزة وضع التركيز:",
+                li_permissions_1: "يتطلب الوضع منح صلاحيات إضافية لحجب التطبيقات المشتتة أثناء الصلاة.", li_permissions_2: "استخدامك لهذه الميزة اختياري تماماً، وأنت تتحمل مسؤولية التطبيقات التي تختار حجبها.",
+                h_network: "4. البث الذكي والشبكة", p_network_1: "لبث الأذان، يبحث التطبيق في شبكتك المحلية عن الأجهزة المتوافقة. لا نقوم بجمع أو نقل معلومات أجهزتك لخوادم خارجية، العملية تتم محلياً.",
+                h_ip: "5. الملكية الفكرية", p_ip_1: "جميع حقوق الملكية الفكرية للتطبيق تعود ملكيتها الحصرية للمطور. المواد الإعلامية المدمجة تُستخدم للأغراض الدينية غير الربحية.",
+                h_changes: "6. التعديلات على الشروط", p_changes_1: "نحتفظ بالحق في تحديث هذه الشروط في أي وقت. استمرار استخدامك للتطبيق يُعد موافقة منك على الشروط الجديدة.",
+                h_contact: "7. تواصل معنا", p_contact_1: "إذا كانت لديك أي أسئلة حول شروط الاستخدام، يُرجى التواصل معنا عبر البريد الإلكتروني:"
             },
             en: {
-                back_btn: "Back to Home", title: "Terms of Use", last_update: "Last Updated: July 2026",
-                intro: "Welcome to the Wasl app. By using this application, you agree to the following terms and conditions set by the developer Ahmad Aldarwish:",
-                sec1_title: "1. Personal Use", sec1_desc: "The app is intended for personal, non-commercial use. Modifying or redistributing any part of the app without prior permission is prohibited.",
-                sec2_title: "2. Timing Accuracy (Disclaimer)", sec2_desc: "We use advanced libraries to calculate prayer times. However, the responsibility for verifying exact times lies with you, and we are not liable for any calculation errors.",
-                sec3_title: "3. Focus Mode", sec3_desc: "The app provides a Focus Mode to block distracting apps. You agree to grant the necessary permissions and bear the responsibility for enabling this feature."
+                back_to_wasl: "Back to Wasl App", page_title: "Terms of Use", last_updated: "Last Updated: July 2026",
+                intro_text: "By downloading or using the Wasl app, these terms will automatically apply to you. Please read them carefully before using the app.",
+                h_license: "1. License and Usage", p_license_1: "Developer Ahmad Aldarwish grants you a personal, non-exclusive, non-transferable license to use the Wasl app on your personal compatible devices.",
+                li_license_1: "You are not allowed to copy, modify the app, or use our trademarks in any way.", li_license_2: "You are not allowed to attempt to extract the source code of the app or translate it.",
+                h_accuracy: "2. Timing Accuracy (Disclaimer)", p_accuracy_1: "The app calculates prayer times based on your location using global standards. However:",
+                li_accuracy_1: "Slight variations may occur due to geographical or jurisprudential factors.", li_accuracy_2: "You acknowledge and agree that verifying actual prayer times is your responsibility. The developer is not liable for any miscalculations.",
+                h_permissions: "3. Permissions and Focus Mode", p_permissions_1: "The app relies on permissions like exact alarms. Regarding Focus Mode:",
+                li_permissions_1: "This mode requires additional permissions to block distracting apps during prayer.", li_permissions_2: "Using this feature is entirely optional, and you are responsible for the apps you choose to block.",
+                h_network: "4. Smart Cast and Network", p_network_1: "To cast the Adhan, the app searches your local network for compatible devices. We do not collect or transmit your home device information. The process is completely local.",
+                h_ip: "5. Intellectual Property", p_ip_1: "All intellectual property rights belong exclusively to the developer. Embedded media assets are used under fair use for non-profit religious purposes.",
+                h_changes: "6. Changes to Terms", p_changes_1: "We reserve the right to update these terms at any time. Your continued use of the app constitutes your acceptance of the new terms.",
+                h_contact: "7. Contact Us", p_contact_1: "If you have any questions regarding these Terms of Use, please contact us via email:"
             },
             de: {
-                back_btn: "Zurück zur Startseite", title: "Nutzungsbedingungen", last_update: "Letzte Aktualisierung: Juli 2026",
-                intro: "Willkommen bei der Wasl-App. Durch die Nutzung dieser Anwendung stimmen Sie den folgenden Bedingungen zu, die vom Entwickler Ahmad Aldarwish festgelegt wurden:",
-                sec1_title: "1. Persönliche Nutzung", sec1_desc: "Die App ist für den persönlichen, nicht-kommerziellen Gebrauch bestimmt. Das Ändern oder Weiterverbreiten von Teilen der App ohne vorherige Erlaubnis ist untersagt.",
-                sec2_title: "2. Genauigkeit der Zeiten (Haftungsausschluss)", sec2_desc: "Wir verwenden fortschrittliche Bibliotheken zur Berechnung der Gebetszeiten. Die Verantwortung für die Überprüfung der genauen Zeiten liegt jedoch bei Ihnen, und wir haften nicht für Berechnungsfehler.",
-                sec3_title: "3. Fokusmodus", sec3_desc: "Die App bietet einen Fokusmodus zum Blockieren von Apps. Sie stimmen zu, die erforderlichen Berechtigungen zu erteilen und tragen die Verantwortung für die Aktivierung dieser Funktion."
+                back_to_wasl: "Zurück zur Wasl App", page_title: "Nutzungsbedingungen", last_updated: "Letzte Aktualisierung: Juli 2026",
+                intro_text: "Durch das Herunterladen oder die Nutzung der Wasl-App gelten diese Bedingungen automatisch für Sie. Bitte lesen Sie diese sorgfältig durch.",
+                h_license: "1. Lizenz und Nutzung", p_license_1: "Der Entwickler Ahmad Aldarwish gewährt Ihnen eine persönliche, nicht exklusive, nicht übertragbare Lizenz zur Nutzung der Wasl-App auf Ihren Geräten.",
+                li_license_1: "Es ist Ihnen nicht gestattet, die App zu kopieren, zu modifizieren oder unsere Marken zu verwenden.", li_license_2: "Es ist untersagt, den Quellcode der App zu extrahieren oder zu übersetzen.",
+                h_accuracy: "2. Genauigkeit der Zeiten (Haftungsausschluss)", p_accuracy_1: "Die App berechnet Gebetszeiten basierend auf Ihrem Standort. Jedoch:",
+                li_accuracy_1: "Leichte Abweichungen können aufgrund geografischer Faktoren auftreten.", li_accuracy_2: "Sie erkennen an, dass die Überprüfung der tatsächlichen Gebetszeiten in Ihrer Verantwortung liegt. Der Entwickler haftet nicht für Berechnungsfehler.",
+                h_permissions: "3. Berechtigungen und Fokusmodus", p_permissions_1: "Die App benötigt Berechtigungen wie exakte Alarme. Bezüglich des Fokusmodus:",
+                li_permissions_1: "Dieser Modus erfordert zusätzliche Berechtigungen, um ablenkende Apps während des Gebets zu blockieren.", li_permissions_2: "Die Nutzung dieser Funktion ist optional und Sie sind für die blockierten Apps verantwortlich.",
+                h_network: "4. Smart Cast und Netzwerk", p_network_1: "Um den Adhan zu streamen, durchsucht die App Ihr lokales Netzwerk. Wir sammeln keine Geräteinformationen. Der Prozess ist vollständig lokal.",
+                h_ip: "5. Geistiges Eigentum", p_ip_1: "Alle geistigen Eigentumsrechte liegen ausschließlich beim Entwickler. Eingebettete Medien werden für gemeinnützige religiöse Zwecke verwendet.",
+                h_changes: "6. Änderungen der Bedingungen", p_changes_1: "Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu aktualisieren. Die weitere Nutzung der App gilt als Zustimmung zu den neuen Bedingungen.",
+                h_contact: "7. Kontakt", p_contact_1: "Wenn Sie Fragen zu diesen Nutzungsbedingungen haben, kontaktieren Sie uns bitte per E-Mail:"
             }
         };
 
         function setLanguage(lang) {
-            const root = document.getElementById('html-root');
-            root.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-            root.setAttribute('lang', lang);
-            
-            document.getElementById('back-icon').textContent = lang === 'ar' ? 'arrow_forward' : 'arrow_back';
+            localStorage.setItem('preferredLang', lang);
+            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            document.documentElement.setAttribute('lang', lang);
+            document.getElementById('current-lang-text').textContent = lang.toUpperCase();
             
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[lang][key]) { element.innerHTML = translations[lang][key]; }
             });
-
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if(btn.textContent.toLowerCase() === lang) btn.classList.add('active');
-            });
         }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            document.getElementById('theme-icon').textContent = newTheme === 'dark' ? 'light_mode' : 'dark_mode';
+            localStorage.setItem('preferredTheme', newTheme);
+        }
+
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('preferredTheme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? 'light_mode' : 'dark_mode';
+
+            // Changed default to 'en'
+            const savedLang = localStorage.getItem('preferredLang') || 'en';
+            setLanguage(savedLang);
+        };
     </script>
 </body>
 </html>
