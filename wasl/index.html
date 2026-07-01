@@ -14,80 +14,94 @@
             --md-sys-color-primary: #006d40;
             --md-sys-color-secondary: #00639b;
             --md-sys-color-background: #f8fafd;
-            --md-sys-color-surface: rgba(255, 255, 255, 0.75);
+            --md-sys-color-surface: rgba(255, 255, 255, 0.85);
             --md-sys-color-on-surface: #1a1c1e;
-            --text-muted: #555;
-            --card-bg: rgba(255, 255, 255, 0.6);
+            --text-muted: #555555;
+            --card-bg: rgba(255, 255, 255, 0.7);
             --card-border: rgba(0, 109, 64, 0.1);
-            --glass-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.04);
-            --glass-blur: blur(20px);
         }
 
         [data-theme="dark"] {
             --md-sys-color-primary: #2bc07b;
             --md-sys-color-secondary: #6cb6ff;
             --md-sys-color-background: #0b0d10;
-            --md-sys-color-surface: rgba(30, 32, 40, 0.75);
+            --md-sys-color-surface: rgba(30, 32, 40, 0.85);
             --md-sys-color-on-surface: #e2e2e9;
             --text-muted: #a0a0b5;
             --card-bg: rgba(255, 255, 255, 0.03);
             --card-border: rgba(255, 255, 255, 0.05);
-            --glass-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Roboto', sans-serif; background-color: var(--md-sys-color-background); color: var(--md-sys-color-on-surface); line-height: 1.6; transition: 0.4s; display: flex; flex-direction: column; min-height: 100vh; }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--md-sys-color-background); color: var(--md-sys-color-on-surface); line-height: 1.6; transition: 0.3s; overflow-x: hidden; }
         html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
 
-        header { background: var(--md-sys-color-surface); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--card-border); position: sticky; top: 0; z-index: 1000; padding: 15px 0; transition: 0.4s; }
+        header { background: var(--md-sys-color-surface); backdrop-filter: blur(10px); border-bottom: 1px solid var(--card-border); position: sticky; top: 0; z-index: 1000; padding: 15px 0; }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .logo { font-size: 20px; font-weight: 900; color: var(--md-sys-color-primary); text-decoration: none; display: flex; align-items: center; gap: 8px;}
+        .logo { font-size: 1.1rem; font-weight: 900; color: var(--md-sys-color-primary); text-decoration: none; display: flex; align-items: center; gap: 8px;}
         html[dir="ltr"] .logo .material-symbols-outlined { transform: rotate(180deg); }
         
-        .header-controls { display: flex; align-items: center; gap: 15px; }
-        .icon-btn { background: transparent; border: none; color: var(--md-sys-color-primary); cursor: pointer; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; transition: 0.3s; }
-        .icon-btn:hover { background: rgba(43, 192, 123, 0.15); }
+        .header-controls { display: flex; align-items: center; gap: 10px; }
+        .icon-btn { background: transparent; border: 1px solid var(--card-border); color: var(--md-sys-color-on-surface); cursor: pointer; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; transition: 0.2s; }
+        .icon-btn:hover { border-color: var(--md-sys-color-primary); color: var(--md-sys-color-primary); }
 
         .dropdown { position: relative; display: inline-block; }
-        .dropbtn { background: transparent; border: 2px solid var(--md-sys-color-primary); color: var(--md-sys-color-primary); padding: 5px 14px; border-radius: 20px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: 0.3s; }
-        .dropbtn:hover { background: var(--md-sys-color-primary); color: var(--md-sys-color-background); }
-        .dropdown-content { display: none; position: absolute; top: 100%; right: 0; margin-top: 10px; background: var(--md-sys-color-surface); min-width: 120px; box-shadow: var(--glass-shadow); border-radius: 16px; overflow: hidden; z-index: 1; border: 1px solid var(--card-border); backdrop-filter: var(--glass-blur); }
+        .dropbtn { background: transparent; border: 1px solid var(--card-border); color: var(--md-sys-color-on-surface); padding: 5px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px; height: 40px; transition: 0.2s; }
+        .dropbtn:hover { border-color: var(--md-sys-color-primary); color: var(--md-sys-color-primary); }
+        .dropdown-content { display: none; position: absolute; top: 100%; right: 0; margin-top: 5px; background: var(--md-sys-color-surface); min-width: 120px; border-radius: 12px; overflow: hidden; z-index: 1; border: 1px solid var(--card-border); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         .dropdown:hover .dropdown-content { display: block; }
         html[dir="ltr"] .dropdown-content { right: 0; left: auto; }
-        .dropdown-content button { color: var(--md-sys-color-on-surface); padding: 12px 15px; text-decoration: none; display: block; width: 100%; text-align: left; background: none; border: none; font-family: inherit; font-size: 1rem; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        .dropdown-content button { color: var(--md-sys-color-on-surface); padding: 12px 15px; text-decoration: none; display: block; width: 100%; text-align: left; background: none; border: none; font-family: inherit; font-size: 0.95rem; cursor: pointer; font-weight: bold; transition: 0.2s;}
         html[dir="rtl"] .dropdown-content button { text-align: right; }
         .dropdown-content button:hover { background: var(--md-sys-color-primary); color: #fff; }
 
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; flex: 1; }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
 
-        .wasl-section { background: var(--md-sys-color-surface); backdrop-filter: var(--glass-blur); border: 1px solid var(--card-border); border-radius: 28px; box-shadow: var(--glass-shadow); padding: 50px; margin-bottom: 50px; transition: 0.4s; }
-        .wasl-header { display: flex; align-items: center; gap: 40px; margin-bottom: 50px; flex-wrap: wrap; }
-        .wasl-logo-img { width: 160px; height: 160px; border-radius: 40px; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 2px solid rgba(255,255,255,0.1); }
-        .wasl-title-area h1 { font-size: 2.8rem; color: var(--md-sys-color-primary); margin-bottom: 15px; font-weight: 900; }
-        .wasl-title-area p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; line-height: 1.8;}
+        .wasl-section { background: var(--md-sys-color-surface); border: 1px solid var(--card-border); border-radius: 24px; padding: 50px; margin-bottom: 50px; transition: 0.3s; }
         
-        .btn-download { display: inline-flex; align-items: center; gap: 10px; background-color: var(--md-sys-color-primary); color: #ffffff; padding: 14px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.1rem; margin-top: 25px; transition: 0.3s; box-shadow: 0 5px 20px rgba(0, 109, 64, 0.3); }
-        .btn-download:hover { transform: translateY(-3px); opacity: 0.9; }
+        .wasl-header { display: flex; align-items: center; gap: 40px; margin-bottom: 50px; flex-wrap: wrap; }
+        /* استدعاء الصورة من الملف الرئيسي /logo.png */
+        .wasl-logo-img { width: 160px; height: 160px; border-radius: 35px; object-fit: cover; border: 1px solid var(--card-border); flex-shrink: 0;}
+        .wasl-title-area { flex: 1; min-width: 250px; }
+        .wasl-title-area h1 { font-size: 2.8rem; color: var(--md-sys-color-primary); margin-bottom: 12px; font-weight: 900; line-height: 1.2; }
+        .wasl-title-area p { font-size: 1.15rem; color: var(--text-muted); max-width: 700px; line-height: 1.7;}
+        
+        .btn-download { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: var(--md-sys-color-primary); color: #ffffff; padding: 14px 30px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 1.05rem; margin-top: 25px; transition: 0.2s; border: none; }
+        .btn-download:hover { opacity: 0.9; transform: translateY(-2px); }
 
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .feature-card { background: var(--card-bg); border-radius: 24px; padding: 30px; transition: 0.3s; border: 1px solid var(--card-border); }
-        .feature-card:hover { transform: translateY(-8px); background: var(--md-sys-color-surface); box-shadow: var(--glass-shadow); border-color: var(--md-sys-color-primary); }
-        .feature-icon { font-size: 45px; color: var(--md-sys-color-secondary); margin-bottom: 15px; }
-        .feature-card h3 { color: var(--md-sys-color-on-surface); margin-bottom: 12px; font-size: 1.4rem; font-weight: 800; }
-        .feature-card p { color: var(--text-muted); font-size: 1.05rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .feature-card { background: var(--card-bg); border-radius: 20px; padding: 30px; transition: 0.3s; border: 1px solid var(--card-border); }
+        .feature-card:hover { transform: translateY(-5px); border-color: var(--md-sys-color-primary); }
+        .feature-icon { font-size: 40px; color: var(--md-sys-color-secondary); margin-bottom: 15px; display: block;}
+        .feature-card h3 { color: var(--md-sys-color-on-surface); margin-bottom: 10px; font-size: 1.3rem; font-weight: 800; }
+        .feature-card p { color: var(--text-muted); font-size: 1rem; line-height: 1.6;}
 
         footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--card-border); }
         .social-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
-        .social-icon { color: var(--text-muted); font-size: 1.5rem; transition: 0.3s; text-decoration: none; }
+        .social-icon { color: var(--text-muted); font-size: 1.4rem; transition: 0.2s; text-decoration: none; }
         .social-icon:hover { color: var(--md-sys-color-primary); transform: translateY(-3px); }
         .footer-legal { display: flex; gap: 15px; justify-content: center; margin-bottom: 15px; flex-wrap: wrap; }
-        .footer-legal a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
+        .footer-legal a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: 0.2s; }
         .footer-legal a:hover { color: var(--md-sys-color-primary); }
         .copyright { color: var(--text-muted); font-size: 0.9rem; }
 
+        /* تعديلات حاسمة لشاشات الموبايل (Mobile Responsiveness) */
         @media (max-width: 768px) {
-            .wasl-header { justify-content: center; text-align: center; }
-            .wasl-title-area h1 { font-size: 2.2rem; }
+            .nav-container { padding: 0 15px; }
+            .logo { font-size: 1rem; }
+            .icon-btn, .dropbtn { height: 35px; }
+            
+            .wasl-section { padding: 30px 20px; }
+            .wasl-header { flex-direction: column; text-align: center; gap: 25px; margin-bottom: 40px;}
+            .wasl-logo-img { width: 120px; height: 120px; border-radius: 28px; }
+            .wasl-title-area h1 { font-size: 2rem; }
+            .wasl-title-area p { font-size: 1rem; margin-left: auto; margin-right: auto;}
+            .btn-download { width: 100%; margin-top: 20px; }
+            
+            .features-grid { grid-template-columns: 1fr; gap: 15px; }
+            .feature-card { padding: 25px 20px; }
+            .feature-icon { font-size: 32px; }
+            .feature-card h3 { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -121,7 +135,8 @@
     <div class="container">
         <section class="wasl-section">
             <div class="wasl-header">
-                <img src="/wasl/logo.png" alt="Wasl App" class="wasl-logo-img">
+                <!-- تم التعديل إلى /logo.png -->
+                <img src="/logo.png" alt="Wasl App" class="wasl-logo-img">
                 <div class="wasl-title-area">
                     <h1 data-i18n="wasl_title">Wasl | Smart Islamic Companion</h1>
                     <p data-i18n="wasl_tagline">Elevating your prayer experience through seamless technology and modern design. Built with cutting-edge Android architecture.</p>
@@ -133,7 +148,6 @@
             </div>
 
             <div class="features-grid">
-                <!-- الميزات الستة كاملة -->
                 <div class="feature-card">
                     <span class="material-symbols-outlined feature-icon">cast_connected</span>
                     <h3 data-i18n="feat1_title">Smart Cast Technology</h3>
@@ -170,49 +184,49 @@
 
     <footer>
         <div class="social-links">
-            <a href="#" class="social-icon" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" class="social-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="#" class="social-icon" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
         </div>
         <div class="footer-legal">
             <a href="/wasl/privacy" data-i18n="privacy">Privacy Policy</a>
             <span>|</span>
             <a href="/wasl/terms" data-i18n="terms">Terms of Use</a>
         </div>
-        <p class="copyright" data-i18n="copyright">© 2026 Ahmad Aldarwish. All Rights Reserved.</p>
+        <p class="copyright" data-i18n="copyright">© 2026 Ahmad Aldarwish.</p>
     </footer>
 
     <script>
         const translations = {
             en: {
-                back_home: "Back to Home", wasl_title: "Wasl | Smart Islamic Companion", wasl_tagline: "Elevating your prayer experience through seamless technology and modern design. Built with cutting-edge Android architecture.", btn_soon: "Coming soon on Google Play",
+                back_home: "Back", wasl_title: "Wasl | Smart Islamic Companion", wasl_tagline: "Elevating your prayer experience through seamless technology and modern design. Built with cutting-edge Android architecture.", btn_soon: "Coming soon on Google Play",
                 feat1_title: "Smart Cast Technology", feat1_desc: "Stream the Adhan directly to your smart TVs and speakers. Customize voices or upload your own media.",
                 feat2_title: "Precise Global Timings", feat2_desc: "Hyper-accurate prayer times based on your location and standard global calculation methods.",
                 feat3_title: "Intelligent Tracker", feat3_desc: "Track your daily prayers with a beautiful streak system and receive smart follow-up reminders.",
                 feat4_title: "Prayer Focus Mode", feat4_desc: "Minimize distractions by temporarily blocking social media and games during sacred times.",
                 feat5_title: "Dynamic Widgets & UI", feat5_desc: "Glassmorphism widgets for Hijri dates. The app dynamically changes colors based on the time of day.",
                 feat6_title: "Battery & Privacy First", feat6_desc: "Optimized for zero battery drain. Secure local backup and restore for all your personal settings.",
-                privacy: "Privacy Policy", terms: "Terms of Use", copyright: "© 2026 Ahmad Aldarwish. All Rights Reserved."
+                privacy: "Privacy Policy", terms: "Terms of Use", copyright: "© 2026 Ahmad Aldarwish."
             },
             ar: {
-                back_home: "العودة للرئيسية", wasl_title: "وَصْـل | رفيقك الإسلامي الذكي", wasl_tagline: "نرتقي بتجربة صلاتك من خلال التكنولوجيا السلسة والتصميم العصري. مبني بأحدث تقنيات أندرويد.", btn_soon: "قريباً على Google Play",
+                back_home: "رجوع", wasl_title: "وَصْـل | رفيقك الإسلامي الذكي", wasl_tagline: "نرتقي بتجربة صلاتك من خلال التكنولوجيا السلسة والتصميم العصري. مبني بأحدث تقنيات أندرويد.", btn_soon: "قريباً على Google Play",
                 feat1_title: "تقنية البث الذكي", feat1_desc: "بث الأذان مباشرة إلى شاشات التلفاز الذكية. اختر أصوات المؤذنين أو قم برفع ملفاتك الخاصة.",
                 feat2_title: "مواقيت دقيقة عالمياً", feat2_desc: "أوقات صلاة فائقة الدقة بناءً على موقعك الجغرافي باستخدام معايير الحساب العالمية.",
                 feat3_title: "متتبع العبادات الذكي", feat3_desc: "تتبع صلواتك اليومية مع نظام الاستمرارية (الستريك) واستقبل إشعارات ذكية للتذكير.",
                 feat4_title: "وضع التركيز", feat4_desc: "حجب التطبيقات المشتتة مثل الألعاب ومنصات التواصل تلقائياً أثناء أوقات الصلاة.",
                 feat5_title: "ويدجت وألوان ديناميكية", feat5_desc: "أدوات زجاجية لعرض التاريخ الهجري. ألوان التطبيق تتغير تلقائياً حسب وقت الليل والنهار.",
                 feat6_title: "بطارية وخصوصية ممتازة", feat6_desc: "محسّن لعدم استهلاك البطارية. إمكانية النسخ الاحتياطي الآمن محلياً لكافة إعداداتك.",
-                privacy: "سياسة الخصوصية", terms: "شروط الاستخدام", copyright: "© 2026 أحمد الدرويش. جميع الحقوق محفوظة."
+                privacy: "سياسة الخصوصية", terms: "شروط الاستخدام", copyright: "© 2026 أحمد الدرويش."
             },
             de: {
-                back_home: "Zurück zur Startseite", wasl_title: "Wasl | Smarter Islamischer Begleiter", wasl_tagline: "Verbessere dein Gebetserlebnis durch nahtlose Technologie. Gebaut mit modernster Android-Architektur.", btn_soon: "Demnächst bei Google Play",
+                back_home: "Zurück", wasl_title: "Wasl | Smarter Begleiter", wasl_tagline: "Verbessere dein Gebetserlebnis durch nahtlose Technologie. Gebaut mit modernster Android-Architektur.", btn_soon: "Demnächst bei Google Play",
                 feat1_title: "Smart Cast Technologie", feat1_desc: "Streame den Adhan auf deine Smart-TVs. Passe Stimmen an oder lade eigene Medien hoch.",
                 feat2_title: "Präzise Globale Zeiten", feat2_desc: "Hochpräzise Gebetszeiten basierend auf deinem Standort und globalen Berechnungsmethoden.",
                 feat3_title: "Intelligentes Tracking", feat3_desc: "Verfolge deine täglichen Gebete mit einem Streak-System und intelligenten Erinnerungen.",
                 feat4_title: "Gebets-Fokusmodus", feat4_desc: "Minimiere Ablenkungen, indem du soziale Medien und Spiele während der Gebetszeiten blockierst.",
                 feat5_title: "Dynamische Widgets & UI", feat5_desc: "Glassmorphism-Widgets für Hijri-Daten. Die App ändert dynamisch die Farben basierend auf der Tageszeit.",
                 feat6_title: "Batterie & Privatsphäre", feat6_desc: "Optimiert für null Batterieverbrauch. Sicheres lokales Backup für alle deine persönlichen Einstellungen.",
-                privacy: "Datenschutzerklärung", terms: "Nutzungsbedingungen", copyright: "© 2026 Ahmad Aldarwish. Alle Rechte vorbehalten."
+                privacy: "Datenschutzerklärung", terms: "Nutzungsbedingungen", copyright: "© 2026 Ahmad Aldarwish."
             }
         };
 
@@ -237,12 +251,15 @@
         }
 
         window.onload = () => {
-            const savedTheme = localStorage.getItem('preferredTheme') || 'light';
+            let savedTheme = localStorage.getItem('preferredTheme');
+            if (!savedTheme) savedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
             document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? 'light_mode' : 'dark_mode';
+            
             const savedLang = localStorage.getItem('preferredLang') || 'en';
             setLanguage(savedLang);
         };
     </script>
 </body>
 </html>
+
