@@ -1,107 +1,117 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad Aldarwish | Software Developer</title>
+    <title>أحمد الدرويش | مطور برمجيات</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- الخطوط: تاجوال للعربي، روبوتو للإنجليزي، و Fira Code للطابع البرمجي -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Roboto:wght@400;500;700;900&family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* تصميم "Minimalist" نظيف ورسمي */
+        /* تصميم نظيف، متوسط، وبطابع المبرمجين */
         :root {
             --bg-color: #ffffff;
             --text-main: #111827;
             --text-sec: #6b7280;
-            --accent: #059669; /* أخضر زمردي رسمي */
+            --accent: #10b981; /* أخضر زمردي برمجي */
             --border-color: #e5e7eb;
             --card-bg: #f9fafb;
+            --code-font: 'Fira Code', monospace;
         }
 
         [data-theme="dark"] {
-            --bg-color: #030712; /* أسود عميق جداً */
-            --text-main: #f9fafb;
-            --text-sec: #9ca3af;
-            --accent: #10b981;
-            --border-color: #1f2937;
-            --card-bg: #111827;
+            --bg-color: #0d1117; /* لون مقارب لبيئة Github/VSCode */
+            --text-main: #e6edf3;
+            --text-sec: #8b949e;
+            --accent: #34d399; /* أخضر نيون */
+            --border-color: #30363d;
+            --card-bg: #161b22;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Roboto', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; transition: background-color 0.3s, color 0.3s; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; }
-        html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
+        body { font-family: 'Tajawal', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; transition: background-color 0.3s, color 0.3s; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+        html[dir="ltr"] body { font-family: 'Roboto', sans-serif; }
 
         /* Header */
         header { position: sticky; top: 0; background-color: rgba(var(--bg-color), 0.9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); z-index: 1000; padding: 15px 0; }
         .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .logo { font-size: 1.25rem; font-weight: 900; color: var(--text-main); text-decoration: none; letter-spacing: -0.5px; }
+        .logo { font-size: 1.3rem; font-weight: 900; color: var(--text-main); text-decoration: none; letter-spacing: -0.5px; font-family: var(--code-font); display: flex; align-items: center; gap: 5px;}
+        .logo span { color: var(--accent); }
         
         .header-controls { display: flex; align-items: center; gap: 15px; }
         .icon-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-main); cursor: pointer; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; transition: 0.2s; }
-        .icon-btn:hover { border-color: var(--text-sec); }
+        .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
 
         /* Hamburger Menu */
         .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.4); z-index: 1001; opacity: 0; visibility: hidden; transition: 0.3s; }
         .menu-overlay.active { opacity: 1; visibility: visible; }
         
-        .side-menu { position: fixed; top: 0; right: -300px; width: 300px; height: 100vh; background: var(--bg-color); border-left: 1px solid var(--border-color); z-index: 1002; padding: 30px 20px; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; }
-        html[dir="rtl"] .side-menu { right: auto; left: -300px; border-left: none; border-right: 1px solid var(--border-color); }
-        .side-menu.active { right: 0; }
-        html[dir="rtl"] .side-menu.active { left: 0; right: auto; }
+        .side-menu { position: fixed; top: 0; left: -300px; width: 300px; height: 100vh; background: var(--bg-color); border-right: 1px solid var(--border-color); z-index: 1002; padding: 30px 20px; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; }
+        html[dir="ltr"] .side-menu { right: -300px; left: auto; border-right: none; border-left: 1px solid var(--border-color); }
+        .side-menu.active { left: 0; }
+        html[dir="ltr"] .side-menu.active { right: 0; left: auto; }
         
-        .close-menu { align-self: flex-end; background: none; border: none; font-size: 24px; color: var(--text-sec); cursor: pointer; margin-bottom: 40px; transition: 0.2s; }
+        .close-menu { align-self: flex-end; background: none; border: none; font-size: 24px; color: var(--text-sec); cursor: pointer; margin-bottom: 20px; transition: 0.2s; }
         .close-menu:hover { color: var(--text-main); }
         
-        .side-menu a { display: flex; align-items: center; gap: 12px; font-size: 1.1rem; font-weight: 500; color: var(--text-main); text-decoration: none; margin-bottom: 25px; transition: 0.2s; }
-        .side-menu a:hover { color: var(--accent); }
-        
-        .lang-selector { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border-color); display: flex; gap: 8px; }
-        .lang-btn { flex: 1; background: transparent; border: 1px solid var(--border-color); color: var(--text-main); padding: 8px 0; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.2s; }
+        /* Language Selector at the top of menu */
+        .lang-selector { margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid var(--border-color); display: flex; gap: 8px; }
+        .lang-btn { flex: 1; background: transparent; border: 1px solid var(--border-color); color: var(--text-main); padding: 8px 0; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.2s; font-family: var(--code-font); }
         .lang-btn.active, .lang-btn:hover { background: var(--text-main); color: var(--bg-color); border-color: var(--text-main); }
 
-        /* Main Content */
-        .container { max-width: 900px; margin: 80px auto; padding: 0 20px; flex: 1; width: 100%; }
-        
-        .hero { margin-bottom: 80px; }
-        .hero h1 { font-size: 3.5rem; color: var(--text-main); font-weight: 900; margin-bottom: 24px; letter-spacing: -1.5px; line-height: 1.1; }
-        .hero p { font-size: 1.25rem; color: var(--text-sec); max-width: 600px; line-height: 1.7; }
+        .side-menu a { display: flex; align-items: center; gap: 12px; font-size: 1.1rem; font-weight: 500; color: var(--text-main); text-decoration: none; margin-bottom: 25px; transition: 0.2s; }
+        .side-menu a:hover { color: var(--accent); }
 
-        /* Featured App - Minimalist Card */
-        .section-tag { font-size: 0.85rem; font-weight: 700; color: var(--text-sec); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; display: block; }
+        /* Main Content - Centered Alignment */
+        .container { max-width: 900px; margin: 80px auto; padding: 0 20px; flex: 1; width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center; }
         
-        .app-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; display: flex; align-items: center; gap: 40px; text-decoration: none; transition: 0.3s; }
-        .app-card:hover { border-color: var(--text-sec); transform: translateY(-4px); }
-        
-        .app-icon { width: 120px; height: 120px; border-radius: 24px; object-fit: cover; border: 1px solid var(--border-color); flex-shrink: 0; }
-        
-        .app-info { flex: 1; }
-        .app-title-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;}
-        .app-info h3 { font-size: 1.8rem; color: var(--text-main); font-weight: 900; margin: 0; letter-spacing: -0.5px; }
-        
-        .badge { font-size: 0.75rem; padding: 4px 10px; border-radius: 6px; font-weight: 700; background-color: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.2); text-transform: uppercase; letter-spacing: 0.5px;}
-        .app-info p { color: var(--text-sec); font-size: 1.1rem; margin: 0; line-height: 1.6; }
+        .hero { margin-bottom: 80px; width: 100%; }
+        .hero-greeting { font-family: var(--code-font); color: var(--accent); font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; display: block; letter-spacing: 1px; }
+        .hero h1 { font-size: 3.5rem; color: var(--text-main); font-weight: 900; margin-bottom: 24px; letter-spacing: -1px; line-height: 1.2; }
+        .code-tag { color: var(--accent); font-family: var(--code-font); font-weight: 700; }
+        .hero p { font-size: 1.25rem; color: var(--text-sec); max-width: 650px; margin: 0 auto; line-height: 1.8; }
 
-        .btn-arrow { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; color: var(--text-sec); transition: 0.3s; flex-shrink: 0;}
-        .app-card:hover .btn-arrow { color: var(--text-main); transform: translateX(5px); }
-        html[dir="rtl"] .app-card:hover .btn-arrow { transform: translateX(-5px); }
-        html[dir="rtl"] .btn-arrow span { transform: rotate(180deg); }
+        /* Featured App - Centered Card & Big Icon */
+        .featured-wrapper { width: 100%; max-width: 700px; }
+        .section-tag { font-family: var(--code-font); font-size: 0.9rem; font-weight: 700; color: var(--text-sec); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; display: block; }
+        
+        .app-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 24px; padding: 50px 30px; display: flex; flex-direction: column; align-items: center; gap: 25px; text-decoration: none; transition: 0.3s; position: relative; overflow: hidden; }
+        .app-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        [data-theme="dark"] .app-card:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        
+        /* أيقونة التطبيق الكبيرة جداً */
+        .app-icon { width: 180px; height: 180px; border-radius: 40px; object-fit: cover; border: 1px solid var(--border-color); box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: 0.4s; }
+        .app-card:hover .app-icon { transform: scale(1.05); border-color: var(--accent); }
+        
+        .app-info { display: flex; flex-direction: column; align-items: center; }
+        .app-title-row { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 15px; flex-wrap: wrap;}
+        .app-info h3 { font-size: 2.2rem; color: var(--text-main); font-weight: 900; margin: 0; letter-spacing: -0.5px; }
+        
+        .badge { font-family: var(--code-font); font-size: 0.8rem; padding: 6px 12px; border-radius: 8px; font-weight: 700; background-color: rgba(16, 185, 129, 0.1); color: var(--accent); border: 1px solid rgba(16, 185, 129, 0.3); text-transform: uppercase; letter-spacing: 0.5px;}
+        .app-info p { color: var(--text-sec); font-size: 1.15rem; margin: 0; line-height: 1.6; max-width: 500px; }
+
+        .btn-arrow { display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: var(--text-main); color: var(--bg-color); transition: 0.3s; margin-top: 15px; }
+        .app-card:hover .btn-arrow { background: var(--accent); color: #fff; transform: translateY(5px); }
+        html[dir="ltr"] .btn-arrow span { transform: rotate(180deg); } /* Adjust if needed */
+        html[dir="rtl"] .app-card:hover .btn-arrow { transform: translateY(5px); } 
 
         /* Footer */
-        footer { padding: 40px 20px; border-top: 1px solid var(--border-color); margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 15px; }
-        .social-links { display: flex; gap: 20px; }
-        .social-links a { color: var(--text-sec); font-size: 1.25rem; transition: 0.2s; }
-        .social-links a:hover { color: var(--text-main); }
-        .copyright { color: var(--text-sec); font-size: 0.9rem; }
+        footer { padding: 40px 20px; border-top: 1px solid var(--border-color); margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 15px; width: 100%; text-align: center;}
+        .social-links { display: flex; gap: 25px; }
+        .social-links a { color: var(--text-sec); font-size: 1.4rem; transition: 0.2s; }
+        .social-links a:hover { color: var(--accent); transform: translateY(-3px); }
+        .copyright { color: var(--text-sec); font-size: 0.95rem; font-family: var(--code-font); }
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .app-card { flex-direction: column; text-align: left; padding: 30px 20px; gap: 24px; align-items: flex-start;}
-            html[dir="rtl"] .app-card { text-align: right; }
-            .app-icon { width: 80px; height: 80px; border-radius: 16px; }
-            .btn-arrow { display: none; } /* Hide arrow on mobile for cleaner look */
+            .hero h1 { font-size: 2.3rem; }
+            .hero-greeting { font-size: 1rem; }
+            .app-card { padding: 40px 20px; gap: 20px; }
+            .app-icon { width: 140px; height: 140px; border-radius: 30px; }
+            .app-info h3 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -109,7 +119,9 @@
 
     <header>
         <div class="nav-container">
-            <a href="/" class="logo" data-i18n="dev_name">Ahmad Aldarwish</a>
+            <a href="/" class="logo">
+                <span data-i18n="dev_name_start">أحمد</span><span>.</span><span data-i18n="dev_name_end">ديف</span>
+            </a>
             <div class="header-controls">
                 <button class="icon-btn" onclick="toggleTheme()" title="Toggle Theme">
                     <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
@@ -127,45 +139,50 @@
             <span class="material-symbols-outlined">close</span>
         </button>
         
-        <a href="#about" onclick="toggleMenu()">
-            <span class="material-symbols-outlined">person</span>
-            <span data-i18n="menu_about">About</span>
-        </a>
-        <a href="/wasl/privacy" onclick="toggleMenu()">
-            <span class="material-symbols-outlined">shield</span>
-            <span data-i18n="menu_privacy">Privacy Policy</span>
-        </a>
-        <a href="/wasl/terms" onclick="toggleMenu()">
-            <span class="material-symbols-outlined">gavel</span>
-            <span data-i18n="menu_terms">Terms of Use</span>
-        </a>
-        
         <div class="lang-selector">
+            <button class="lang-btn active" onclick="setLanguage('ar')">AR</button>
             <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-            <button class="lang-btn" onclick="setLanguage('ar')">AR</button>
             <button class="lang-btn" onclick="setLanguage('de')">DE</button>
         </div>
+
+        <a href="/about" onclick="toggleMenu()">
+            <span class="material-symbols-outlined">terminal</span>
+            <span data-i18n="menu_about">نبذة عني</span>
+        </a>
+        <a href="/privacy" onclick="toggleMenu()">
+            <span class="material-symbols-outlined">shield</span>
+            <span data-i18n="menu_privacy_site">سياسة خصوصية الموقع</span>
+        </a>
+        <a href="/terms" onclick="toggleMenu()">
+            <span class="material-symbols-outlined">gavel</span>
+            <span data-i18n="menu_terms_site">شروط الاستخدام</span>
+        </a>
     </div>
 
-    <div class="container" id="about">
+    <div class="container" id="home">
+        <!-- الترحيب بالطابع البرمجي -->
         <div class="hero">
-            <h1 data-i18n="hero_title">Building clean, <br>functional software.</h1>
-            <p data-i18n="hero_desc">I'm Ahmad, a software developer focused on crafting minimalist, high-performance applications that solve real-world problems.</p>
+            <span class="hero-greeting" data-i18n="greeting">// السلام عليكم</span>
+            <h1 data-i18n="hero_title">أنا <span class="code-tag" dir="ltr">&lt;أحمد /&gt;</span></h1>
+            <p data-i18n="hero_desc">مطور برمجيات أركز على صناعة تطبيقات بسيطة وعالية الأداء تقدم حلولاً نقية لمشاكل العالم الحقيقي بأكواد نظيفة.</p>
         </div>
 
+        <!-- بطاقة التطبيق (أيقونة ضخمة وتوسيط كامل) -->
         <div class="featured-wrapper">
-            <span class="section-tag" data-i18n="featured_title">Featured Project</span>
+            <span class="section-tag" data-i18n="featured_title">/* المشروع الأساسي */</span>
             <a href="/wasl" class="app-card">
                 <img src="/logo.png" alt="Wasl App Logo" class="app-icon">
+                
                 <div class="app-info">
                     <div class="app-title-row">
-                        <h3 data-i18n="app_title">Wasl</h3>
-                        <span class="badge" data-i18n="badge_dev">In Development</span>
+                        <h3 data-i18n="app_title">وَصْـل</h3>
+                        <span class="badge" data-i18n="badge_dev">v1.0-beta</span>
                     </div>
-                    <p data-i18n="app_desc">A smart Islamic companion. Combining advanced cast technology with a clean, distraction-free interface.</p>
+                    <p data-i18n="app_desc">رفيقك الإسلامي الذكي. يجمع بين تقنية البث المتقدمة وواجهة مستخدم نظيفة وخالية من المشتتات.</p>
                 </div>
+                
                 <div class="btn-arrow">
-                    <span class="material-symbols-outlined" id="arrow-icon">arrow_forward</span>
+                    <span class="material-symbols-outlined">arrow_downward</span>
                 </div>
             </a>
         </div>
@@ -173,28 +190,30 @@
 
     <footer>
         <div class="social-links">
-            <a href="#" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <!-- ضع رابط حسابك في إكس (تويتر) هنا -->
+            <a href="YOUR_X_LINK" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <!-- ضع رابط حسابك في جيت هاب هنا -->
+            <a href="YOUR_GITHUB_LINK" title="GitHub"><i class="fa-brands fa-github"></i></a>
         </div>
-        <p class="copyright" data-i18n="footer_copy">© 2026 Ahmad Aldarwish.</p>
+        <p class="copyright" data-i18n="footer_copy">© 2026 أحمد.ديف</p>
     </footer>
 
     <script>
         const translations = {
-            en: {
-                dev_name: "Ahmad Aldarwish.", menu_about: "About", menu_privacy: "Privacy Policy", menu_terms: "Terms of Use",
-                hero_title: "Building clean, <br>functional software.", hero_desc: "I'm Ahmad, a software developer focused on crafting minimalist, high-performance applications that solve real-world problems.",
-                featured_title: "Featured Project", app_title: "Wasl", badge_dev: "In Development", app_desc: "A smart Islamic companion. Combining advanced cast technology with a clean, distraction-free interface.", footer_copy: "© 2026 Ahmad Aldarwish."
-            },
             ar: {
-                dev_name: "أحمد الدرويش.", menu_about: "حول", menu_privacy: "سياسة الخصوصية", menu_terms: "شروط الاستخدام",
-                hero_title: "بناء برمجيات <br>نظيفة وفعالة.", hero_desc: "أنا أحمد، مطور برمجيات أركز على صناعة تطبيقات بسيطة وعالية الأداء تقدم حلولاً برمجية نقية لمشاكل العالم الحقيقي.",
-                featured_title: "المشروع الأساسي", app_title: "وَصْـل", badge_dev: "قيد التطوير", app_desc: "رفيقك الإسلامي الذكي. يجمع بين تقنية البث المتقدمة وواجهة مستخدم نظيفة وخالية من المشتتات.", footer_copy: "© 2026 أحمد الدرويش."
+                dev_name_start: "أحمد", dev_name_end: "ديف", menu_about: "نبذة عني", menu_privacy_site: "سياسة خصوصية الموقع", menu_terms_site: "شروط الاستخدام",
+                greeting: "// السلام عليكم", hero_title: "أنا <span class='code-tag' dir='ltr'>&lt;أحمد /&gt;</span>", hero_desc: "مطور برمجيات أركز على صناعة تطبيقات بسيطة وعالية الأداء تقدم حلولاً نقية لمشاكل العالم الحقيقي بأكواد نظيفة.",
+                featured_title: "/* المشروع الأساسي */", app_title: "وَصْـل", badge_dev: "v1.0-beta", app_desc: "رفيقك الإسلامي الذكي. يجمع بين تقنية البث المتقدمة وواجهة مستخدم نظيفة وخالية من المشتتات.", footer_copy: "© 2026 أحمد.ديف"
+            },
+            en: {
+                dev_name_start: "Ahmad", dev_name_end: "dev", menu_about: "About Me", menu_privacy_site: "Site Privacy Policy", menu_terms_site: "Terms of Use",
+                greeting: "// Assalamu Alaikum", hero_title: "I'm <span class='code-tag' dir='ltr'>&lt;Ahmad /&gt;</span>", hero_desc: "A software developer focused on crafting minimalist, high-performance applications that solve real-world problems with clean code.",
+                featured_title: "/* Featured Project */", app_title: "Wasl", badge_dev: "v1.0-beta", app_desc: "A smart Islamic companion. Combining advanced cast technology with a clean, distraction-free interface.", footer_copy: "© 2026 Ahmad.dev"
             },
             de: {
-                dev_name: "Ahmad Aldarwish.", menu_about: "Über", menu_privacy: "Datenschutzerklärung", menu_terms: "Nutzungsbedingungen",
-                hero_title: "Saubere, <br>funktionale Software.", hero_desc: "Ich bin Ahmad, ein Softwareentwickler, der sich auf die Entwicklung minimalistischer, leistungsstarker Anwendungen konzentriert.",
-                featured_title: "Vorgestelltes Projekt", app_title: "Wasl", badge_dev: "In Entwicklung", app_desc: "Ein intelligenter islamischer Begleiter. Verbindet fortschrittliche Cast-Technologie mit einer sauberen Benutzeroberfläche.", footer_copy: "© 2026 Ahmad Aldarwish."
+                dev_name_start: "Ahmad", dev_name_end: "dev", menu_about: "Über mich", menu_privacy_site: "Website-Datenschutzrichtlinie", menu_terms_site: "Nutzungsbedingungen",
+                greeting: "// Assalamu Alaikum", hero_title: "Ich bin <span class='code-tag' dir='ltr'>&lt;Ahmad /&gt;</span>", hero_desc: "Ein Softwareentwickler, der sich auf die Erstellung minimalistischer, leistungsstarker Anwendungen mit sauberem Code konzentriert.",
+                featured_title: "/* Vorgestelltes Projekt */", app_title: "Wasl", badge_dev: "v1.0-beta", app_desc: "Ein intelligenter islamischer Begleiter. Verbindet fortschrittliche Cast-Technologie mit einer sauberen Benutzeroberfläche.", footer_copy: "© 2026 Ahmad.dev"
             }
         };
 
@@ -235,10 +254,10 @@
             document.documentElement.setAttribute('data-theme', savedTheme);
             document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? 'light_mode' : 'dark_mode';
 
-            const savedLang = localStorage.getItem('preferredLang') || 'en';
+            // قراءة اللغة المحفوظة أو تعيين العربية كافتراضية
+            const savedLang = localStorage.getItem('preferredLang') || 'ar';
             setLanguage(savedLang);
         };
     </script>
 </body>
 </html>
-
