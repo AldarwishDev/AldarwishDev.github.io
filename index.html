@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أحمد الدرويش | الدرويش ديف</title>
+    <!-- استدعاء خط تجوال الاحترافي -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* إعدادات التصميم الأساسية */
+        body {
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* تصميم الشريط العلوي */
+        header {
+            background-color: #1a252f;
+            color: #ffffff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo { font-size: 24px; font-weight: 900; color: #3498db; }
+        nav a { color: #ffffff; text-decoration: none; margin-right: 20px; font-weight: bold; transition: color 0.3s;}
+        nav a:hover { color: #3498db; }
+        
+        /* تصميم الأقسام المشتركة */
+        section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        h1, h2 { color: #2c3e50; }
+        h2 { margin-bottom: 20px; border-bottom: 2px solid #3498db; display: inline-block; padding-bottom: 5px; }
+        
+        /* الأزرار */
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .btn:hover { background-color: #2980b9; }
+        .btn-donate { background-color: #27ae60; }
+        .btn-donate:hover { background-color: #2ecc71; }
+        
+        /* تذييل الصفحة */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a252f;
+            color: #bdc3c7;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الشريط العلوي -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">الدرويش ديف</div>
+            <nav>
+                <a href="#about">من أنا</a>
+                <a href="#wasel">تطبيق وصل</a>
+                <a href="#donate">ادعمنا (تبرع)</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- قسم التعريف الشخصي -->
+    <section id="about">
+        <h1>أهلاً بك في موقعي! أنا أحمد الدرويش</h1>
+        <p>مطور برمجيات (الدرويش ديف) مهتم بصناعة حلول تقنية وتطبيقات تسهل حياة الناس. أسعى دائماً لتعلم كل ما هو جديد في عالم البرمجة وتقديم قيمة حقيقية للمستخدمين.</p>
+    </section>
+
+    <!-- قسم تطبيق وصل -->
+    <section id="wasel">
+        <h2>تطبيق وصل 🚀</h2>
+        <p>تطبيق "وصل" هو مشروعي الأحدث. يهدف التطبيق إلى [اكتب هنا سطرين عن فكرة التطبيق، مثلاً: تسهيل عملية التوصيل أو ربط المستخدمين بالخدمات].</p>
+        <p>تم تصميم التطبيق ليكون سهل الاستخدام وسريع الأداء لتلبية احتياجاتكم اليومية.</p>
+        <a href="#" class="btn">حمل التطبيق الآن</a>
+    </section>
+
+    <!-- قسم التبرع -->
+    <section id="donate">
+        <h2>ادعم تطوير مشاريعي ❤️</h2>
+        <p>إذا كنت تجد قيمة في التطبيقات والأدوات التي أقدمها، يمكنك دعمي للاستمرار في تطوير المزيد من المشاريع المجانية والمفيدة.</p>
+        <a href="#" class="btn btn-donate">اضغط هنا للتبرع</a>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 - أحمد الدرويش (الدرويش ديف)</p>
+    </footer>
+
+</body>
+</html>
