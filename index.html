@@ -38,7 +38,7 @@
         /* Header */
         header { position: sticky; top: 0; background-color: rgba(var(--bg-color), 0.9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); z-index: 1000; padding: 15px 0; }
         .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .logo { font-size: 1.3rem; font-weight: 900; color: var(--text-main); text-decoration: none; letter-spacing: -0.5px; font-family: var(--code-font); display: flex; align-items: center; gap: 5px;}
+        .logo { font-size: 1.3rem; font-weight: 900; color: var(--text-main); text-decoration: none; letter-spacing: -0.5px; font-family: var(--code-font); display: flex; align-items: center; gap: 6px;}
         .logo span { color: var(--accent); }
         
         .header-controls { display: flex; align-items: center; gap: 15px; }
@@ -82,7 +82,6 @@
         .app-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
         [data-theme="dark"] .app-card:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         
-        /* أيقونة التطبيق الكبيرة جداً */
         .app-icon { width: 180px; height: 180px; border-radius: 40px; object-fit: cover; border: 1px solid var(--border-color); box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: 0.4s; }
         .app-card:hover .app-icon { transform: scale(1.05); border-color: var(--accent); }
         
@@ -95,7 +94,7 @@
 
         .btn-arrow { display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: var(--text-main); color: var(--bg-color); transition: 0.3s; margin-top: 15px; }
         .app-card:hover .btn-arrow { background: var(--accent); color: #fff; transform: translateY(5px); }
-        html[dir="ltr"] .btn-arrow span { transform: rotate(180deg); } /* Adjust if needed */
+        html[dir="ltr"] .btn-arrow span { transform: rotate(180deg); } 
         html[dir="rtl"] .app-card:hover .btn-arrow { transform: translateY(5px); } 
 
         /* Footer */
@@ -120,7 +119,7 @@
     <header>
         <div class="nav-container">
             <a href="/" class="logo">
-                <span data-i18n="dev_name_start">أحمد</span><span>.</span><span data-i18n="dev_name_end">ديف</span>
+                <div data-i18n="dev_name_first">أحمد</div><span data-i18n="dev_name_last">الدرويش</span>
             </a>
             <div class="header-controls">
                 <button class="icon-btn" onclick="toggleTheme()" title="Toggle Theme">
@@ -160,14 +159,12 @@
     </div>
 
     <div class="container" id="home">
-        <!-- الترحيب بالطابع البرمجي -->
         <div class="hero">
             <span class="hero-greeting" data-i18n="greeting">// السلام عليكم</span>
-            <h1 data-i18n="hero_title">أنا <span class="code-tag" dir="ltr">&lt;أحمد /&gt;</span></h1>
+            <h1 data-i18n="hero_title">أنا <span class="code-tag" dir="ltr">&lt;أحمد الدرويش /&gt;</span></h1>
             <p data-i18n="hero_desc">مطور برمجيات أركز على صناعة تطبيقات بسيطة وعالية الأداء تقدم حلولاً نقية لمشاكل العالم الحقيقي بأكواد نظيفة.</p>
         </div>
 
-        <!-- بطاقة التطبيق (أيقونة ضخمة وتوسيط كامل) -->
         <div class="featured-wrapper">
             <span class="section-tag" data-i18n="featured_title">/* المشروع الأساسي */</span>
             <a href="/wasl" class="app-card">
@@ -191,29 +188,29 @@
     <footer>
         <div class="social-links">
             <!-- ضع رابط حسابك في إكس (تويتر) هنا -->
-            <a href="YOUR_X_LINK" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://x.com/TechA7mad" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
             <!-- ضع رابط حسابك في جيت هاب هنا -->
-            <a href="YOUR_GITHUB_LINK" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://github.com/AldarwishDev" title="GitHub"><i class="fa-brands fa-github"></i></a>
         </div>
-        <p class="copyright" data-i18n="footer_copy">© 2026 أحمد.ديف</p>
+        <p class="copyright" data-i18n="footer_copy">© 2026 أحمد الدرويش</p>
     </footer>
 
     <script>
         const translations = {
             ar: {
-                dev_name_start: "أحمد", dev_name_end: "ديف", menu_about: "نبذة عني", menu_privacy_site: "سياسة خصوصية الموقع", menu_terms_site: "شروط الاستخدام",
-                greeting: "// السلام عليكم", hero_title: "أنا <span class='code-tag' dir='ltr'>&lt;أحمد /&gt;</span>", hero_desc: "مطور برمجيات أركز على صناعة تطبيقات بسيطة وعالية الأداء تقدم حلولاً نقية لمشاكل العالم الحقيقي بأكواد نظيفة.",
-                featured_title: "/* المشروع الأساسي */", app_title: "وَصْـل", badge_dev: "v1.0-beta", app_desc: "رفيقك الإسلامي الذكي. يجمع بين تقنية البث المتقدمة وواجهة مستخدم نظيفة وخالية من المشتتات.", footer_copy: "© 2026 أحمد.ديف"
+                dev_name_first: "أحمد", dev_name_last: "الدرويش", menu_about: "نبذة عني", menu_privacy_site: "سياسة خصوصية الموقع", menu_terms_site: "شروط الاستخدام",
+                greeting: "// السلام عليكم", hero_title: "أنا <span class='code-tag' dir='ltr'>&lt;أحمد الدرويش /&gt;</span>", hero_desc: "مطور برمجيات أركز على صناعة تطبيقات بسيطة وعالية الأداء تقدم حلولاً نقية لمشاكل العالم الحقيقي بأكواد نظيفة.",
+                featured_title: "/* المشروع الأساسي */", app_title: "وَصْـل", badge_dev: "v1.0-beta", app_desc: "رفيقك الإسلامي الذكي. يجمع بين تقنية البث المتقدمة وواجهة مستخدم نظيفة وخالية من المشتتات.", footer_copy: "© 2026 أحمد الدرويش"
             },
             en: {
-                dev_name_start: "Ahmad", dev_name_end: "dev", menu_about: "About Me", menu_privacy_site: "Site Privacy Policy", menu_terms_site: "Terms of Use",
-                greeting: "// Assalamu Alaikum", hero_title: "I'm <span class='code-tag' dir='ltr'>&lt;Ahmad /&gt;</span>", hero_desc: "A software developer focused on crafting minimalist, high-performance applications that solve real-world problems with clean code.",
-                featured_title: "/* Featured Project */", app_title: "Wasl", badge_dev: "v1.0-beta", app_desc: "A smart Islamic companion. Combining advanced cast technology with a clean, distraction-free interface.", footer_copy: "© 2026 Ahmad.dev"
+                dev_name_first: "Ahmad", dev_name_last: "Aldarwish", menu_about: "About Me", menu_privacy_site: "Site Privacy Policy", menu_terms_site: "Terms of Use",
+                greeting: "// Assalamu Alaikum", hero_title: "I'm <span class='code-tag' dir='ltr'>&lt;Ahmad Aldarwish /&gt;</span>", hero_desc: "A software developer focused on crafting minimalist, high-performance applications that solve real-world problems with clean code.",
+                featured_title: "/* Featured Project */", app_title: "Wasl", badge_dev: "v1.0-beta", app_desc: "A smart Islamic companion. Combining advanced cast technology with a clean, distraction-free interface.", footer_copy: "© 2026 Ahmad Aldarwish"
             },
             de: {
-                dev_name_start: "Ahmad", dev_name_end: "dev", menu_about: "Über mich", menu_privacy_site: "Website-Datenschutzrichtlinie", menu_terms_site: "Nutzungsbedingungen",
-                greeting: "// Assalamu Alaikum", hero_title: "Ich bin <span class='code-tag' dir='ltr'>&lt;Ahmad /&gt;</span>", hero_desc: "Ein Softwareentwickler, der sich auf die Erstellung minimalistischer, leistungsstarker Anwendungen mit sauberem Code konzentriert.",
-                featured_title: "/* Vorgestelltes Projekt */", app_title: "Wasl", badge_dev: "v1.0-beta", app_desc: "Ein intelligenter islamischer Begleiter. Verbindet fortschrittliche Cast-Technologie mit einer sauberen Benutzeroberfläche.", footer_copy: "© 2026 Ahmad.dev"
+                dev_name_first: "Ahmad", dev_name_last: "Aldarwish", menu_about: "Über mich", menu_privacy_site: "Website-Datenschutzrichtlinie", menu_terms_site: "Nutzungsbedingungen",
+                greeting: "// Assalamu Alaikum", hero_title: "Ich bin <span class='code-tag' dir='ltr'>&lt;Ahmad Aldarwish /&gt;</span>", hero_desc: "Ein Softwareentwickler, der sich auf die Erstellung minimalistischer, leistungsstarker Anwendungen mit sauberem Code konzentriert.",
+                featured_title: "/* Vorgestelltes Projekt */", app_title: "Wasl", badge_dev: "v1.0-beta", app_desc: "Ein intelligenter islamischer Begleiter. Verbindet fortschrittliche Cast-Technologie mit einer sauberen Benutzeroberfläche.", footer_copy: "© 2026 Ahmad Aldarwish"
             }
         };
 
@@ -254,7 +251,6 @@
             document.documentElement.setAttribute('data-theme', savedTheme);
             document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? 'light_mode' : 'dark_mode';
 
-            // قراءة اللغة المحفوظة أو تعيين العربية كافتراضية
             const savedLang = localStorage.getItem('preferredLang') || 'ar';
             setLanguage(savedLang);
         };
