@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" id="html-root">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +7,51 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        /* =========================================
+           المتغيرات (الوضع الفاتح - الافتراضي)
+        ========================================= */
         :root {
             --md-sys-color-primary: #006d40;
-            --md-sys-color-on-primary: #ffffff;
             --md-sys-color-secondary: #00639b;
             --md-sys-color-background: #f4f8f5;
             --md-sys-color-surface: rgba(255, 255, 255, 0.75);
             --md-sys-color-on-surface: #1a1c1e;
-            --border-radius-expressive: 28px;
+            --text-muted: #444444;
+            
+            --card-bg: rgba(255, 255, 255, 0.6);
+            --card-bg-hover: rgba(255, 255, 255, 0.95);
+            --card-border: rgba(255, 255, 255, 0.8);
+            
+            --footer-bg: #e8f0eb;
+            --footer-border: rgba(0, 109, 64, 0.1);
+            
             --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
             --glass-blur: blur(16px);
+            --border-radius-expressive: 28px;
+        }
+
+        /* =========================================
+           المتغيرات (الوضع الليلي)
+        ========================================= */
+        [data-theme="dark"] {
+            --md-sys-color-primary: #2bc07b; /* أخضر أفتح ليكون مريحاً على الخلفية الداكنة */
+            --md-sys-color-secondary: #6cb6ff;
+            --md-sys-color-background: #0f1115; /* لون ليلي عميق */
+            --md-sys-color-surface: rgba(30, 32, 40, 0.75);
+            --md-sys-color-on-surface: #e2e2e9;
+            --text-muted: #a0a0b5;
+            
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-bg-hover: rgba(255, 255, 255, 0.08);
+            --card-border: rgba(255, 255, 255, 0.05);
+            
+            --footer-bg: #14161c;
+            --footer-border: rgba(255, 255, 255, 0.05);
+            
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,7 +61,7 @@
             background-color: var(--md-sys-color-background);
             color: var(--md-sys-color-on-surface);
             line-height: 1.6;
-            transition: all 0.3s ease;
+            transition: background-color 0.4s ease, color 0.4s ease;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -37,15 +70,17 @@
         html[dir="ltr"] body { font-family: 'Roboto', sans-serif; }
         html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
 
+        /* الشريط العلوي */
         header {
             background: var(--md-sys-color-surface);
             backdrop-filter: var(--glass-blur);
             -webkit-backdrop-filter: var(--glass-blur);
-            border-bottom: 1px solid rgba(255,255,255,0.5);
+            border-bottom: 1px solid var(--card-border);
             position: sticky;
             top: 0;
             z-index: 1000;
             padding: 15px 0;
+            transition: background-color 0.4s ease;
         }
         
         .nav-container {
@@ -57,124 +92,92 @@
             padding: 0 20px;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 900;
-            color: var(--md-sys-color-primary);
-            text-decoration: none;
+        .logo { font-size: 24px; font-weight: 900; color: var(--md-sys-color-primary); text-decoration: none; }
+        
+        /* أدوات التحكم (الوضع الليلي واللغات) */
+        .header-controls { display: flex; align-items: center; gap: 15px; }
+        
+        .theme-btn {
+            background: transparent; border: none; color: var(--md-sys-color-primary);
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; border-radius: 50%; transition: all 0.3s ease;
         }
+        .theme-btn:hover { background: rgba(43, 192, 123, 0.15); }
 
-        .lang-switcher { display: flex; gap: 10px; }
+        .lang-switcher { display: flex; gap: 8px; }
         .lang-btn {
-            background: transparent;
-            border: 2px solid var(--md-sys-color-primary);
-            color: var(--md-sys-color-primary);
-            padding: 5px 12px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.2s;
+            background: transparent; border: 2px solid var(--md-sys-color-primary); color: var(--md-sys-color-primary);
+            padding: 4px 10px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: all 0.3s;
         }
-        .lang-btn:hover, .lang-btn.active {
-            background: var(--md-sys-color-primary);
-            color: white;
-        }
+        .lang-btn:hover, .lang-btn.active { background: var(--md-sys-color-primary); color: var(--md-sys-color-background); border-color: var(--md-sys-color-primary); }
 
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            flex: 1;
-        }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; flex: 1; }
 
+        /* قسم تطبيق وصل */
         .wasl-section {
-            background: var(--md-sys-color-surface);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: var(--border-radius-expressive);
-            box-shadow: var(--glass-shadow);
-            padding: 40px;
-            margin-bottom: 50px;
+            background: var(--md-sys-color-surface); backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--card-border);
+            border-radius: var(--border-radius-expressive); box-shadow: var(--glass-shadow);
+            padding: 40px; margin-bottom: 50px; transition: background-color 0.4s ease;
         }
 
-        .wasl-header {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        /* هنا تم تعديل استدعاء اللوجو ليطابق الاسم الجديد */
+        .wasl-header { display: flex; align-items: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap; }
         .wasl-logo-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 35px;
-            object-fit: cover;
-            box-shadow: 0 10px 25px rgba(0, 109, 64, 0.2);
-            border: 4px solid white;
+            width: 150px; height: 150px; border-radius: 35px; object-fit: cover;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); border: 4px solid var(--md-sys-color-on-primary);
         }
 
-        .wasl-title-area h1 {
-            font-size: 2.5rem;
-            color: var(--md-sys-color-primary);
-            margin-bottom: 10px;
-            font-weight: 900;
+        .wasl-title-area h1 { font-size: 2.5rem; color: var(--md-sys-color-primary); margin-bottom: 10px; font-weight: 900; }
+        .wasl-title-area p { font-size: 1.2rem; color: var(--text-muted); }
+        
+        .btn-download {
+            display: inline-flex; align-items: center; gap: 10px; background-color: var(--md-sys-color-primary);
+            color: #ffffff; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold;
+            margin-top: 20px; transition: 0.3s;
         }
+        .btn-download:hover { opacity: 0.85; transform: translateY(-2px); }
 
-        .wasl-title-area p { font-size: 1.2rem; color: #444; }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
         .feature-card {
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 20px;
-            padding: 25px;
-            transition: transform 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            background: var(--card-bg); border-radius: 20px; padding: 25px;
+            transition: all 0.3s; border: 1px solid var(--card-border);
         }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
-        }
-
-        .feature-icon {
-            font-size: 40px;
-            color: var(--md-sys-color-secondary);
-            margin-bottom: 15px;
-        }
-
+        .feature-card:hover { transform: translateY(-8px); background: var(--card-bg-hover); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+        .feature-icon { font-size: 40px; color: var(--md-sys-color-secondary); margin-bottom: 15px; }
         .feature-card h3 { color: var(--md-sys-color-on-surface); margin-bottom: 10px; font-size: 1.3rem; }
+        .feature-card p { color: var(--text-muted); }
 
-        footer {
+        /* الفوتر المتكيف مع الوضع الليلي */
+        .modern-footer {
+            background-color: var(--footer-bg);
+            padding: 60px 20px 40px;
             text-align: center;
-            padding: 30px 20px;
-            background-color: #e8f0eb;
-            color: #555;
             margin-top: auto;
+            border-top: 1px solid var(--footer-border);
+            transition: background-color 0.4s ease;
         }
+        .modern-footer h3 { font-size: 1.5rem; font-weight: 900; color: var(--md-sys-color-primary); margin-bottom: 20px; }
+        .modern-footer p.about-desc { max-width: 600px; margin: 0 auto 40px; color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; }
         
-        .footer-links {
-            margin-bottom: 15px;
+        .social-links { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .social-icon {
+            display: flex; align-items: center; justify-content: center;
+            width: 50px; height: 50px; border: 2px solid var(--md-sys-color-primary);
+            border-radius: 50%; color: var(--md-sys-color-primary);
+            text-decoration: none; font-size: 1.2rem; transition: all 0.3s ease;
         }
+        .social-icon:hover { background-color: var(--md-sys-color-primary); color: var(--md-sys-color-background); transform: translateY(-3px); }
         
-        .footer-links a {
-            color: var(--md-sys-color-primary);
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: 500;
-        }
+        .footer-divider { height: 1px; background-color: var(--footer-border); max-width: 800px; margin: 0 auto 30px; }
+        .footer-bottom p { color: var(--text-muted); margin-bottom: 15px; font-size: 1rem; }
         
-        .footer-links a:hover { text-decoration: underline; }
+        .footer-legal { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .footer-legal a { color: var(--md-sys-color-secondary); text-decoration: none; transition: color 0.3s; font-size: 1rem; font-weight: bold; }
+        .footer-legal a:hover { color: var(--md-sys-color-primary); text-decoration: underline; }
+        .separator { color: var(--footer-border); }
 
         @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; }
             .wasl-header { justify-content: center; text-align: center; }
             .wasl-title-area h1 { font-size: 2rem; }
         }
@@ -184,11 +187,18 @@
 
     <header>
         <div class="nav-container">
-            <a href="#" class="logo" data-i18n="dev_name">أحمد الدرويش</a>
-            <div class="lang-switcher">
-                <button class="lang-btn active" onclick="setLanguage('ar')">AR</button>
-                <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-                <button class="lang-btn" onclick="setLanguage('de')">DE</button>
+            <a href="/" class="logo" data-i18n="dev_name">أحمد الدرويش</a>
+            <div class="header-controls">
+                <!-- زر الوضع الليلي/الفاتح -->
+                <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()" title="تبديل الوضع">
+                    <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+                </button>
+                
+                <div class="lang-switcher">
+                    <button class="lang-btn active" onclick="setLanguage('ar')">AR</button>
+                    <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+                    <button class="lang-btn" onclick="setLanguage('de')">DE</button>
+                </div>
             </div>
         </div>
     </header>
@@ -196,21 +206,20 @@
     <div class="container">
         <section class="wasl-section">
             <div class="wasl-header">
-                <!-- تم تغيير اسم الصورة هنا ليكون logo.jpg -->
-                <img src="logo.png" alt="Wasl Logo" class="wasl-logo-img">
+                <img src="/logo.jpg" alt="Wasl Logo" class="wasl-logo-img">
                 <div class="wasl-title-area">
-    <h1 data-i18n="wasl_title">وَصْـل | رفيقك الإسلامي الذكي</h1>
-    <p data-i18n="wasl_tagline">نرتقي بتجربة صلاتك من خلال التكنولوجيا السلسة والتصميم العصري.</p>
-    <a href="#" class="btn-download" style="display: inline-flex; align-items: center; gap: 10px; background-color: var(--md-sys-color-primary); color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 20px;">
-        <span class="material-symbols-outlined">android</span>
-        <span data-i18n="btn_soon">قريباً على Google Play</span>
-    </a>
-</div>
+                    <h1 data-i18n="wasl_title">وَصْـل | رفيقك الإسلامي الذكي</h1>
+                    <p data-i18n="wasl_tagline">نرتقي بتجربة صلاتك من خلال التكنولوجيا السلسة والتصميم العصري.</p>
+                    
+                    <a href="/download" class="btn-download">
+                        <span class="material-symbols-outlined">android</span>
+                        <span data-i18n="btn_soon">قريباً على Google Play</span>
+                    </a>
+                </div>
             </div>
 
             <div class="features-grid">
                 <div class="feature-card">
-                    <!-- تم تغيير الأيقونة إلى شاشة -->
                     <span class="material-symbols-outlined feature-icon">connected_tv</span>
                     <h3 data-i18n="feat1_title">تقنية البث الذكي</h3>
                     <p data-i18n="feat1_desc">بث الأذان تلقائياً إلى الأجهزة الذكية وشاشات التلفاز على شبكتك باختيار مؤذنك المفضل.</p>
@@ -218,7 +227,7 @@
                 <div class="feature-card">
                     <span class="material-symbols-outlined feature-icon">monitoring</span>
                     <h3 data-i18n="feat2_title">تتبع العبادات</h3>
-                    <p data-i18n="feat2_desc">حافظ على استمراريتك مع نظام "الستريك" المدمج والإشعارات الذكية للتذكير بالصلاة.</p>
+                    <p data-i18n="feat2_desc">حافظ على استمراريتك مع نظام (الستريك) المدمج والإشعارات الذكية للتذكير بالصلاة.</p>
                 </div>
                 <div class="feature-card">
                     <span class="material-symbols-outlined feature-icon">do_not_disturb_on</span>
@@ -234,70 +243,78 @@
         </section>
     </div>
 
-    <footer>
-        <div class="footer-links">
-            <a href="privacy.html" data-i18n="privacy">سياسة الخصوصية</a> | 
-            <a href="terms.html" data-i18n="terms">شروط الاستخدام</a>
+    <!-- الفوتر -->
+    <footer class="modern-footer">
+        <h3 data-i18n="footer_about_title">نبذة عني</h3>
+        <p class="about-desc" data-i18n="footer_about_desc">
+            أحمد مطور برمجيات شغوف بابتكار تطبيقات ذكية تسهم في تسهيل حياة المستخدمين والارتقاء بالتجربة الرقمية.
+        </p>
+
+        <div class="social-links">
+            <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-github"></i></a>
         </div>
-        <p data-i18n="copyright">جميع الحقوق محفوظة &copy; 2026 - أحمد الدرويش</p>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+            <p data-i18n="footer_copyright">© 2026 أحمد الدرويش، جميع الحقوق محفوظة.</p>
+            <div class="footer-legal">
+                <a href="mailto:contact@ahmadaldarwish.com" data-i18n="footer_contact">تواصل معي</a>
+                <span class="separator">|</span>
+                <a href="/privacy" data-i18n="footer_privacy">سياسة الخصوصية</a>
+                <span class="separator">|</span>
+                <a href="/terms" data-i18n="footer_terms">شروط الاستخدام</a>
+            </div>
+        </div>
     </footer>
 
     <script>
+        // =====================================
+        // 1. نظام الترجمة الشامل
+        // =====================================
         const translations = {
             ar: {
-                dev_name: "أحمد الدرويش",
-                wasl_title: "وَصْـل | رفيقك الإسلامي الذكي",
-                wasl_tagline: "نرتقي بتجربة صلاتك من خلال التكنولوجيا السلسة والتصميم العصري.",
-                feat1_title: "تقنية البث الذكي",
-                feat1_desc: "بث الأذان تلقائياً إلى الأجهزة الذكية وشاشات التلفاز على شبكتك باختيار مؤذنك المفضل.",
-                feat2_title: "تتبع العبادات",
-                feat2_desc: "حافظ على استمراريتك مع نظام (الستريك) المدمج والإشعارات الذكية للتذكير بالصلاة.",
-                feat3_title: "وضع التركيز",
-                feat3_desc: "حجب التطبيقات المشتتة للانتباه تلقائياً أثناء أوقات الصلاة لضمان خشوعك وحضورك.",
-                feat4_title: "ويدجت ديناميكي",
-                feat4_desc: "أدوات ذكية بتصميم زجاجي عصري لعرض أوقات الصلاة والتاريخ الهجري على شاشتك الرئيسية.",
-                privacy: "سياسة الخصوصية",
-                terms: "شروط الاستخدام",
-                copyright: "جميع الحقوق محفوظة © 2026 - أحمد الدرويش"
+                dev_name: "أحمد الدرويش", wasl_title: "وَصْـل | رفيقك الإسلامي الذكي", wasl_tagline: "نرتقي بتجربة صلاتك من خلال التكنولوجيا السلسة والتصميم العصري.",
+                btn_soon: "قريباً على Google Play", feat1_title: "تقنية البث الذكي", feat1_desc: "بث الأذان تلقائياً إلى الأجهزة الذكية وشاشات التلفاز على شبكتك باختيار مؤذنك المفضل.",
+                feat2_title: "تتبع العبادات", feat2_desc: "حافظ على استمراريتك مع نظام (الستريك) المدمج والإشعارات الذكية للتذكير بالصلاة.",
+                feat3_title: "وضع التركيز", feat3_desc: "حجب التطبيقات المشتتة للانتباه تلقائياً أثناء أوقات الصلاة لضمان خشوعك وحضورك.",
+                feat4_title: "ويدجت ديناميكي", feat4_desc: "أدوات ذكية بتصميم زجاجي عصري لعرض أوقات الصلاة والتاريخ الهجري على شاشتك الرئيسية.",
+                footer_about_title: "نبذة عني", footer_about_desc: "أحمد مطور برمجيات شغوف بابتكار تطبيقات ذكية تسهم في تسهيل حياة المستخدمين والارتقاء بالتجربة الرقمية.",
+                footer_copyright: "© 2026 أحمد الدرويش، جميع الحقوق محفوظة.", footer_contact: "تواصل معي", footer_privacy: "سياسة الخصوصية", footer_terms: "شروط الاستخدام"
             },
             en: {
-                dev_name: "Ahmad Aldarwish",
-                wasl_title: "Wasl | Smart Islamic Companion",
-                wasl_tagline: "Elevating your prayer experience through seamless technology and modern design.",
-                feat1_title: "Smart Cast Technology",
-                feat1_desc: "Automatically stream the Adhan to your Google Cast-enabled devices and smart TVs.",
-                feat2_title: "Intelligent Tracking",
-                feat2_desc: "Stay consistent with your worship using the built-in tracker and smart notifications.",
-                feat3_title: "Prayer Focus Mode",
-                feat3_desc: "Automatically block distracting apps during prayer windows to ensure you remain present.",
-                feat4_title: "Dynamic Widgets",
-                feat4_desc: "Glassmorphism widgets that bring essential prayer info directly to your home screen.",
-                privacy: "Privacy Policy",
-                terms: "Terms of Use",
-                copyright: "All Rights Reserved © 2026 - Ahmad Aldarwish"
+                dev_name: "Ahmad Aldarwish", wasl_title: "Wasl | Smart Islamic Companion", wasl_tagline: "Elevating your prayer experience through seamless technology and modern design.",
+                btn_soon: "Coming soon on Google Play", feat1_title: "Smart Cast Technology", feat1_desc: "Automatically stream the Adhan to your Google Cast-enabled devices and smart TVs.",
+                feat2_title: "Intelligent Tracking", feat2_desc: "Stay consistent with your worship using the built-in tracker and smart notifications.",
+                feat3_title: "Prayer Focus Mode", feat3_desc: "Automatically block distracting apps during prayer windows to ensure you remain present.",
+                feat4_title: "Dynamic Widgets", feat4_desc: "Glassmorphism widgets that bring essential prayer info directly to your home screen.",
+                footer_about_title: "ABOUT ME", footer_about_desc: "Ahmad is a software developer passionate about creating smart applications that simplify users' lives and elevate the digital experience.",
+                footer_copyright: "© 2026 Ahmad Aldarwish, All Rights Reserved.", footer_contact: "Contact me", footer_privacy: "Privacy Policy", footer_terms: "Terms & Conditions"
             },
             de: {
-                dev_name: "Ahmad Aldarwish",
-                wasl_title: "Wasl | Smarter Islamischer Begleiter",
-                wasl_tagline: "Verbessere dein Gebetserlebnis durch nahtlose Technologie und modernes Design.",
-                feat1_title: "Smart Cast Technologie",
-                feat1_desc: "Streame den Adhan automatisch auf deine Google Cast-fähigen Geräte und Smart-TVs.",
-                feat2_title: "Intelligentes Tracking",
-                feat2_desc: "Bleibe konsequent bei deinem Gebet mit dem integrierten Tracker und intelligenten Benachrichtigungen.",
-                feat3_title: "Gebets-Fokusmodus",
-                feat3_desc: "Blockiere automatisch ablenkende Apps während der Gebetszeiten, um konzentriert zu bleiben.",
-                feat4_title: "Dynamische Widgets",
-                feat4_desc: "Glassmorphism-Widgets, die wichtige Gebetsinformationen direkt auf deinen Startbildschirm bringen.",
-                privacy: "Datenschutzerklärung",
-                terms: "Nutzungsbedingungen",
-                copyright: "Alle Rechte vorbehalten © 2026 - Ahmad Aldarwish"
+                dev_name: "Ahmad Aldarwish", wasl_title: "Wasl | Smarter Islamischer Begleiter", wasl_tagline: "Verbessere dein Gebetserlebnis durch nahtlose Technologie und modernes Design.",
+                btn_soon: "Demnächst bei Google Play", feat1_title: "Smart Cast Technologie", feat1_desc: "Streame den Adhan automatisch auf deine Google Cast-fähigen Geräte und Smart-TVs.",
+                feat2_title: "Intelligentes Tracking", feat2_desc: "Bleibe konsequent bei deinem Gebet mit dem integrierten Tracker und intelligenten Benachrichtigungen.",
+                feat3_title: "Gebets-Fokusmodus", feat3_desc: "Blockiere automatisch ablenkende Apps während der Gebetszeiten, um konzentriert zu bleiben.",
+                feat4_title: "Dynamische Widgets", feat4_desc: "Glassmorphism-Widgets, die wichtige Gebetsinformationen direkt auf deinen Startbildschirm bringen.",
+                footer_about_title: "ÜBER MICH", footer_about_desc: "Ahmad ist ein Softwareentwickler, der sich leidenschaftlich für die Entwicklung intelligenter Anwendungen einsetzt, die das Leben der Benutzer erleichtern.",
+                footer_copyright: "© 2026 Ahmad Aldarwish, Alle Rechte vorbehalten.", footer_contact: "Kontaktiere mich", footer_privacy: "Datenschutzerklärung", footer_terms: "Nutzungsbedingungen"
             }
         };
 
         function setLanguage(lang) {
-            document.getElementById('html-root').setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-            document.getElementById('html-root').setAttribute('lang', lang);
+            // حفظ اللغة في المتصفح
+            localStorage.setItem('preferredLang', lang);
             
+            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            document.documentElement.setAttribute('lang', lang);
+            
+            // تحديث النصوص
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[lang][key]) {
@@ -305,13 +322,40 @@
                 }
             });
 
+            // تحديث الأزرار
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
-                if(btn.textContent.toLowerCase() === lang) {
-                    btn.classList.add('active');
-                }
+                if(btn.textContent.toLowerCase() === lang) btn.classList.add('active');
             });
         }
+
+        // =====================================
+        // 2. نظام الوضع الليلي والفاتح
+        // =====================================
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            document.getElementById('theme-icon').textContent = newTheme === 'dark' ? 'light_mode' : 'dark_mode';
+            
+            // حفظ تفضيل المستخدم في المتصفح
+            localStorage.setItem('preferredTheme', newTheme);
+        }
+
+        // =====================================
+        // 3. التهيئة عند تحميل الصفحة
+        // =====================================
+        window.onload = () => {
+            // استرجاع الوضع الليلي إذا كان محفوظاً
+            const savedTheme = localStorage.getItem('preferredTheme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? 'light_mode' : 'dark_mode';
+
+            // استرجاع اللغة المحفوظة
+            const savedLang = localStorage.getItem('preferredLang') || 'ar';
+            setLanguage(savedLang);
+        };
     </script>
 </body>
 </html>
