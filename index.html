@@ -11,126 +11,155 @@
 
     <style>
         :root {
-            --md-sys-color-primary: #006d40;
-            --md-sys-color-background: #f8fafd;
-            --md-sys-color-surface: rgba(255, 255, 255, 0.85);
+            --md-sys-color-primary: #008f53;
+            --md-sys-color-background: #f0f4f8;
+            --md-sys-color-surface: rgba(255, 255, 255, 0.65);
             --md-sys-color-on-surface: #1a1c1e;
-            --text-muted: #555555;
-            --card-bg: rgba(255, 255, 255, 0.9);
-            --card-border: rgba(0, 109, 64, 0.1);
-            --glass-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.04);
-            --glass-blur: blur(20px);
+            --text-muted: #5a6066;
+            --card-border: rgba(255, 255, 255, 0.8);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+            --glass-blur: blur(24px);
         }
 
         [data-theme="dark"] {
             --md-sys-color-primary: #2bc07b;
-            --md-sys-color-background: #0b0d10;
-            --md-sys-color-surface: rgba(20, 22, 28, 0.85);
-            --md-sys-color-on-surface: #e2e2e9;
-            --text-muted: #a0a0b5;
-            --card-bg: rgba(30, 32, 40, 0.5);
-            --card-border: rgba(255, 255, 255, 0.05);
-            --glass-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4);
+            --md-sys-color-background: #090a0f;
+            --md-sys-color-surface: rgba(20, 22, 28, 0.5);
+            --md-sys-color-on-surface: #f1f1f4;
+            --text-muted: #9ba1a6;
+            --card-border: rgba(255, 255, 255, 0.08);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Roboto', sans-serif; background-color: var(--md-sys-color-background); color: var(--md-sys-color-on-surface); line-height: 1.7; transition: 0.4s; overflow-x: hidden; }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--md-sys-color-background); color: var(--md-sys-color-on-surface); line-height: 1.6; transition: 0.4s ease; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; position: relative;}
         html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
 
-        /* Header & Navigation */
-        header { background: var(--md-sys-color-surface); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--card-border); position: fixed; top: 0; width: 100%; z-index: 1000; padding: 15px 0; transition: 0.4s; }
-        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .logo { font-size: 22px; font-weight: 900; color: var(--md-sys-color-primary); text-decoration: none; letter-spacing: -0.5px; }
-        
-        .header-controls { display: flex; align-items: center; gap: 15px; }
-        .icon-btn { background: transparent; border: none; color: var(--md-sys-color-primary); cursor: pointer; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; transition: 0.3s; }
-        .icon-btn:hover { background: rgba(43, 192, 123, 0.15); }
+        /* الأشكال المضيئة في الخلفية لجمالية أعلى */
+        .bg-glow-1 { position: fixed; top: -10%; left: -10%; width: 50vw; height: 50vw; background: rgba(0, 143, 83, 0.15); filter: blur(100px); border-radius: 50%; z-index: -1; pointer-events: none; transition: 0.4s; }
+        .bg-glow-2 { position: fixed; bottom: -10%; right: -10%; width: 40vw; height: 40vw; background: rgba(0, 99, 155, 0.1); filter: blur(100px); border-radius: 50%; z-index: -1; pointer-events: none; transition: 0.4s; }
+        [data-theme="dark"] .bg-glow-1 { background: rgba(43, 192, 123, 0.12); }
+        [data-theme="dark"] .bg-glow-2 { background: rgba(108, 182, 255, 0.08); }
 
-        /* Side Menu (Hamburger) */
-        .side-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.5); z-index: 1001; opacity: 0; visibility: hidden; transition: 0.3s; }
+        /* الهيدر الأنيق */
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 20px 0; transition: 0.4s; }
+        header.scrolled { background: var(--md-sys-color-surface); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--card-border); padding: 12px 0; }
+        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 24px; font-weight: 900; color: var(--md-sys-color-primary); text-decoration: none; letter-spacing: -0.5px; }
+        
+        .header-controls { display: flex; align-items: center; gap: 10px; }
+        .icon-btn { background: var(--md-sys-color-surface); border: 1px solid var(--card-border); color: var(--md-sys-color-on-surface); cursor: pointer; display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; transition: 0.3s; backdrop-filter: blur(10px); }
+        .icon-btn:hover { background: var(--md-sys-color-primary); color: #fff; transform: translateY(-2px); border-color: transparent;}
+
+        /* القائمة الجانبية (Hamburger Menu) */
+        .side-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.4); z-index: 1001; opacity: 0; visibility: hidden; transition: 0.3s; backdrop-filter: blur(4px); }
         .side-menu-overlay.active { opacity: 1; visibility: visible; }
         
-        .side-menu { position: fixed; top: 0; right: -300px; width: 300px; height: 100vh; background: var(--md-sys-color-background); z-index: 1002; box-shadow: -5px 0 30px rgba(0,0,0,0.1); padding: 30px 20px; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; }
-        html[dir="rtl"] .side-menu { right: auto; left: -300px; box-shadow: 5px 0 30px rgba(0,0,0,0.1); }
-        
+        .side-menu { position: fixed; top: 0; right: -320px; width: 320px; height: 100vh; background: var(--md-sys-color-background); z-index: 1002; box-shadow: -10px 0 40px rgba(0,0,0,0.1); padding: 40px 30px; transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); display: flex; flex-direction: column; }
+        html[dir="rtl"] .side-menu { right: auto; left: -320px; box-shadow: 10px 0 40px rgba(0,0,0,0.1); }
         .side-menu.active { right: 0; }
         html[dir="rtl"] .side-menu.active { left: 0; right: auto; }
         
-        .close-menu { align-self: flex-end; background: none; border: none; font-size: 30px; color: var(--md-sys-color-on-surface); cursor: pointer; margin-bottom: 30px; }
-        .side-menu a { display: block; font-size: 1.2rem; font-weight: 700; color: var(--md-sys-color-on-surface); text-decoration: none; margin-bottom: 25px; transition: 0.3s; }
-        .side-menu a:hover { color: var(--md-sys-color-primary); padding-left: 10px; }
-        html[dir="rtl"] .side-menu a:hover { padding-left: 0; padding-right: 10px; }
+        .close-menu { align-self: flex-end; background: rgba(128,128,128,0.1); border: none; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--md-sys-color-on-surface); cursor: pointer; margin-bottom: 40px; transition: 0.3s; }
+        .close-menu:hover { background: var(--md-sys-color-primary); color: #fff; }
         
-        .lang-selector { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--card-border); display: flex; gap: 10px; flex-wrap: wrap; }
-        .lang-btn { background: transparent; border: 2px solid var(--md-sys-color-primary); color: var(--md-sys-color-primary); padding: 5px 14px; border-radius: 20px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .side-menu a { display: block; font-size: 1.2rem; font-weight: 700; color: var(--md-sys-color-on-surface); text-decoration: none; margin-bottom: 25px; transition: 0.3s; display: flex; align-items: center; gap: 15px; }
+        .side-menu a:hover { color: var(--md-sys-color-primary); transform: translateX(-5px); }
+        html[dir="rtl"] .side-menu a:hover { transform: translateX(5px); }
+        
+        .lang-selector { margin-top: auto; padding-top: 30px; border-top: 1px solid var(--card-border); display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;}
+        .lang-btn { background: transparent; border: 2px solid var(--md-sys-color-primary); color: var(--md-sys-color-primary); padding: 8px 18px; border-radius: 20px; font-weight: bold; cursor: pointer; transition: 0.3s; flex: 1;}
         .lang-btn.active, .lang-btn:hover { background: var(--md-sys-color-primary); color: var(--md-sys-color-background); }
 
-        /* Main Content */
-        .container { max-width: 1000px; margin: 120px auto 60px; padding: 0 20px; }
+        /* المحتوى الرئيسي */
+        .container { max-width: 900px; margin: 150px auto 60px; padding: 0 20px; flex: 1; display: flex; flex-direction: column; align-items: center; }
         
-        .hero { text-align: center; margin-bottom: 80px; }
-        .hero h1 { font-size: 3.5rem; color: var(--md-sys-color-on-surface); font-weight: 900; margin-bottom: 20px; letter-spacing: -1px; }
+        .hero { text-align: center; margin-bottom: 80px; width: 100%; }
+        .hero h1 { font-size: 3.5rem; color: var(--md-sys-color-on-surface); font-weight: 900; margin-bottom: 20px; letter-spacing: -1px; line-height: 1.2;}
         .hero h1 span { color: var(--md-sys-color-primary); }
-        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.8; }
+        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto; line-height: 1.8; }
 
-        /* About Section */
-        #about { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 30px; padding: 40px; margin-bottom: 80px; box-shadow: var(--glass-shadow); backdrop-filter: var(--glass-blur); }
-        .section-title { font-size: 1.5rem; color: var(--md-sys-color-primary); font-weight: 900; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
-        #about p { color: var(--md-sys-color-on-surface); font-size: 1.1rem; line-height: 1.9; }
+        /* بطاقة المشروع المميز الأنيقة */
+        .featured-wrapper { width: 100%; max-width: 800px; position: relative; }
+        .section-tag { font-size: 0.9rem; font-weight: 900; color: var(--md-sys-color-primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; text-align: left; display: block;}
+        html[dir="rtl"] .section-tag { text-align: right; }
 
-        /* Featured App */
-        .featured-app-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 30px; padding: 40px; display: flex; align-items: center; gap: 40px; transition: 0.4s; box-shadow: var(--glass-shadow); text-decoration: none; backdrop-filter: var(--glass-blur); position: relative; overflow: hidden; }
-        .featured-app-card:hover { transform: translateY(-10px); border-color: var(--md-sys-color-primary); box-shadow: 0 20px 50px rgba(0, 109, 64, 0.15); }
+        .featured-app-card { background: var(--md-sys-color-surface); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--card-border); border-radius: 32px; padding: 40px; display: flex; align-items: center; gap: 40px; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); box-shadow: var(--glass-shadow); text-decoration: none; position: relative; overflow: hidden; }
+        .featured-app-card:hover { transform: translateY(-10px); border-color: var(--md-sys-color-primary); box-shadow: 0 20px 50px rgba(0, 143, 83, 0.15); }
         [data-theme="dark"] .featured-app-card:hover { box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
         
-        .app-icon { width: 130px; height: 130px; border-radius: 30px; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.1); }
+        /* الصورة يتم استدعاؤها من الملف الرئيسي /logo.png */
+        .app-icon { width: 140px; height: 140px; border-radius: 35px; object-fit: cover; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.2); transition: 0.5s; }
+        .featured-app-card:hover .app-icon { transform: scale(1.05) rotate(-2deg); }
+        
         .app-info { flex: 1; }
-        .app-info h3 { font-size: 2rem; color: var(--md-sys-color-primary); margin-bottom: 15px; font-weight: 900; display: flex; align-items: center; gap: 15px; }
-        .badge { font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; font-weight: bold; background-color: #f59e0b; color: #fff; letter-spacing: 0.5px; }
-        .app-info p { color: var(--text-muted); font-size: 1.15rem; }
+        .app-title-row { display: flex; align-items: center; gap: 15px; margin-bottom: 12px; flex-wrap: wrap;}
+        .app-info h3 { font-size: 2.2rem; color: var(--md-sys-color-on-surface); font-weight: 900; margin: 0; }
+        .badge { font-size: 0.8rem; padding: 6px 14px; border-radius: 20px; font-weight: bold; background-color: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); letter-spacing: 0.5px; }
+        .app-info p { color: var(--text-muted); font-size: 1.15rem; margin: 0;}
 
-        .btn-view { display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px; background: var(--md-sys-color-primary); color: white; border-radius: 50%; transition: 0.3s; }
-        .featured-app-card:hover .btn-view { transform: scale(1.1) translateX(5px); }
-        html[dir="rtl"] .featured-app-card:hover .btn-view { transform: scale(1.1) translateX(-5px); }
+        .btn-arrow { display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; background: var(--md-sys-color-primary); color: white; border-radius: 50%; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 143, 83, 0.3); flex-shrink: 0;}
+        .featured-app-card:hover .btn-arrow { transform: scale(1.1); background: var(--md-sys-color-on-surface); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+        html[dir="rtl"] .btn-arrow span { transform: rotate(180deg); }
 
-        /* Minimal Footer */
-        footer { text-align: center; padding: 40px 20px; margin-top: 50px; border-top: 1px solid var(--card-border); }
+        /* الفوتر المصغر والاحترافي */
+        footer { text-align: center; padding: 40px 20px; width: 100%; margin-top: auto; position: relative; z-index: 10;}
         .social-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
-        .social-icon { color: var(--text-muted); font-size: 1.5rem; transition: 0.3s; text-decoration: none; }
-        .social-icon:hover { color: var(--md-sys-color-primary); transform: translateY(-3px); }
+        .social-icon { color: var(--text-muted); font-size: 1.6rem; transition: 0.3s; text-decoration: none; }
+        .social-icon:hover { color: var(--md-sys-color-primary); transform: translateY(-4px); }
         .copyright { color: var(--text-muted); font-size: 0.95rem; }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .featured-app-card { flex-direction: column; text-align: center; padding: 30px 20px; gap: 20px; }
-            .btn-view { width: 100%; border-radius: 15px; margin-top: 15px; }
+            .hero h1 { font-size: 2.6rem; }
+            .featured-app-card { flex-direction: column; text-align: center; padding: 40px 25px; gap: 25px; }
+            .app-title-row { justify-content: center; }
+            .btn-arrow { width: 100%; border-radius: 20px; height: 50px; margin-top: 10px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <!-- خلفيات مضيئة لجمالية التصميم -->
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <header id="main-header">
         <div class="nav-container">
             <a href="/" class="logo" data-i18n="dev_name">Ahmad Aldarwish</a>
             <div class="header-controls">
-                <button id="theme-toggle" class="icon-btn" onclick="toggleTheme()">
+                <button id="theme-toggle" class="icon-btn" onclick="toggleTheme()" title="Toggle Theme">
                     <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
                 </button>
-                <button class="icon-btn" onclick="toggleMenu()">
-                    <span class="material-symbols-outlined">menu</span>
+                <button class="icon-btn" onclick="toggleMenu()" title="Menu">
+                    <span class="material-symbols-outlined">menu_open</span>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Hamburger Menu -->
+    <!-- القائمة الجانبية -->
     <div class="side-menu-overlay" id="menu-overlay" onclick="toggleMenu()"></div>
     <div class="side-menu" id="side-menu">
-        <button class="close-menu" onclick="toggleMenu()">&times;</button>
-        <a href="#about" onclick="toggleMenu()" data-i18n="menu_about">About Me</a>
-        <a href="/privacy" data-i18n="menu_privacy">Privacy Policy</a>
-        <a href="/terms" data-i18n="menu_terms">Terms of Use</a>
-        <a href="/donate" data-i18n="menu_donate" style="color: #f59e0b;">Support My Work</a>
+        <button class="close-menu" onclick="toggleMenu()">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        
+        <a href="#about" onclick="toggleMenu()">
+            <span class="material-symbols-outlined">person</span>
+            <span data-i18n="menu_about">About Me</span>
+        </a>
+        <a href="/wasl/privacy" onclick="toggleMenu()">
+            <span class="material-symbols-outlined">shield</span>
+            <span data-i18n="menu_privacy">Privacy Policy</span>
+        </a>
+        <a href="/wasl/terms" onclick="toggleMenu()">
+            <span class="material-symbols-outlined">gavel</span>
+            <span data-i18n="menu_terms">Terms of Use</span>
+        </a>
+        <a href="/donate" onclick="toggleMenu()" style="color: #f59e0b;">
+            <span class="material-symbols-outlined">favorite</span>
+            <span data-i18n="menu_donate">Support My Work</span>
+        </a>
         
         <div class="lang-selector">
             <button class="lang-btn" onclick="setLanguage('en')">EN</button>
@@ -139,34 +168,33 @@
         </div>
     </div>
 
-    <div class="container">
+    <!-- المحتوى -->
+    <div class="container" id="about">
         <div class="hero">
-            <h1 data-i18n="hero_title">Hi, I'm <span>Ahmad</span> 👋</h1>
-            <p data-i18n="hero_desc">A software developer dedicated to crafting smart, clean, and highly functional applications that elevate digital experiences.</p>
+            <h1 data-i18n="hero_title">Crafting <span>digital</span> experiences.</h1>
+            <p data-i18n="hero_desc">I'm Ahmad, a software developer dedicated to building smart, clean, and highly functional applications that bridge the gap between complex technology and everyday human needs.</p>
         </div>
 
-        <div id="about">
-            <h2 class="section-title" data-i18n="about_title">About Me</h2>
-            <p data-i18n="about_desc">I specialize in building modern applications with a strong focus on UI/UX, clean code architecture, and user privacy. My goal is to bridge the gap between complex technology and everyday human needs, creating tools that are both powerful and incredibly easy to use.</p>
+        <div class="featured-wrapper">
+            <span class="section-tag" data-i18n="featured_title">Featured Project</span>
+            <a href="/wasl" class="featured-app-card">
+                <!-- مسار الصورة هنا معدل ليكون /logo.png -->
+                <img src="/logo.png" alt="Wasl App" class="app-icon">
+                <div class="app-info">
+                    <div class="app-title-row">
+                        <h3 data-i18n="app_title">Wasl App</h3>
+                        <span class="badge" data-i18n="badge_dev">In Development</span>
+                    </div>
+                    <p data-i18n="app_desc">Your ultimate smart Islamic companion. Fusing cutting-edge cast technology with Material Design to organize your spiritual journey.</p>
+                </div>
+                <div class="btn-arrow">
+                    <span class="material-symbols-outlined" id="arrow-icon">arrow_forward</span>
+                </div>
+            </a>
         </div>
-
-        <h2 class="section-title" data-i18n="featured_title" style="text-align: center; margin-bottom: 30px;">Featured Project</h2>
-        
-        <a href="/wasl" class="featured-app-card">
-            <img src="/wasl/logo.png" alt="Wasl App" class="app-icon">
-            <div class="app-info">
-                <h3>
-                    <span data-i18n="app_title">Wasl App</span>
-                    <span class="badge" data-i18n="badge_dev">In Development</span>
-                </h3>
-                <p data-i18n="app_desc">Your ultimate smart Islamic companion. Fusing cutting-edge cast technology with Material Design to organize your spiritual journey seamlessly.</p>
-            </div>
-            <div class="btn-view">
-                <span class="material-symbols-outlined" id="arrow-icon">arrow_forward</span>
-            </div>
-        </a>
     </div>
 
+    <!-- فوتر بسيط -->
     <footer>
         <div class="social-links">
             <a href="#" class="social-icon" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
@@ -176,23 +204,30 @@
     </footer>
 
     <script>
+        // تأثير تظليل الهيدر عند النزول بالصفحة
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
         const translations = {
             en: {
                 dev_name: "Ahmad Aldarwish", menu_about: "About Me", menu_privacy: "Privacy Policy", menu_terms: "Terms of Use", menu_donate: "Support My Work",
-                hero_title: "Hi, I'm <span>Ahmad</span> 👋", hero_desc: "A software developer dedicated to crafting smart, clean, and highly functional applications that elevate digital experiences.",
-                about_title: "About Me", about_desc: "I specialize in building modern applications with a strong focus on UI/UX, clean code architecture, and user privacy. My goal is to bridge the gap between complex technology and everyday human needs, creating tools that are both powerful and incredibly easy to use.",
-                featured_title: "Featured Project", app_title: "Wasl App", badge_dev: "In Development", app_desc: "Your ultimate smart Islamic companion. Fusing cutting-edge cast technology with Material Design to organize your spiritual journey seamlessly.", footer_copy: "© 2026 Ahmad Aldarwish. All Rights Reserved."
+                hero_title: "Crafting <span>digital</span> experiences.", hero_desc: "I'm Ahmad, a software developer dedicated to building smart, clean, and highly functional applications that bridge the gap between complex technology and everyday human needs.",
+                featured_title: "Featured Project", app_title: "Wasl App", badge_dev: "In Development", app_desc: "Your ultimate smart Islamic companion. Fusing cutting-edge cast technology with Material Design to organize your spiritual journey.", footer_copy: "© 2026 Ahmad Aldarwish. All Rights Reserved."
             },
             ar: {
-                dev_name: "أحمد الدرويش", menu_about: "حول", menu_privacy: "سياسة الخصوصية", menu_terms: "شروط الاستخدام", menu_donate: "ادعم عملي",
-                hero_title: "أهلاً، أنا <span>أحمد</span> 👋", hero_desc: "مطور برمجيات أهتم بصناعة تطبيقات ذكية، نظيفة، وذات أداء عالٍ للارتقاء بالتجربة الرقمية اليومية.",
-                about_title: "نبذة عني", about_desc: "أتخصص في بناء تطبيقات حديثة مع تركيز قوي على واجهة وتجربة المستخدم، وهيكلة الكود النظيفة، وخصوصية البيانات. هدفي هو سد الفجوة بين التكنولوجيا المعقدة والاحتياجات اليومية، لإنشاء أدوات قوية وسهلة الاستخدام.",
+                dev_name: "أحمد الدرويش", menu_about: "نبذة عني", menu_privacy: "سياسة الخصوصية", menu_terms: "شروط الاستخدام", menu_donate: "ادعم عملي",
+                hero_title: "صناعة تجارب <span>رقمية</span> استثنائية.", hero_desc: "أنا أحمد، مطور برمجيات مكرس لبناء تطبيقات ذكية، نظيفة، وعالية الأداء تسد الفجوة بين التكنولوجيا المعقدة والاحتياجات البشرية اليومية.",
                 featured_title: "المشروع المميز", app_title: "تطبيق وَصْـل", badge_dev: "قيد التطوير", app_desc: "رفيقك الإسلامي الذكي. يجمع بين تقنية البث المتقدمة والتصميم العصري لتنظيم صلواتك وعباداتك بتجربة رقمية فريدة.", footer_copy: "© 2026 أحمد الدرويش. جميع الحقوق محفوظة."
             },
             de: {
                 dev_name: "Ahmad Aldarwish", menu_about: "Über mich", menu_privacy: "Datenschutzerklärung", menu_terms: "Nutzungsbedingungen", menu_donate: "Unterstütze meine Arbeit",
-                hero_title: "Hallo, ich bin <span>Ahmad</span> 👋", hero_desc: "Ein Softwareentwickler, der sich der Entwicklung intelligenter, sauberer und hochfunktionaler Anwendungen verschrieben hat.",
-                about_title: "Über mich", about_desc: "Ich bin spezialisiert auf die Entwicklung moderner Anwendungen mit starkem Fokus auf UI/UX, sauberer Code-Architektur und Datenschutz. Mein Ziel ist es, leistungsstarke und dennoch einfach zu bedienende Tools zu entwickeln.",
+                hero_title: "Ich schaffe <span>digitale</span> Erlebnisse.", hero_desc: "Ich bin Ahmad, ein Softwareentwickler, der sich der Entwicklung intelligenter, sauberer und hochfunktionaler Anwendungen widmet, die komplexe Technologie mit alltäglichen Bedürfnissen verbinden.",
                 featured_title: "Vorgestelltes Projekt", app_title: "Wasl App", badge_dev: "In Entwicklung", app_desc: "Dein intelligenter islamischer Begleiter. Verbindet fortschrittliche Cast-Technologie mit modernem Design für deine spirituelle Reise.", footer_copy: "© 2026 Ahmad Aldarwish. Alle Rechte vorbehalten."
             }
         };
@@ -201,9 +236,6 @@
             localStorage.setItem('preferredLang', lang);
             document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
             document.documentElement.setAttribute('lang', lang);
-            
-            const arrowIcon = document.getElementById('arrow-icon');
-            if (arrowIcon) arrowIcon.style.transform = lang === 'ar' ? 'rotate(180deg)' : 'rotate(0deg)';
             
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
@@ -240,3 +272,4 @@
     </script>
 </body>
 </html>
+
