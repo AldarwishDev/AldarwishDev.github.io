@@ -1,83 +1,198 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أحمد الدرويش | الدرويش ديف</title>
-    <!-- استدعاء خط تجوال الاحترافي -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>أحمد الدرويش | Ahmad Aldarwish</title>
+    
+    <!-- الخطوط: تجوال للعربية، وروبوتو للغات اللاتينية -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+
     <style>
-        /* إعدادات التصميم الأساسية */
-        body {
-            font-family: 'Tajawal', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7f6;
-            color: #333;
-            line-height: 1.6;
+        /* نظام ألوان Material Design 3 Expressive */
+        :root {
+            --md-sys-color-primary: #006d40; /* Forest Green */
+            --md-sys-color-on-primary: #ffffff;
+            --md-sys-color-secondary: #00639b; /* Ocean Blue */
+            --md-sys-color-tertiary: #ffba00; /* Amber */
+            --md-sys-color-background: #f4f8f5;
+            --md-sys-color-surface: rgba(255, 255, 255, 0.75); /* Glassmorphism Base */
+            --md-sys-color-on-surface: #1a1c1e;
+            
+            --border-radius-expressive: 28px;
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+            --glass-blur: blur(16px);
         }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        /* تصميم الشريط العلوي */
+        body {
+            font-family: 'Tajawal', 'Roboto', sans-serif;
+            background-color: var(--md-sys-color-background);
+            color: var(--md-sys-color-on-surface);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        /* التحكم باتجاه النص حسب اللغة */
+        html[dir="ltr"] body { font-family: 'Roboto', sans-serif; }
+        html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
+
+        /* الشريط العلوي */
         header {
-            background-color: #1a252f;
-            color: #ffffff;
-            padding: 15px 0;
+            background: var(--md-sys-color-surface);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid rgba(255,255,255,0.5);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px 0;
         }
         
         .nav-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
         }
-        
-        .logo { font-size: 24px; font-weight: 900; color: #3498db; }
-        nav a { color: #ffffff; text-decoration: none; margin-right: 20px; font-weight: bold; transition: color 0.3s;}
-        nav a:hover { color: #3498db; }
-        
-        /* تصميم الأقسام المشتركة */
-        section {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 40px 20px;
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-        
-        h1, h2 { color: #2c3e50; }
-        h2 { margin-bottom: 20px; border-bottom: 2px solid #3498db; display: inline-block; padding-bottom: 5px; }
-        
-        /* الأزرار */
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #3498db;
-            color: white;
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--md-sys-color-primary);
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: background 0.3s;
         }
-        .btn:hover { background-color: #2980b9; }
-        .btn-donate { background-color: #27ae60; }
-        .btn-donate:hover { background-color: #2ecc71; }
-        
-        /* تذييل الصفحة */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #1a252f;
-            color: #bdc3c7;
-            margin-top: 40px;
+
+        /* مبدل اللغات */
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+        }
+        .lang-btn {
+            background: transparent;
+            border: 2px solid var(--md-sys-color-primary);
+            color: var(--md-sys-color-primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--md-sys-color-primary);
+            color: white;
+        }
+
+        /* الحاوية الرئيسية */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* قسم تطبيق وصل - Material 3 Expressive */
+        .wasl-section {
+            background: var(--md-sys-color-surface);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: var(--border-radius-expressive);
+            box-shadow: var(--glass-shadow);
+            padding: 40px;
+            margin-bottom: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .wasl-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .wasl-logo-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 35px;
+            object-fit: cover;
+            box-shadow: 0 10px 25px rgba(0, 109, 64, 0.2);
+            border: 4px solid white;
+        }
+
+        .wasl-title-area h1 {
+            font-size: 2.5rem;
+            color: var(--md-sys-color-primary);
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+
+        .wasl-title-area p {
+            font-size: 1.2rem;
+            color: #444;
+        }
+
+        /* شبكة مميزات التطبيق */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            padding: 25px;
+            transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: var(--md-sys-color-secondary);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--md-sys-color-primary);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 30px;
+            transition: background 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 109, 64, 0.3);
+        }
+
+        .btn-download:hover { background-color: #004d2d; }
+
+        @media (max-width: 768px) {
+            .wasl-header { justify-content: center; text-align: center; }
+            .wasl-title-area h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -86,40 +201,128 @@
     <!-- الشريط العلوي -->
     <header>
         <div class="nav-container">
-            <div class="logo">الدرويش ديف</div>
-            <nav>
-                <a href="#about">من أنا</a>
-                <a href="#wasel">تطبيق وصل</a>
-                <a href="#donate">ادعمنا (تبرع)</a>
-            </nav>
+            <a href="#" class="logo" data-i18n="dev_name">أحمد الدرويش</a>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="setLanguage('ar')">AR</button>
+                <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+                <button class="lang-btn" onclick="setLanguage('de')">DE</button>
+            </div>
         </div>
     </header>
 
-    <!-- قسم التعريف الشخصي -->
-    <section id="about">
-        <h1>أهلاً بك في موقعي! أنا أحمد الدرويش</h1>
-        <p>مطور برمجيات (الدرويش ديف) مهتم بصناعة حلول تقنية وتطبيقات تسهل حياة الناس. أسعى دائماً لتعلم كل ما هو جديد في عالم البرمجة وتقديم قيمة حقيقية للمستخدمين.</p>
-    </section>
+    <div class="container">
+        <!-- قسم تطبيق وصل -->
+        <section class="wasl-section">
+            <div class="wasl-header">
+                <!-- استدعاء الأيقونة بالاسم الدقيق الذي طلبته -->
+                <img src="app_logo_damascus .jpg" alt="Wasl Logo" class="wasl-logo-img">
+                <div class="wasl-title-area">
+                    <h1 data-i18n="wasl_title">وَصْـل | رفيقك الروحي الذكي</h1>
+                    <p data-i18n="wasl_tagline">نرتقي بتجربة صلاتك من خلال التكنولوجيا السلسة والتصميم العصري.</p>
+                    <a href="#" class="btn-download">
+                        <span class="material-symbols-outlined">android</span>
+                        <span data-i18n="btn_soon">قريباً على Google Play</span>
+                    </a>
+                </div>
+            </div>
 
-    <!-- قسم تطبيق وصل -->
-    <section id="wasel">
-        <h2>تطبيق وصل 🚀</h2>
-        <p>تطبيق "وصل" هو مشروعي الأحدث. يهدف التطبيق إلى [اكتب هنا سطرين عن فكرة التطبيق، مثلاً: تسهيل عملية التوصيل أو ربط المستخدمين بالخدمات].</p>
-        <p>تم تصميم التطبيق ليكون سهل الاستخدام وسريع الأداء لتلبية احتياجاتكم اليومية.</p>
-        <a href="#" class="btn">حمل التطبيق الآن</a>
-    </section>
+            <div class="features-grid">
+                <!-- ميزة 1 -->
+                <div class="feature-card">
+                    <span class="material-symbols-outlined feature-icon">cast_connected</span>
+                    <h3 data-i18n="feat1_title">تقنية البث الذكي</h3>
+                    <p data-i18n="feat1_desc">بث الأذان تلقائياً إلى الأجهزة الذكية وشاشات التلفاز على شبكتك باختيار مؤذنك المفضل.</p>
+                </div>
+                <!-- ميزة 2 -->
+                <div class="feature-card">
+                    <span class="material-symbols-outlined feature-icon">monitoring</span>
+                    <h3 data-i18n="feat2_title">تتبع العبادات</h3>
+                    <p data-i18n="feat2_desc">حافظ على استمراريتك مع نظام "الستريك" المدمج والإشعارات الذكية للتذكير بالصلاة.</p>
+                </div>
+                <!-- ميزة 3 -->
+                <div class="feature-card">
+                    <span class="material-symbols-outlined feature-icon">do_not_disturb_on</span>
+                    <h3 data-i18n="feat3_title">وضع التركيز</h3>
+                    <p data-i18n="feat3_desc">حجب التطبيقات المشتتة للانتباه تلقائياً أثناء أوقات الصلاة لضمان خشوعك وحضورك.</p>
+                </div>
+                <!-- ميزة 4 -->
+                <div class="feature-card">
+                    <span class="material-symbols-outlined feature-icon">widgets</span>
+                    <h3 data-i18n="feat4_title">ويدجت ديناميكي</h3>
+                    <p data-i18n="feat4_desc">أدوات ذكية بتصميم زجاجي عصري لعرض أوقات الصلاة والتاريخ الهجري على شاشتك الرئيسية.</p>
+                </div>
+            </div>
+        </section>
+    </div>
 
-    <!-- قسم التبرع -->
-    <section id="donate">
-        <h2>ادعم تطوير مشاريعي ❤️</h2>
-        <p>إذا كنت تجد قيمة في التطبيقات والأدوات التي أقدمها، يمكنك دعمي للاستمرار في تطوير المزيد من المشاريع المجانية والمفيدة.</p>
-        <a href="#" class="btn btn-donate">اضغط هنا للتبرع</a>
-    </section>
+    <!-- جافا سكريبت للتحكم باللغات -->
+    <script>
+        const translations = {
+            ar: {
+                dev_name: "أحمد الدرويش",
+                wasl_title: "وَصْـل | رفيقك الروحي الذكي",
+                wasl_tagline: "نرتقي بتجربة صلاتك من خلال التكنولوجيا السلسة والتصميم العصري.",
+                btn_soon: "قريباً على Google Play",
+                feat1_title: "تقنية البث الذكي",
+                feat1_desc: "بث الأذان تلقائياً إلى الأجهزة الذكية وشاشات التلفاز على شبكتك باختيار مؤذنك المفضل.",
+                feat2_title: "تتبع العبادات",
+                feat2_desc: "حافظ على استمراريتك مع نظام (الستريك) المدمج والإشعارات الذكية للتذكير بالصلاة.",
+                feat3_title: "وضع التركيز",
+                feat3_desc: "حجب التطبيقات المشتتة للانتباه تلقائياً أثناء أوقات الصلاة لضمان خشوعك وحضورك.",
+                feat4_title: "ويدجت ديناميكي",
+                feat4_desc: "أدوات ذكية بتصميم زجاجي عصري لعرض أوقات الصلاة والتاريخ الهجري على شاشتك الرئيسية."
+            },
+            en: {
+                dev_name: "Ahmad Aldarwish",
+                wasl_title: "Wasl | Smart Spiritual Companion",
+                wasl_tagline: "Elevating your prayer experience through seamless technology and modern design.",
+                btn_soon: "Coming soon on Google Play",
+                feat1_title: "Smart Cast Technology",
+                feat1_desc: "Automatically stream the Adhan to your Google Cast-enabled devices and smart TVs.",
+                feat2_title: "Intelligent Tracking",
+                feat2_desc: "Stay consistent with your worship using the built-in tracker and smart notifications.",
+                feat3_title: "Prayer Focus Mode",
+                feat3_desc: "Automatically block distracting apps during prayer windows to ensure you remain present.",
+                feat4_title: "Dynamic Widgets",
+                feat4_desc: "Glassmorphism widgets that bring essential prayer info directly to your home screen."
+            },
+            de: {
+                dev_name: "Ahmad Aldarwish",
+                wasl_title: "Wasl | Dein spiritueller Begleiter",
+                wasl_tagline: "Verbessere dein Gebetserlebnis durch nahtlose Technologie und modernes Design.",
+                btn_soon: "Demnächst bei Google Play",
+                feat1_title: "Smart Cast Technologie",
+                feat1_desc: "Streame den Adhan automatisch auf deine Google Cast-fähigen Geräte und Smart-TVs.",
+                feat2_title: "Intelligentes Tracking",
+                feat2_desc: "Bleibe konsequent bei deinem Gebet mit dem integrierten Tracker und intelligenten Benachrichtigungen.",
+                feat3_title: "Gebets-Fokusmodus",
+                feat3_desc: "Blockiere automatisch ablenkende Apps während der Gebetszeiten, um konzentriert zu bleiben.",
+                feat4_title: "Dynamische Widgets",
+                feat4_desc: "Glassmorphism-Widgets, die wichtige Gebetsinformationen direkt auf deinen Startbildschirm bringen."
+            }
+        };
 
-    <!-- الفوتر -->
-    <footer>
-        <p>جميع الحقوق محفوظة &copy; 2026 - أحمد الدرويش (الدرويش ديف)</p>
-    </footer>
+        function setLanguage(lang) {
+            // تغيير اتجاه الصفحة
+            document.getElementById('html-root').setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            document.getElementById('html-root').setAttribute('lang', lang);
+            
+            // تحديث النصوص
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
 
+            // تحديث أزرار اللغة
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.textContent.toLowerCase() === lang) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
