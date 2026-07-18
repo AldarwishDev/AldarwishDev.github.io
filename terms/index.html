@@ -39,6 +39,9 @@
         
         .content-card h2 { color: var(--accent); font-size: 1.4rem; margin-top: 30px; margin-bottom: 15px; font-family: var(--code-font); }
         .content-card p { font-size: 1.1rem; color: var(--text-sec); line-height: 1.8; margin-bottom: 15px; }
+        .content-card ul { margin-inline-start: 25px; margin-bottom: 15px; }
+        .content-card li { font-size: 1.1rem; color: var(--text-sec); margin-bottom: 8px; line-height: 1.8;}
+        .content-card .last-updated { font-weight: bold; color: var(--text-main); margin-bottom: 20px; }
 
         /* Footer */
         footer { padding: 40px 20px; border-top: 1px solid var(--border-color); margin-top: 40px; text-align: center; }
@@ -66,58 +69,99 @@
     </header>
 
     <div class="container">
-        <!-- الوسم البرمجي والعنوان لصفحة الشروط -->
         <span class="section-tag">/* TERMS OF USE */</span>
-        <h1 data-i18n="title">شروط استخدام الموقع</h1>
+        <h1 data-i18n="title">شروط الاستخدام</h1>
         
         <div class="content-card">
-            <p data-i18n="intro">باستخدامك لموقعي الشخصي، فإنك توافق على الشروط البسيطة التالية:</p>
+            <p class="last-updated" data-i18n="last_updated"></p>
+            <p data-i18n="intro"></p>
             
-            <h2 data-i18n="h1">// الملكية الفكرية</h2>
-            <p data-i18n="p1">جميع التصاميم، الأكواد، والنصوص المعروضة في هذا الموقع هي ملكية خاصة للمطور أحمد الدرويش. لا يُسمح بنسخ أو إعادة استخدام أي جزء من الموقع لأغراض تجارية دون إذن مسبق.</p>
+            <h2 data-i18n="h1"></h2>
+            <div data-i18n="p1"></div>
             
-            <h2 data-i18n="h2">// التطبيقات المشار إليها</h2>
-            <p data-i18n="p2">التطبيقات المعروضة في الموقع (مثل تطبيق وصل) لها سياسات خصوصية وشروط استخدام منفصلة خاصة بها، يُرجى مراجعتها داخل الصفحات المخصصة لكل تطبيق.</p>
+            <h2 data-i18n="h2"></h2>
+            <div data-i18n="p2"></div>
             
-            <h2 data-i18n="h3">// إخلاء المسؤولية</h2>
-            <p data-i18n="p3">المعلومات الواردة في هذا الموقع مقدمة "كما هي" لأغراض العرض والتعريف. المطور غير مسؤول عن أي أضرار قد تنتج عن استخدام الروابط الخارجية المدرجة في الموقع.</p>
+            <h2 data-i18n="h3"></h2>
+            <div data-i18n="p3"></div>
+
+            <h2 data-i18n="h4"></h2>
+            <div data-i18n="p4"></div>
+
+            <h2 data-i18n="h5"></h2>
+            <div data-i18n="p5"></div>
+
+            <h2 data-i18n="h6"></h2>
+            <div data-i18n="p6"></div>
+
+            <h2 data-i18n="h7"></h2>
+            <div data-i18n="p7"></div>
+
+            <h2 data-i18n="h8"></h2>
+            <div data-i18n="p8"></div>
+
+            <h2 data-i18n="h9"></h2>
+            <div data-i18n="p9"></div>
         </div>
     </div>
 
     <footer>
         <div class="social-links">
-            <!-- ضع رابط حسابك في إكس (تويتر) هنا -->
             <a href="YOUR_X_LINK" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-            <!-- ضع رابط حسابك في جيت هاب هنا -->
             <a href="YOUR_GITHUB_LINK" title="GitHub"><i class="fa-brands fa-github"></i></a>
         </div>
         <p class="copyright">© 2026 Ahmad.dev</p>
     </footer>
 
     <script>
-        // نصوص الترجمة الخاصة بصفحة "شروط الاستخدام" حصراً
         const translations = {
             ar: { 
                 back: "العودة للرئيسية", 
-                title: "شروط استخدام الموقع", 
-                intro: "باستخدامك لموقعي الشخصي، فإنك توافق على الشروط البسيطة التالية:", 
-                h1: "// الملكية الفكرية", 
-                p1: "جميع التصاميم، الأكواد، والنصوص المعروضة في هذا الموقع هي ملكية خاصة للمطور أحمد الدرويش. لا يُسمح بنسخ أو إعادة استخدام أي جزء من الموقع لأغراض تجارية دون إذن مسبق.", 
-                h2: "// التطبيقات المشار إليها", 
-                p2: "التطبيقات المعروضة في الموقع (مثل تطبيق وصل) لها سياسات خصوصية وشروط استخدام منفصلة خاصة بها، يُرجى مراجعتها داخل الصفحات المخصصة لكل تطبيق.", 
-                h3: "// إخلاء المسؤولية", 
-                p3: "المعلومات الواردة في هذا الموقع مقدمة 'كما هي' لأغراض العرض والتعريف. المطور غير مسؤول عن أي أضرار قد تنتج عن استخدام الروابط الخارجية المدرجة في الموقع." 
+                title: "شروط الاستخدام", 
+                last_updated: "آخر تحديث: يوليو 2026",
+                intro: "بتحميلك أو استخدامك لتطبيق وصل (Wasl)، تنطبق عليك هذه الشروط تلقائياً. يُرجى قراءتها بعناية قبل استخدام التطبيق.", 
+                h1: "// 1. الترخيص والاستخدام", 
+                p1: "<p>يمنحك المطور أحمد الدرويش ترخيصاً شخصياً وغير حصري وغير قابل للتحويل لاستخدام تطبيق وصل على أجهزتك الشخصية المتوافقة، بما في ذلك هواتف Android وساعات Wear OS.</p><ul><li>لا يُسمح لك بنسخ التطبيق أو تعديله أو استخدام علاماتنا التجارية بأي شكل من الأشكال.</li><li>لا يُسمح لك بمحاولة استخراج الكود المصدري للتطبيق أو ترجمته الهندسيّة.</li></ul>", 
+                h2: "// 2. دقة المواقيت (إخلاء مسؤولية)", 
+                p2: "<p>يقوم التطبيق بحساب أوقات الصلاة بناءً على موقعك باستخدام المعايير العالمية. ومع ذلك:</p><ul><li>قد تحدث اختلافات طفيفة بسبب عوامل جغرافية أو فقهية.</li><li>أنت تقر وتوافق على أن التحقق من أوقات الصلاة الفعلية هو مسؤوليتك. المطور غير مسؤول عن أي حسابات غير دقيقة.</li></ul>", 
+                h3: "// 3. تطبيق ساعات Wear OS", 
+                p3: "<p>يتضمن تطبيق وصل إصداراً مخصصاً لساعات Wear OS. يتزامن هذا التطبيق مع هاتفك لتوفير أوقات الصلاة والواجهات المصغرة (Tiles) والإضافات (Complications). باستخدامك لتطبيق Wear OS، فإنك توافق على مزامنة البيانات (مثل أوقات الصلاة والإعدادات) بين هاتفك وساعتك عبر طبقة بيانات Google Wearable.</p>",
+                h4: "// 4. الدعم والمشتريات داخل التطبيق",
+                p4: "<p>يوفر تطبيق وصل ميزة 'دعم المشروع' الاختيارية عبر المشتريات داخل تطبيق Google Play.</p><ul><li>هذه المساهمات طوعية وتهدف إلى دعم التطوير المستمر للتطبيق وصيانته.</li><li>تتم معالجة جميع المعاملات بشكل آمن بواسطة Google Play.</li><li>لا تفتح المساهمات محتوى 'مميز' إضافي، حيث يظل تطبيق وصل جهداً غير ربحي للمجتمع.</li><li>تخضع عمليات استرداد الأموال لهذه المساهمات لسياسات الاسترداد الخاصة بـ Google Play.</li></ul>",
+                h5: "// 5. الصلاحيات ووضع التركيز",
+                p5: "<p>يعتمد التطبيق على بعض الصلاحيات مثل المنبهات الدقيقة. فيما يخص وضع التركيز:</p><ul><li>يتطلب هذا الوضع صلاحيات إضافية لحظر التطبيقات المشتتة أثناء أوقات الصلاة.</li><li>استخدام هذه الميزة اختياري تماماً، وأنت مسؤول عن التطبيقات التي تختار حظرها.</li></ul>",
+                h6: "// 6. البث الذكي والشبكة",
+                p6: "<p>لبث الأذان، يبحث التطبيق في شبكتك المحلية عن الأجهزة المتوافقة. نحن لا نجمع أو نرسل معلومات أجهزة منزلك لأي جهة خارجية. تتم العملية بالكامل بشكل محلي.</p>",
+                h7: "// 7. الملكية الفكرية",
+                p7: "<p>جميع حقوق الملكية الفكرية تعود حصرياً للمطور. يتم استخدام الوسائط المدمجة وفقاً لمبدأ الاستخدام العادل للأغراض الدينية غير الربحية.</p>",
+                h8: "// 8. التغييرات على الشروط",
+                p8: "<p>نحتفظ بالحق في تحديث هذه الشروط في أي وقت. استمرارك في استخدام التطبيق يشكل قبولك للشروط الجديدة.</p>",
+                h9: "// 9. اتصل بنا",
+                p9: "<p>إذا كان لديك أي أسئلة بخصوص شروط الاستخدام هذه، يُرجى التواصل معنا عبر البريد الإلكتروني: contact@ahmadaldarwish.com</p>"
             },
             en: { 
                 back: "Back to Home", 
                 title: "Terms of Use", 
-                intro: "By using my personal website, you agree to the following simple terms:", 
-                h1: "// Intellectual Property", 
-                p1: "All designs, codes, and texts displayed on this site are the exclusive property of developer Ahmad Aldarwish. Copying or reusing any part of the site for commercial purposes without prior permission is prohibited.", 
-                h2: "// Referenced Apps", 
-                p2: "The applications showcased on the site (like the Wasl app) have their own separate privacy policies and terms of use. Please review them on their respective pages.", 
-                h3: "// Disclaimer", 
-                p3: "The information on this site is provided 'as is' for portfolio purposes. The developer is not liable for any damages resulting from the use of external links provided on the site." 
+                last_updated: "Last Updated: July 2026",
+                intro: "By downloading or using the Wasl app, these terms will automatically apply to you. Please read them carefully before using the app.", 
+                h1: "// 1. License and Usage", 
+                p1: "<p>Developer Ahmad Aldarwish grants you a personal, non-exclusive, non-transferable license to use the Wasl app on your personal compatible devices, including compatible Android smartphones and Wear OS watches.</p><ul><li>You are not allowed to copy, modify the app, or use our trademarks in any way.</li><li>You are not allowed to attempt to extract the source code of the app or translate it.</li></ul>", 
+                h2: "// 2. Timing Accuracy (Disclaimer)", 
+                p2: "<p>The app calculates prayer times based on your location using global standards. However:</p><ul><li>Slight variations may occur due to geographical or jurisprudential factors.</li><li>You acknowledge and agree that verifying actual prayer times is your responsibility. The developer is not liable for any miscalculations.</li></ul>", 
+                h3: "// 3. Wear OS Companion", 
+                p3: "<p>Wasl includes a Wear OS companion app. This app syncs with your phone to provide prayer times, tiles, and complications. By using the Wear OS app, you agree that data (such as prayer times and settings) will be synced between your phone and watch via the Google Wearable Data Layer.</p>",
+                h4: "// 4. Support and In-App Purchases",
+                p4: "<p>Wasl offers an optional 'Support the Project' feature via Google Play In-App Purchases.</p><ul><li>These contributions are voluntary and are intended to support the ongoing development and maintenance of the app.</li><li>All transactions are processed securely by Google Play.</li><li>Contributions do not unlock 'premium' content, as Wasl remains a non-profit effort for the community.</li><li>Refunds for these digital contributions are subject to Google Play’s refund policies.</li></ul>",
+                h5: "// 5. Permissions and Focus Mode",
+                p5: "<p>The app relies on permissions like exact alarms. Regarding Focus Mode:</p><ul><li>This mode requires additional permissions to block distracting apps during prayer.</li><li>Using this feature is entirely optional, and you are responsible for the apps you choose to block.</li></ul>",
+                h6: "// 6. Smart Cast and Network",
+                p6: "<p>To cast the Adhan, the app searches your local network for compatible devices. We do not collect or transmit your home device information. The process is completely local.</p>",
+                h7: "// 7. Intellectual Property",
+                p7: "<p>All intellectual property rights belong exclusively to the developer. Embedded media assets are used under fair use for non-profit religious purposes.</p>",
+                h8: "// 8. Changes to Terms",
+                p8: "<p>We reserve the right to update these terms at any time. Your continued use of the app constitutes your acceptance of the new terms.</p>",
+                h9: "// 9. Contact Us",
+                p9: "<p>If you have any questions regarding these Terms of Use, please contact us via email: contact@ahmadaldarwish.com</p>"
             }
         };
 
@@ -154,7 +198,6 @@
             document.documentElement.setAttribute('data-theme', savedTheme);
             document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? 'light_mode' : 'dark_mode';
             
-            // قراءة اللغة المحفوظة أو تعيين العربية كافتراضية
             const savedLang = localStorage.getItem('preferredLang') || 'ar';
             setLanguage(savedLang);
         };
