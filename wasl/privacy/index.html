@@ -34,11 +34,12 @@
         body { font-family: 'Roboto', sans-serif; background-color: var(--md-sys-color-background); color: var(--md-sys-color-on-surface); line-height: 1.8; transition: 0.4s; display: flex; flex-direction: column; min-height: 100vh; }
         html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
 
-        /* Header */
         header { background: var(--md-sys-color-surface); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--card-border); position: sticky; top: 0; z-index: 1000; padding: 15px 0; transition: 0.4s; }
         .nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        
         .logo { font-size: 20px; font-weight: 900; color: var(--md-sys-color-primary); text-decoration: none; display: flex; align-items: center; gap: 8px;}
-        html[dir="ltr"] .logo .material-symbols-outlined { transform: rotate(180deg); }
+        .logo .material-symbols-outlined { transition: transform 0.3s ease; }
+        html[dir="rtl"] .logo .material-symbols-outlined { transform: scaleX(-1); }
         
         .header-controls { display: flex; align-items: center; gap: 15px; }
         .theme-btn { background: transparent; border: none; color: var(--md-sys-color-primary); cursor: pointer; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; transition: 0.3s; }
@@ -53,11 +54,10 @@
         html[dir="rtl"] .dropdown-content button { text-align: right; }
         .dropdown-content button:hover { background: var(--md-sys-color-primary); color: #fff; }
 
-        /* Legal Container */
         .legal-container { max-width: 800px; margin: 40px auto; padding: 40px; background: var(--md-sys-color-surface); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--card-border); border-radius: 24px; box-shadow: var(--glass-shadow); flex: 1; transition: 0.4s;}
         
         .page-title { font-size: 2.2rem; color: var(--md-sys-color-primary); font-weight: 900; margin-bottom: 10px; }
-        .last-updated { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 40px; border-bottom: 1px solid var(--card-border); padding-bottom: 20px; }
+        .last-updated { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 40px; border-bottom: 1px solid var(--card-border); padding-bottom: 20px; font-weight: 500; }
         
         .legal-content h2 { font-size: 1.4rem; color: var(--md-sys-color-on-surface); margin: 35px 0 15px; font-weight: 700; }
         .legal-content p { color: var(--text-muted); margin-bottom: 15px; font-size: 1.05rem; }
@@ -102,35 +102,47 @@
         <div class="last-updated" data-i18n="last_updated">Last Updated: July 2026</div>
 
         <div class="legal-content">
-            <p data-i18n="intro_text">Developer Ahmad Aldarwish is committed to protecting your privacy. This Privacy Policy clearly explains how we handle information when you use the Wasl app.</p>
+            <p data-i18n="intro_text"></p>
 
-            <h2 data-i18n="h_data">1. Data Collection and Usage</h2>
-            <p data-i18n="p_data_1">The Wasl app is built on a <strong>Privacy-First</strong> principle. We do not collect, store, sell, or share any personal data with third parties. Data used remains on your device:</p>
+            <h2 data-i18n="h_data"></h2>
+            <p data-i18n="p_data_1"></p>
             <ul>
-                <li data-i18n="li_data_1"><strong>Location Data:</strong> We require location access to calculate prayer times accurately. This is processed locally and never sent to any server.</li>
-                <li data-i18n="li_data_2"><strong>Local Network:</strong> We use local network access to discover smart devices for casting the Adhan securely within your home network.</li>
+                <li data-i18n="li_data_1"></li>
+                <li data-i18n="li_data_2"></li>
+                <li data-i18n="li_data_3"></li>
             </ul>
 
-            <h2 data-i18n="h_permissions">2. Sensitive Permissions</h2>
-            <p data-i18n="p_permissions_1">To provide a seamless and reliable experience, the app requires specific permissions used solely for its core functionalities:</p>
+            <h2 data-i18n="h_permissions"></h2>
+            <p data-i18n="p_permissions_1"></p>
             <ul>
-                <li data-i18n="li_permissions_1"><strong>Exact Alarms & Notifications:</strong> Essential to trigger Adhan notifications accurately on time and alert you.</li>
-                <li data-i18n="li_permissions_2"><strong>App Management:</strong> To enable Focus Mode and block distracting apps during prayers, special access is required. This is entirely optional.</li>
-                <li data-i18n="li_permissions_3"><strong>Unrestricted Battery:</strong> To prevent the Android system from killing the app in the background, ensuring you never miss a prayer.</li>
-                <li data-i18n="li_permissions_4"><strong>Nearby Devices (Local Network):</strong> Used exclusively to discover smart TVs/speakers for the casting feature.</li>
+                <li data-i18n="li_permissions_1"></li>
+                <li data-i18n="li_permissions_2"></li>
+                <li data-i18n="li_permissions_3"></li>
+                <li data-i18n="li_permissions_4"></li>
             </ul>
 
-            <h2 data-i18n="h_storage">3. Storage and Backup</h2>
-            <p data-i18n="p_storage_1">All your settings and Ibadah Tracker records are saved locally on your phone's storage. We provide tools for manual and secure data export/import.</p>
+            <h2 data-i18n="h_payments"></h2>
+            <p data-i18n="p_payments_1"></p>
+            <ul>
+                <li data-i18n="li_payments_1"></li>
+                <li data-i18n="li_payments_2"></li>
+            </ul>
 
-            <h2 data-i18n="h_thirdparty">4. Third-Party Services</h2>
-            <p data-i18n="p_thirdparty_1">Wasl contains absolutely no advertisements and does not use external tracking tools to collect marketing analytics.</p>
+            <h2 data-i18n="h_storage"></h2>
+            <p data-i18n="p_storage_1"></p>
 
-            <h2 data-i18n="h_changes">5. Changes to Privacy Policy</h2>
-            <p data-i18n="p_changes_1">We may update this policy periodically. Continued use of the application constitutes acceptance of any changes.</p>
+            <h2 data-i18n="h_thirdparty"></h2>
+            <p data-i18n="p_thirdparty_1"></p>
+            <ul>
+                <li data-i18n="li_thirdparty_1"></li>
+                <li data-i18n="li_thirdparty_2"></li>
+            </ul>
 
-            <h2 data-i18n="h_contact">6. Contact Us</h2>
-            <p data-i18n="p_contact_1">If you have any questions regarding our Privacy Policy, please contact us via email:</p>
+            <h2 data-i18n="h_changes"></h2>
+            <p data-i18n="p_changes_1"></p>
+
+            <h2 data-i18n="h_contact"></h2>
+            <p data-i18n="p_contact_1"></p>
             <p><strong>contact@ahmadaldarwish.com</strong></p>
         </div>
     </div>
@@ -139,51 +151,69 @@
         const translations = {
             en: {
                 back_to_wasl: "Back to Wasl App", page_title: "Privacy Policy", last_updated: "Last Updated: July 2026",
-                intro_text: "Developer Ahmad Aldarwish is committed to protecting your privacy. This Privacy Policy clearly explains how we handle information when you use the Wasl app.",
+                intro_text: "Developer Ahmad Aldarwish is committed to protecting your privacy. This Privacy Policy clearly explains how we handle information when you use the Wasl app across all supported platforms (Android Phone and Wear OS).",
                 h_data: "1. Data Collection and Usage", p_data_1: "The Wasl app is built on a <strong>Privacy-First</strong> principle. We do not collect, store, sell, or share any personal data with third parties. Data used remains on your device:",
                 li_data_1: "<strong>Location Data:</strong> We require location access to calculate prayer times accurately. This is processed locally and never sent to any server.",
                 li_data_2: "<strong>Local Network:</strong> We use local network access to discover smart devices for casting the Adhan securely within your home network.",
+                li_data_3: "<strong>Wear OS Sync:</strong> Settings and prayer data are synced between your phone and watch using the Google Wearable Data Layer. This communication is encrypted and happens directly between your devices.",
                 h_permissions: "2. Sensitive Permissions", p_permissions_1: "To provide a seamless and reliable experience, the app requires specific permissions used solely for its core functionalities:",
                 li_permissions_1: "<strong>Exact Alarms & Notifications:</strong> Essential to trigger Adhan notifications accurately on time and alert you.",
                 li_permissions_2: "<strong>App Management:</strong> To enable Focus Mode and block distracting apps during prayers, special access is required. This is entirely optional.",
                 li_permissions_3: "<strong>Unrestricted Battery:</strong> To prevent the Android system from killing the app in the background, ensuring you never miss a prayer.",
                 li_permissions_4: "<strong>Nearby Devices (Local Network):</strong> Used exclusively to discover smart TVs/speakers for the casting feature.",
-                h_storage: "3. Storage and Backup", p_storage_1: "All your settings and Ibadah Tracker records are saved locally on your phone's storage. We provide tools for manual and secure data export/import.",
-                h_thirdparty: "4. Third-Party Services", p_thirdparty_1: "Wasl contains absolutely no advertisements and does not use external tracking tools to collect marketing analytics.",
-                h_changes: "5. Changes to Privacy Policy", p_changes_1: "We may update this policy periodically. Continued use of the application constitutes acceptance of any changes.",
-                h_contact: "6. Contact Us", p_contact_1: "If you have any questions regarding our Privacy Policy, please contact us via email:"
+                h_payments: "3. Payments and Support", p_payments_1: "When you support the project via In-App Purchases:",
+                li_payments_1: "We use the Google Play Billing API. We do not have access to, nor do we store, your credit card or payment information.",
+                li_payments_2: "Google Play may collect data according to their own privacy policies to process the transaction.",
+                h_storage: "4. Storage and Backup", p_storage_1: "All your settings and Ibadah Tracker records are saved locally on your phone's storage. We provide tools for manual and secure data export/import.",
+                h_thirdparty: "5. Third-Party Services", p_thirdparty_1: "Wasl contains absolutely no advertisements and does not use external tracking tools to collect marketing analytics. We use:",
+                li_thirdparty_1: "<strong>Firebase Cloud Messaging:</strong> To deliver occasional important updates or announcements (optional).",
+                li_thirdparty_2: "<strong>Google Play Services:</strong> For billing and wearable synchronization.",
+                h_changes: "6. Changes to Privacy Policy", p_changes_1: "We may update this policy periodically. Continued use of the application constitutes acceptance of any changes.",
+                h_contact: "7. Contact Us", p_contact_1: "If you have any questions regarding our Privacy Policy, please contact us via email:"
             },
             ar: {
                 back_to_wasl: "العودة لتطبيق وصل", page_title: "سياسة الخصوصية", last_updated: "آخر تحديث: يوليو 2026",
-                intro_text: "يلتزم المطور أحمد الدرويش بحماية خصوصيتك واحترام بياناتك الشخصية. توضح سياسة الخصوصية هذه بوضوح وشفافية كيفية تعاملنا مع المعلومات عند استخدامك لتطبيق وصل.",
+                intro_text: "يلتزم المطور أحمد الدرويش بحماية خصوصيتك واحترام بياناتك الشخصية. توضح سياسة الخصوصية هذه بوضوح وشفافية كيفية تعاملنا مع المعلومات عند استخدامك لتطبيق وصل على جميع المنصات المدعومة (هواتف أندرويد وساعات Wear OS).",
                 h_data: "1. جمع واستخدام البيانات", p_data_1: "تم بناء تطبيق وصل على مبدأ <strong>الخصوصية أولاً (Privacy-First)</strong>. نحن لا نقوم بجمع، أو تخزين، أو بيع، أو مشاركة أي بيانات شخصية مع أطراف خارجية. البيانات المستخدمة داخل التطبيق تظل في جهازك:",
                 li_data_1: "<strong>بيانات الموقع الجغرافي:</strong> نطلب الوصول إلى الموقع الجغرافي لحساب أوقات الصلاة بدقة. تتم هذه العملية الحسابية محلياً داخل جهازك ولا يتم إرسال إحداثياتك لأي خادم.",
                 li_data_2: "<strong>الشبكة المحلية:</strong> نستخدم الوصول للشبكة المحلية لاكتشاف الأجهزة الذكية وبث الأذان (Cast Technology)، وتتم هذه العملية بشكل آمن داخل شبكة منزلك.",
+                li_data_3: "<strong>مزامنة Wear OS:</strong> تتم مزامنة الإعدادات وبيانات الصلاة بين هاتفك وساعتك باستخدام طبقة بيانات Google Wearable. هذا الاتصال مشفر ويحدث مباشرة بين أجهزتك.",
                 h_permissions: "2. الأذونات الحساسة", p_permissions_1: "لتقديم تجربة متكاملة وموثوقة، يتطلب التطبيق أذونات محددة تُستخدم حصرياً لوظائفه الأساسية:",
                 li_permissions_1: "<strong>المنبهات الدقيقة والإشعارات:</strong> ضرورية لضمان إطلاق إشعارات الأذان في وقتها المحدد بدقة وتنبيهك.",
-                li_permissions_2: "<strong>إدارة التطبيقات:</strong> لتفعيل ميزة وضع التركيز وحجب التطبيقات المشتتة وقت الصلاة، يتطلب التطبيق صلاحيات وصول خاصة. هذا الاستخدام اختياري.",
+                li_permissions_2: "<strong>إدارة التطبيقات:</strong> لتفعيل ميزة وضع التركيز وحجب التطبيقات المشتتة وقت الصلاة، يتطلب التطبيق صلاحيات وصول خاصة. هذا الخيار اختياري تماماً.",
                 li_permissions_3: "<strong>عدم تقييد البطارية:</strong> لمنع نظام أندرويد من إغلاق التطبيق في الخلفية، مما يضمن عدم تفويت أي صلاة.",
                 li_permissions_4: "<strong>الأجهزة المجاورة (الشبكة المحلية):</strong> تُستخدم حصرياً لاكتشاف الشاشات الذكية ومكبرات الصوت لميزة البث.",
-                h_storage: "3. التخزين والنسخ الاحتياطي", p_storage_1: "يتم حفظ جميع إعداداتك المفضلة وسجلات تتبع العبادات بشكل محلي في ذاكرة التخزين الخاصة بهاتفك. نوفر لك أدوات لإنشاء نسخة احتياطية بشكل يدوي.",
-                h_thirdparty: "4. خدمات الطرف الثالث", p_thirdparty_1: "تطبيق وصل لا يحتوي على أي برمجيات إعلانية ولا يستخدم أدوات تتبع خارجية لجمع البيانات التحليلية التسويقية.",
-                h_changes: "5. التغييرات على سياسة الخصوصية", p_changes_1: "قد نقوم بتحديث هذه السياسة من وقت لآخر. استمرار استخدامك للتطبيق يعني موافقتك على أي تغييرات.",
-                h_contact: "6. تواصل معنا", p_contact_1: "إذا كان لديك أي سؤال أو استفسار بخصوص سياسة الخصوصية الخاصة بنا، يسعدنا تواصلك معنا عبر البريد الإلكتروني:"
+                h_payments: "3. المدفوعات والدعم", p_payments_1: "عندما تقوم بدعم المشروع عبر المشتريات داخل التطبيق:",
+                li_payments_1: "نستخدم واجهة Google Play للفوترة. ليس لدينا وصول إلى معلومات بطاقتك الائتمانية أو معلومات الدفع ولا نقوم بتخزينها.",
+                li_payments_2: "قد تقوم Google Play بجمع البيانات وفقاً لسياسات الخصوصية الخاصة بها لمعالجة المعاملة.",
+                h_storage: "4. التخزين والنسخ الاحتياطي", p_storage_1: "يتم حفظ جميع إعداداتك المفضلة وسجلات متتبع العبادات بشكل محلي في ذاكرة التخزين الخاصة بهاتفك. نوفر لك أدوات لإنشاء نسخة احتياطية بشكل يدوي وآمن.",
+                h_thirdparty: "5. خدمات الطرف الثالث", p_thirdparty_1: "تطبيق وصل لا يحتوي على أي إعلانات على الإطلاق ولا يستخدم أدوات تتبع خارجية لجمع التحليلات التسويقية. نحن نستخدم:",
+                li_thirdparty_1: "<strong>خدمة Firebase للمراسلة السحابية:</strong> لتقديم تحديثات أو إعلانات هامة من حين لآخر (اختياري).",
+                li_thirdparty_2: "<strong>خدمات Google Play:</strong> لعمليات الدفع ومزامنة الأجهزة القابلة للارتداء.",
+                h_changes: "6. التغييرات على سياسة الخصوصية", p_changes_1: "قد نقوم بتحديث هذه السياسة من وقت لآخر. استمرار استخدامك للتطبيق يعني موافقتك على أي تغييرات تتم عليها.",
+                h_contact: "7. تواصل معنا", p_contact_1: "إذا كان لديك أي سؤال أو استفسار بخصوص سياسة الخصوصية الخاصة بنا، يسعدنا تواصلك معنا عبر البريد الإلكتروني:"
             },
             de: {
                 back_to_wasl: "Zurück zur Wasl App", page_title: "Datenschutzerklärung", last_updated: "Letzte Aktualisierung: Juli 2026",
-                intro_text: "Der Entwickler Ahmad Aldarwish verpflichtet sich, Ihre Privatsphäre zu schützen. Diese Datenschutzerklärung erklärt, wie wir mit Informationen umgehen, wenn Sie die Wasl-App nutzen.",
-                h_data: "1. Datenerhebung und -nutzung", p_data_1: "Die Wasl-App basiert auf dem <strong>Privacy-First</strong>-Prinzip. Wir sammeln, speichern, verkaufen oder teilen keine persönlichen Daten. Die Daten verbleiben auf Ihrem Gerät:",
-                li_data_1: "<strong>Standortdaten:</strong> Wir benötigen den Standortzugriff, um Gebetszeiten genau zu berechnen. Dies wird lokal verarbeitet und nicht an Server gesendet.",
-                li_data_2: "<strong>Lokales Netzwerk:</strong> Wir nutzen das lokale Netzwerk, um Smart-Geräte für das sichere Streamen des Adhan zu erkennen.",
+                intro_text: "Der Entwickler Ahmad Aldarwish verpflichtet sich, Ihre Privatsphäre zu schützen. Diese Datenschutzerklärung erklärt klar, wie wir mit Informationen umgehen, wenn Sie die Wasl-App auf allen unterstützten Plattformen (Android-Telefon und Wear OS) nutzen.",
+                h_data: "1. Datenerhebung und -nutzung", p_data_1: "Die Wasl-App basiert auf dem <strong>Privacy-First</strong>-Prinzip. Wir sammeln, speichern, verkaufen oder teilen keine persönlichen Daten mit Dritten. Die Daten verbleiben auf Ihrem Gerät:",
+                li_data_1: "<strong>Standortdaten:</strong> Wir benötigen den Standortzugriff, um Gebetszeiten genau zu berechnen. Dies wird lokal verarbeitet und nie an Server gesendet.",
+                li_data_2: "<strong>Lokales Netzwerk:</strong> Wir nutzen das lokale Netzwerk, um Smart-Geräte für das sichere Streamen des Adhan innerhalb Ihres Heimnetzwerks zu erkennen.",
+                li_data_3: "<strong>Wear OS-Synchronisierung:</strong> Einstellungen und Gebetsdaten werden über den Google Wearable Data Layer zwischen Ihrem Telefon und Ihrer Uhr synchronisiert. Diese Kommunikation ist verschlüsselt und erfolgt direkt zwischen Ihren Geräten.",
                 h_permissions: "2. Sensible Berechtigungen", p_permissions_1: "Für ein nahtloses und zuverlässiges Erlebnis benötigt die App bestimmte Berechtigungen, die ausschließlich für ihre Kernfunktionen verwendet werden:",
                 li_permissions_1: "<strong>Exakte Alarme & Benachrichtigungen:</strong> Unverzichtbar, um Adhan-Benachrichtigungen pünktlich auszulösen und Sie zu warnen.",
                 li_permissions_2: "<strong>App-Management:</strong> Um den Fokusmodus zu aktivieren und ablenkende Apps während des Gebets zu blockieren, ist ein spezieller Zugriff erforderlich. Dies ist völlig optional.",
                 li_permissions_3: "<strong>Uneingeschränkte Batterie:</strong> Um zu verhindern, dass das Android-System die App im Hintergrund beendet, damit Sie kein Gebet verpassen.",
                 li_permissions_4: "<strong>Geräte in der Nähe (Lokales Netzwerk):</strong> Wird ausschließlich verwendet, um Smart-TVs/Lautsprecher für die Cast-Funktion zu erkennen.",
-                h_storage: "3. Speicherung und Backup", p_storage_1: "Alle Ihre Einstellungen und Ibadah-Tracker-Aufzeichnungen werden lokal gespeichert. Wir bieten Werkzeuge für den manuellen Export/Import.",
-                h_thirdparty: "4. Dienste von Drittanbietern", p_thirdparty_1: "Wasl enthält keine Werbung und verwendet keine externen Tracking-Tools für Marketinganalysen.",
-                h_changes: "5. Änderungen der Datenschutzerklärung", p_changes_1: "Wir können diese Richtlinie gelegentlich aktualisieren. Die weitere Nutzung der App gilt als Zustimmung zu Änderungen.",
-                h_contact: "6. Kontakt", p_contact_1: "Wenn Sie Fragen zu unserer Datenschutzerklärung haben, kontaktieren Sie uns bitte per E-Mail:"
+                h_payments: "3. Zahlungen und Unterstützung", p_payments_1: "Wenn Sie das Projekt durch In-App-Käufe unterstützen:",
+                li_payments_1: "Wir verwenden die Google Play Billing API. Wir haben keinen Zugriff auf Ihre Kreditkarten- oder Zahlungsinformationen und speichern diese auch nicht.",
+                li_payments_2: "Google Play kann Daten gemäß den eigenen Datenschutzrichtlinien sammeln, um die Transaktion zu verarbeiten.",
+                h_storage: "4. Speicherung und Backup", p_storage_1: "Alle Ihre Einstellungen und Ibadah-Tracker-Aufzeichnungen werden lokal auf dem Speicher Ihres Telefons gespeichert. Wir bieten Werkzeuge für den manuellen und sicheren Export/Import.",
+                h_thirdparty: "5. Dienste von Drittanbietern", p_thirdparty_1: "Wasl enthält absolut keine Werbung und verwendet keine externen Tracking-Tools zur Erfassung von Marketinganalysen. Wir verwenden:",
+                li_thirdparty_1: "<strong>Firebase Cloud Messaging:</strong> Um gelegentlich wichtige Updates oder Ankündigungen zu senden (optional).",
+                li_thirdparty_2: "<strong>Google Play Services:</strong> Für die Abrechnung und Synchronisierung mit Wearables.",
+                h_changes: "6. Änderungen der Datenschutzerklärung", p_changes_1: "Wir können diese Richtlinie gelegentlich aktualisieren. Die weitere Nutzung der Anwendung gilt als Zustimmung zu etwaigen Änderungen.",
+                h_contact: "7. Kontakt", p_contact_1: "Wenn Sie Fragen zu unserer Datenschutzerklärung haben, kontaktieren Sie uns bitte per E-Mail:"
             }
         };
 
