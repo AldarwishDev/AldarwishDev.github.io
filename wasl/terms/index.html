@@ -39,7 +39,7 @@
         
         .logo { font-size: 20px; font-weight: 900; color: var(--md-sys-color-primary); text-decoration: none; display: flex; align-items: center; gap: 8px;}
         .logo .material-symbols-outlined { transition: transform 0.3s ease; }
-        html[dir="rtl"] .logo .material-symbols-outlined { transform: scaleX(-1); } /* Correct fix for RTL arrows */
+        html[dir="rtl"] .logo .material-symbols-outlined { transform: scaleX(-1); }
         
         .header-controls { display: flex; align-items: center; gap: 15px; }
         .theme-btn { background: transparent; border: none; color: var(--md-sys-color-primary); cursor: pointer; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; transition: 0.3s; }
@@ -118,16 +118,42 @@
                 <li data-i18n="li_accuracy_2"></li>
             </ul>
 
+            <h2 data-i18n="h_zakat"></h2>
+            <p data-i18n="p_zakat_1"></p>
+            <ul>
+                <li data-i18n="li_zakat_1"></li>
+                <li data-i18n="li_zakat_2"></li>
+                <li data-i18n="li_zakat_3"></li>
+            </ul>
+
+            <h2 data-i18n="h_mosques"></h2>
+            <p data-i18n="p_mosques_1"></p>
+            <ul>
+                <li data-i18n="li_mosques_1"></li>
+                <li data-i18n="li_mosques_2"></li>
+                <li data-i18n="li_mosques_3"></li>
+            </ul>
+
+            <h2 data-i18n="h_qibla"></h2>
+            <p data-i18n="p_qibla_1"></p>
+            <ul>
+                <li data-i18n="li_qibla_1"></li>
+                <li data-i18n="li_qibla_2"></li>
+            </ul>
+
+            <h2 data-i18n="h_links"></h2>
+            <p data-i18n="p_links_1"></p>
+            <ul>
+                <li data-i18n="li_links_1"></li>
+                <li data-i18n="li_links_2"></li>
+                <li data-i18n="li_links_3"></li>
+            </ul>
+
             <h2 data-i18n="h_wearos"></h2>
             <p data-i18n="p_wearos_1"></p>
-
-            <h2 data-i18n="h_support"></h2>
-            <p data-i18n="p_support_1"></p>
             <ul>
-                <li data-i18n="li_support_1"></li>
-                <li data-i18n="li_support_2"></li>
-                <li data-i18n="li_support_3"></li>
-                <li data-i18n="li_support_4"></li>
+                <li data-i18n="li_wearos_1"></li>
+                <li data-i18n="li_wearos_2"></li>
             </ul>
 
             <h2 data-i18n="h_permissions"></h2>
@@ -139,6 +165,15 @@
 
             <h2 data-i18n="h_network"></h2>
             <p data-i18n="p_network_1"></p>
+
+            <h2 data-i18n="h_support"></h2>
+            <p data-i18n="p_support_1"></p>
+            <ul>
+                <li data-i18n="li_support_1"></li>
+                <li data-i18n="li_support_2"></li>
+                <li data-i18n="li_support_3"></li>
+                <li data-i18n="li_support_4"></li>
+            </ul>
 
             <h2 data-i18n="h_ip"></h2>
             <p data-i18n="p_ip_1"></p>
@@ -159,51 +194,114 @@
                 intro_text: "By downloading or using the Wasl app, these terms will automatically apply to you. Please read them carefully before using the app.",
                 h_license: "1. License and Usage", p_license_1: "Developer Ahmad Aldarwish grants you a personal, non-exclusive, non-transferable license to use the Wasl app on your personal compatible devices, including compatible Android smartphones and Wear OS watches.",
                 li_license_1: "You are not allowed to copy, modify the app, or use our trademarks in any way.", li_license_2: "You are not allowed to attempt to extract the source code of the app or translate it.",
-                h_accuracy: "2. Timing Accuracy (Disclaimer)", p_accuracy_1: "The app calculates prayer times based on your location using global standards. However:",
-                li_accuracy_1: "Slight variations may occur due to geographical or jurisprudential factors.", li_accuracy_2: "You acknowledge and agree that verifying actual prayer times is your responsibility. The developer is not liable for any miscalculations.",
-                h_wearos: "3. Wear OS Companion", p_wearos_1: "Wasl includes a Wear OS companion app. This app syncs with your phone to provide prayer times, tiles, and complications. By using the Wear OS app, you agree that data (such as prayer times and settings) will be synced between your phone and watch via the Google Wearable Data Layer.",
-                h_support: "4. Support and In-App Purchases", p_support_1: "Wasl offers an optional 'Support the Project' feature via Google Play In-App Purchases.",
-                li_support_1: "These contributions are voluntary and are intended to support the ongoing development and maintenance of the app.", li_support_2: "All transactions are processed securely by Google Play.", li_support_3: "Contributions do not unlock 'premium' content, as Wasl remains a non-profit effort for the community.", li_support_4: "Refunds for these digital contributions are subject to Google Play’s refund policies.",
-                h_permissions: "5. Permissions and Focus Mode", p_permissions_1: "The app relies on permissions like exact alarms. Regarding Focus Mode:",
-                li_permissions_1: "This mode requires additional permissions to block distracting apps during prayer.", li_permissions_2: "Using this feature is entirely optional, and you are responsible for the apps you choose to block.",
-                h_network: "6. Smart Cast and Network", p_network_1: "To cast the Adhan, the app searches your local network for compatible devices. We do not collect or transmit your home device information. The process is completely local.",
-                h_ip: "7. Intellectual Property", p_ip_1: "All intellectual property rights belong exclusively to the developer. Embedded media assets are used under fair use for non-profit religious purposes.",
-                h_changes: "8. Changes to Terms", p_changes_1: "We reserve the right to update these terms at any time. Your continued use of the app constitutes your acceptance of the new terms.",
-                h_contact: "9. Contact Us", p_contact_1: "If you have any questions regarding these Terms of Use, please contact us via email:"
+                
+                h_accuracy: "2. Timing Accuracy & Calculations (Disclaimer)", p_accuracy_1: "The app calculates prayer times and Hijri dates based on your location using global calculation methods and standards. However:",
+                li_accuracy_1: "Slight variations may occur due to geographical, atmospheric, or jurisprudential factors.", li_accuracy_2: "You acknowledge and agree that verifying actual prayer times is your responsibility. The developer is not liable for any miscalculations, timing discrepancies, or missed prayers.",
+                
+                h_zakat: "3. Zakat Calculator (Disclaimer)", p_zakat_1: "Wasl includes a Zakat Calculator to assist you in estimating your Zakat obligations based on your manual inputs (such as cash, gold, silver, investments, or assets):",
+                li_zakat_1: "Calculations are provided for informational and assistance purposes only.", li_zakat_2: "Zakat rules and Nisab thresholds may vary depending on local currency rates, precious metal valuations, and Islamic jurisprudence.", li_zakat_3: "You are responsible for verifying all values and calculations with qualified Islamic scholars or official local religious authorities. The developer assumes no liability for financial decisions, tax matters, or calculation discrepancies.",
+                
+                h_mosques: "4. Nearby Mosques and Community Suggestions", p_mosques_1: "Wasl provides features to locate nearby mosques and suggest new or missing mosques:",
+                li_mosques_1: "Mosque locations, addresses, and navigation routes are provided for convenience and reference.", li_mosques_2: "When using the \"Suggest a Mosque\" feature, you agree to submit truthful, accurate, and appropriate information.", li_mosques_3: "The developer reserves the right to review, edit, publish, or reject any mosque suggestions submitted through the app.",
+                
+                h_qibla: "5. Qibla Compass & Sensor Calibration", p_qibla_1: "The Qibla feature relies on your device’s location coordinates and hardware sensors (magnetometer and accelerometer):",
+                li_qibla_1: "Accuracy depends on your device's hardware quality and sensor calibration.", li_qibla_2: "Environmental magnetic interference (metal objects, electronics) may affect compass accuracy.",
+                
+                h_links: "6. External Links and Video Sources", p_links_1: "The app may contain external links to third-party content, platform channels, map directions, or original video/audio sources:",
+                li_links_1: "These links are provided for attribution, educational, and reference convenience.", li_links_2: "Clicking an external link will navigate you outside the Wasl app to third-party platforms (such as YouTube or external content provider websites).", li_links_3: "The developer does not control, endorse, or assume responsibility for the content, availability, privacy practices, or terms of any third-party websites or services.",
+                
+                h_wearos: "7. Wear OS Companion, Widgets, and Tiles", p_wearos_1: "Wasl includes a Wear OS companion app, Home Screen/Lock Screen Widgets, and Quick Settings Tiles:",
+                li_wearos_1: "The Wear OS app syncs with your phone to provide prayer times, tiles, complications, and tracking data via the Google Wearable Data Layer API.", li_wearos_2: "Widgets and tiles are provided for convenience and rely on Android background services to remain updated.",
+                
+                h_permissions: "8. Permissions, Focus Mode, and App Blocker", p_permissions_1: "The app relies on specific permissions like exact alarms, location access, and background execution. Regarding Focus Mode / App Blocker:",
+                li_permissions_1: "Focus mode uses special permissions (Usage Access and System Overlay) to block distracting apps during prayer times.", li_permissions_2: "Using this feature is entirely optional, and you remain responsible for the apps you select to block.",
+                
+                h_network: "9. Smart Cast and Local Network", p_network_1: "To cast the Adhan audio, the app searches your local Wi-Fi network for compatible DLNA/UPnP smart speakers or TVs. We do not collect or transmit your home network or device information. The discovery and streaming process is completely local to your home network.",
+                
+                h_support: "10. Support and Voluntary Contributions", p_support_1: "Wasl offers an optional 'Support the Project' feature via Google Play In-App Purchases:",
+                li_support_1: "These contributions are voluntary and are intended to support the ongoing development, server maintenance, and non-profit continuation of the app.", li_support_2: "All transactions are processed securely by Google Play.", li_support_3: "Contributions do not unlock 'premium' content or place core features behind a paywall.", li_support_4: "Refunds for digital contributions are governed by Google Play’s refund policies.",
+                
+                h_ip: "11. Intellectual Property & Embedded Media", p_ip_1: "All intellectual property rights belong exclusively to the developer. Embedded media assets, video source links, Quranic texts, Hadith collections, and religious references are used under fair use for non-profit, religious, and educational purposes. All third-party trademarks and content belong to their respective owners.",
+                
+                h_changes: "12. Changes to Terms", p_changes_1: "We reserve the right to update these terms at any time. Your continued use of the app constitutes your acceptance of any updated terms.",
+                
+                h_contact: "13. Contact Us", p_contact_1: "If you have any questions regarding these Terms of Use, please contact us via email:"
             },
             ar: {
                 back_to_wasl: "العودة لتطبيق وصل", page_title: "شروط الاستخدام", last_updated: "آخر تحديث: يوليو 2026",
                 intro_text: "بتحميلك أو استخدامك لتطبيق وصل (Wasl)، فإن هذه الشروط تنطبق عليك تلقائياً. يُرجى قراءتها بعناية قبل استخدام التطبيق.",
                 h_license: "1. الترخيص والاستخدام", p_license_1: "يمنحك المطور أحمد الدرويش ترخيصاً شخصياً، غير حصري، وغير قابل للتحويل، لاستخدام تطبيق وصل على أجهزتك الشخصية المتوافقة، بما في ذلك هواتف أندرويد وساعات Wear OS.",
                 li_license_1: "يُمنع نسخ أو تعديل التطبيق أو أي جزء منه، أو استخدام علاماتنا التجارية.", li_license_2: "يُمنع محاولة استخراج الكود المصدري للتطبيق أو ترجمته هندسياً.",
-                h_accuracy: "2. دقة المواقيت (إخلاء مسؤولية)", p_accuracy_1: "يقوم التطبيق بحساب أوقات الصلاة بناءً على إحداثيات موقعك باستخدام معايير حسابية عالمية. ومع ذلك:",
-                li_accuracy_1: "قد يحدث تفاوت طفيف في الأوقات بسبب عوامل جغرافية أو فقهية.", li_accuracy_2: "أنت تقر وتوافق على أن مسؤولية التحقق من أوقات الصلاة تقع على عاتقك، والمطور لا يتحمل أي مسؤولية عن أي حسابات غير دقيقة.",
-                h_wearos: "3. تطبيق ساعات Wear OS", p_wearos_1: "يتضمن تطبيق وصل إصداراً مخصصاً لساعات Wear OS. يتزامن هذا التطبيق مع هاتفك لتوفير أوقات الصلاة والواجهات المصغرة (Tiles) والإضافات (Complications). باستخدامك لتطبيق Wear OS، فإنك توافق على مزامنة البيانات (مثل أوقات الصلاة والإعدادات) بين هاتفك وساعتك عبر طبقة بيانات Google Wearable.",
-                h_support: "4. الدعم والمشتريات داخل التطبيق", p_support_1: "يوفر تطبيق وصل ميزة 'دعم المشروع' الاختيارية عبر المشتريات داخل تطبيق Google Play.",
-                li_support_1: "هذه المساهمات طوعية وتهدف إلى دعم التطوير المستمر للتطبيق وصيانته.", li_support_2: "تتم معالجة جميع المعاملات بشكل آمن بواسطة Google Play.", li_support_3: "لا تفتح المساهمات محتوى 'مميز' إضافي، حيث يظل تطبيق وصل جهداً غير ربحي للمجتمع.", li_support_4: "تخضع عمليات استرداد الأموال لهذه المساهمات الرقمية لسياسات الاسترداد الخاصة بـ Google Play.",
-                h_permissions: "5. الصلاحيات ووضع التركيز", p_permissions_1: "يعتمد التطبيق على صلاحيات مثل المنبهات الدقيقة. بخصوص ميزة وضع التركيز:",
-                li_permissions_1: "يتطلب الوضع منح صلاحيات إضافية لحجب التطبيقات المشتتة أثناء الصلاة.", li_permissions_2: "استخدامك لهذه الميزة اختياري تماماً، وأنت تتحمل مسؤولية التطبيقات التي تختار حجبها.",
-                h_network: "6. البث الذكي والشبكة", p_network_1: "لبث الأذان، يبحث التطبيق في شبكتك المحلية عن الأجهزة المتوافقة. لا نقوم بجمع أو نقل معلومات أجهزتك لخوادم خارجية، العملية تتم بشكل محلي بالكامل.",
-                h_ip: "7. الملكية الفكرية", p_ip_1: "جميع حقوق الملكية الفكرية للتطبيق تعود ملكيتها الحصرية للمطور. المواد الإعلامية المدمجة تُستخدم للأغراض الدينية غير الربحية بناءً على مبدأ الاستخدام العادل.",
-                h_changes: "8. التغييرات على الشروط", p_changes_1: "نحتفظ بالحق في تحديث هذه الشروط في أي وقت. استمرار استخدامك للتطبيق يُعد موافقة منك على الشروط الجديدة.",
-                h_contact: "9. اتصل بنا", p_contact_1: "إذا كانت لديك أي أسئلة حول شروط الاستخدام، يُرجى التواصل معنا عبر البريد الإلكتروني:"
+                
+                h_accuracy: "2. دقة المواقيت والحسابات (إخلاء مسؤولية)", p_accuracy_1: "يقوم التطبيق بحساب أوقات الصلاة والتاريخ الهجري بناءً على إحداثيات موقعك باستخدام طرق ومعايير حسابية عالمية. ومع ذلك:",
+                li_accuracy_1: "قد يحدث تفاوت طفيف بسبب عوامل جغرافية أو جوية أو فقهية.", li_accuracy_2: "أنت تقر وتوافق على أن مسؤولية التحقق من أوقات الصلاة الفعلية تقع على عاتقك. المطور لا يتحمل أي مسؤولية عن أي حسابات غير دقيقة أو اختلافات في التوقيت أو صلوات فائتة.",
+                
+                h_zakat: "3. حاسبة الزكاة (إخلاء مسؤولية)", p_zakat_1: "يتضمن تطبيق وصل حاسبة للزكاة لمساعدتك في تقدير التزاماتك الزكوية بناءً على مدخلاتك اليدوية (مثل النقد، الذهب، الفضة، الاستثمارات، أو الأصول):",
+                li_zakat_1: "يتم توفير الحسابات لأغراض المعلومات والمساعدة فقط.", li_zakat_2: "قد تختلف قواعد الزكاة وحدود النصاب بناءً على أسعار العملات المحلية وتقييمات المعادن الثمينة والفقه الإسلامي.", li_zakat_3: "أنت مسؤول عن التحقق من جميع القيم والحسابات مع علماء الدين المؤهلين أو السلطات الدينية المحلية الرسمية. المطور لا يتحمل أي مسؤولية عن القرارات المالية أو المسائل الضريبية أو التفاوت في الحسابات.",
+                
+                h_mosques: "4. المساجد القريبة واقتراحات المجتمع", p_mosques_1: "يوفر تطبيق وصل ميزات لتحديد مواقع المساجد القريبة واقتراح مساجد جديدة أو مفقودة:",
+                li_mosques_1: "يتم توفير مواقع المساجد والعناوين ومسارات الملاحة للراحة والمرجعية فقط.", li_mosques_2: "عند استخدام ميزة \"اقتراح مسجد\"، فإنك توافق على تقديم معلومات صادقة ودقيقة وملائمة.", li_mosques_3: "يحتفظ المطور بالحق في مراجعة أو تعديل أو نشر أو رفض أي اقتراحات مساجد يتم تقديمها عبر التطبيق.",
+                
+                h_qibla: "5. بوصلة القبلة ومعايرة المستشعرات", p_qibla_1: "تعتمد ميزة القبلة على إحداثيات موقع جهازك والمستشعرات (مقياس المغناطيسية ومقياس التسارع):",
+                li_qibla_1: "تعتمد الدقة على جودة أجزاء جهازك (الهاردوير) ومعايرة المستشعرات.", li_qibla_2: "قد يؤثر التداخل المغناطيسي البيئي (الأشياء المعدنية، الأجهزة الإلكترونية) على دقة البوصلة.",
+                
+                h_links: "6. الروابط الخارجية ومصادر الفيديو", p_links_1: "قد يحتوي التطبيق على روابط خارجية لمحتوى جهات خارجية أو قنوات منصات أو اتجاهات الخرائط أو مصادر الفيديو/الصوت الأصلية:",
+                li_links_1: "يتم توفير هذه الروابط للإسناد والأغراض التعليمية والمرجعية.", li_links_2: "سيؤدي النقر على رابط خارجي إلى نقلك خارج تطبيق وصل إلى منصات جهات خارجية (مثل YouTube أو مواقع الويب الخاصة بموفري المحتوى).", li_links_3: "المطور لا يسيطر على، ولا يتحمل مسؤولية المحتوى أو التوفر أو ممارسات الخصوصية أو شروط أي مواقع أو خدمات لجهات خارجية.",
+                
+                h_wearos: "7. التطبيق المرافق لـ Wear OS والواجهات المصغرة", p_wearos_1: "يتضمن تطبيق وصل تطبيقًا مرافقًا لساعات Wear OS، وواجهات الشاشة الرئيسية/شاشة القفل (Widgets)، والواجهات المصغرة (Tiles):",
+                li_wearos_1: "يتزامن تطبيق Wear OS مع هاتفك لتوفير أوقات الصلاة والواجهات المصغرة والإضافات وتتبع البيانات عبر طبقة بيانات Google Wearable API.", li_wearos_2: "يتم توفير الواجهات المصغرة للراحة وتعتمد على خدمات الخلفية في أندرويد لتبقى محدثة.",
+                
+                h_permissions: "8. الصلاحيات، وضع التركيز، وحظر التطبيقات", p_permissions_1: "يعتمد التطبيق على صلاحيات محددة مثل المنبهات الدقيقة، الوصول إلى الموقع، والعمل في الخلفية. بخصوص وضع التركيز / حظر التطبيقات:",
+                li_permissions_1: "يستخدم وضع التركيز صلاحيات خاصة (الوصول للاستخدام والظهور فوق التطبيقات الأخرى) لحظر التطبيقات المشتتة أثناء أوقات الصلاة.", li_permissions_2: "استخدام هذه الميزة اختياري تمامًا، وتبقى أنت المسؤول عن التطبيقات التي تختار حظرها.",
+                
+                h_network: "9. البث الذكي والشبكة المحلية", p_network_1: "لبث صوت الأذان، يبحث التطبيق في شبكة Wi-Fi المحلية الخاصة بك عن مكبرات صوت أو أجهزة تلفزيون ذكية متوافقة مع DLNA/UPnP. نحن لا نجمع أو ننقل معلومات شبكتك المنزلية أو أجهزتك. عملية الاستكشاف والبث محلية بالكامل داخل شبكتك المنزلية.",
+                
+                h_support: "10. الدعم والمساهمات الطوعية", p_support_1: "يوفر تطبيق وصل ميزة 'دعم المشروع' الاختيارية عبر المشتريات داخل تطبيق Google Play:",
+                li_support_1: "هذه المساهمات طوعية وتهدف إلى دعم التطوير المستمر وصيانة الخوادم واستمرار التطبيق كجهد غير ربحي.", li_support_2: "تتم معالجة جميع المعاملات بشكل آمن بواسطة Google Play.", li_support_3: "لا تفتح المساهمات محتوى 'مميز' إضافي ولا تضع الميزات الأساسية خلف نظام دفع.", li_support_4: "تخضع عمليات استرداد الأموال لهذه المساهمات الرقمية لسياسات الاسترداد الخاصة بـ Google Play.",
+                
+                h_ip: "11. الملكية الفكرية والوسائط المدمجة", p_ip_1: "جميع حقوق الملكية الفكرية تعود ملكيتها الحصرية للمطور. تُستخدم الأصول الإعلامية المدمجة وروابط مصادر الفيديو والنصوص القرآنية ومجموعات الأحاديث والمراجع الدينية بموجب الاستخدام العادل لأغراض غير ربحية ودينية وتعليمية. تعود جميع العلامات التجارية والمحتوى الخاص بجهات خارجية إلى أصحابها المعنيين.",
+                
+                h_changes: "12. التغييرات على الشروط", p_changes_1: "نحتفظ بالحق في تحديث هذه الشروط في أي وقت. استمرار استخدامك للتطبيق يُعد موافقة منك على الشروط المحدثة.",
+                
+                h_contact: "13. اتصل بنا", p_contact_1: "إذا كانت لديك أي أسئلة حول شروط الاستخدام، يُرجى التواصل معنا عبر البريد الإلكتروني:"
             },
             de: {
                 back_to_wasl: "Zurück zur Wasl App", page_title: "Nutzungsbedingungen", last_updated: "Letzte Aktualisierung: Juli 2026",
                 intro_text: "Durch das Herunterladen oder die Nutzung der Wasl-App gelten diese Bedingungen automatisch für Sie. Bitte lesen Sie diese vor der Nutzung der App sorgfältig durch.",
                 h_license: "1. Lizenz und Nutzung", p_license_1: "Der Entwickler Ahmad Aldarwish gewährt Ihnen eine persönliche, nicht exklusive, nicht übertragbare Lizenz zur Nutzung der Wasl-App auf Ihren kompatiblen persönlichen Geräten, einschließlich Android-Smartphones und Wear OS-Uhren.",
                 li_license_1: "Es ist Ihnen nicht gestattet, die App zu kopieren, zu modifizieren oder unsere Marken in irgendeiner Weise zu verwenden.", li_license_2: "Es ist untersagt, den Quellcode der App zu extrahieren oder zu übersetzen.",
-                h_accuracy: "2. Genauigkeit der Zeiten (Haftungsausschluss)", p_accuracy_1: "Die App berechnet Gebetszeiten basierend auf Ihrem Standort anhand globaler Standards. Jedoch:",
-                li_accuracy_1: "Leichte Abweichungen können aufgrund geografischer oder rechtswissenschaftlicher Faktoren auftreten.", li_accuracy_2: "Sie erkennen an, dass die Überprüfung der tatsächlichen Gebetszeiten in Ihrer Verantwortung liegt. Der Entwickler haftet nicht für Berechnungsfehler.",
-                h_wearos: "3. Wear OS-Begleit-App", p_wearos_1: "Wasl enthält eine Wear OS-Begleit-App. Diese App synchronisiert sich mit Ihrem Telefon, um Gebetszeiten, Kacheln und Komplikationen bereitzustellen. Durch die Nutzung der Wear OS-App stimmen Sie zu, dass Daten (wie Gebetszeiten und Einstellungen) über den Google Wearable Data Layer zwischen Ihrem Telefon und Ihrer Uhr synchronisiert werden.",
-                h_support: "4. Unterstützung und In-App-Käufe", p_support_1: "Wasl bietet eine optionale Funktion 'Projekt unterstützen' über Google Play In-App-Käufe an.",
-                li_support_1: "Diese Beiträge sind freiwillig und dienen der Unterstützung der kontinuierlichen Entwicklung und Wartung der App.", li_support_2: "Alle Transaktionen werden sicher von Google Play verarbeitet.", li_support_3: "Beiträge schalten keine 'Premium'-Inhalte frei, da Wasl ein gemeinnütziges Projekt für die Gemeinschaft bleibt.", li_support_4: "Rückerstattungen für diese digitalen Beiträge unterliegen den Rückerstattungsrichtlinien von Google Play.",
-                h_permissions: "5. Berechtigungen und Fokusmodus", p_permissions_1: "Die App benötigt Berechtigungen wie exakte Alarme. Bezüglich des Fokusmodus:",
-                li_permissions_1: "Dieser Modus erfordert zusätzliche Berechtigungen, um ablenkende Apps während des Gebets zu blockieren.", li_permissions_2: "Die Nutzung dieser Funktion ist völlig optional, und Sie sind für die Apps verantwortlich, die Sie blockieren möchten.",
-                h_network: "6. Smart Cast und Netzwerk", p_network_1: "Um den Adhan zu streamen, durchsucht die App Ihr lokales Netzwerk nach kompatiblen Geräten. Wir sammeln oder übertragen keine Geräteinformationen Ihres Zuhauses. Der Vorgang ist vollständig lokal.",
-                h_ip: "7. Geistiges Eigentum", p_ip_1: "Alle geistigen Eigentumsrechte liegen ausschließlich beim Entwickler. Eingebettete Medieninhalte werden im Rahmen der fairen Nutzung für gemeinnützige religiöse Zwecke verwendet.",
-                h_changes: "8. Änderungen der Bedingungen", p_changes_1: "Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu aktualisieren. Ihre fortgesetzte Nutzung der App stellt Ihre Zustimmung zu den neuen Bedingungen dar.",
-                h_contact: "9. Kontakt", p_contact_1: "Wenn Sie Fragen zu diesen Nutzungsbedingungen haben, kontaktieren Sie uns bitte per E-Mail:"
+                
+                h_accuracy: "2. Genauigkeit der Zeiten & Berechnungen (Haftungsausschluss)", p_accuracy_1: "Die App berechnet Gebetszeiten und Hijri-Daten basierend auf Ihrem Standort anhand globaler Berechnungsmethoden und Standards. Jedoch:",
+                li_accuracy_1: "Leichte Abweichungen können aufgrund geografischer, atmosphärischer oder rechtswissenschaftlicher Faktoren auftreten.", li_accuracy_2: "Sie erkennen an, dass die Überprüfung der tatsächlichen Gebetszeiten in Ihrer Verantwortung liegt. Der Entwickler haftet nicht für Berechnungsfehler, Zeitabweichungen oder verpasste Gebete.",
+                
+                h_zakat: "3. Zakat-Rechner (Haftungsausschluss)", p_zakat_1: "Wasl enthält einen Zakat-Rechner, der Sie bei der Schätzung Ihrer Zakat-Verpflichtungen basierend auf Ihren manuellen Eingaben (wie Bargeld, Gold, Silber, Investitionen oder Vermögenswerte) unterstützt:",
+                li_zakat_1: "Die Berechnungen dienen nur zu Informations- und Hilfszwecken.", li_zakat_2: "Zakat-Regeln und Nisab-Schwellenwerte können je nach lokalen Währungskursen, Edelmetallbewertungen und islamischer Rechtsprechung variieren.", li_zakat_3: "Sie sind dafür verantwortlich, alle Werte und Berechnungen mit qualifizierten islamischen Gelehrten oder offiziellen lokalen Religionsbehörden zu überprüfen. Der Entwickler übernimmt keine Haftung für finanzielle Entscheidungen, Steuerfragen oder Berechnungsfehler.",
+                
+                h_mosques: "4. Nahegelegene Moscheen und Community-Vorschläge", p_mosques_1: "Wasl bietet Funktionen, um nahegelegene Moscheen zu finden und neue oder fehlende Moscheen vorzuschlagen:",
+                li_mosques_1: "Moscheestandorte, Adressen und Navigationsrouten werden nur als Referenz zur Verfügung gestellt.", li_mosques_2: "Wenn Sie die Funktion \"Moschee vorschlagen\" nutzen, stimmen Sie zu, wahrheitsgemäße, genaue und angemessene Informationen einzureichen.", li_mosques_3: "Der Entwickler behält sich das Recht vor, über die App eingereichte Moscheevorschläge zu überprüfen, zu bearbeiten, zu veröffentlichen oder abzulehnen.",
+                
+                h_qibla: "5. Qibla-Kompass & Sensorkalibrierung", p_qibla_1: "Die Qibla-Funktion basiert auf den Standortkoordinaten Ihres Geräts und den Hardwaresensoren (Magnetometer und Beschleunigungsmesser):",
+                li_qibla_1: "Die Genauigkeit hängt von der Hardwarequalität Ihres Geräts und der Sensorkalibrierung ab.", li_qibla_2: "Magnetische Störungen aus der Umgebung (Metallgegenstände, Elektronik) können die Genauigkeit des Kompasses beeinträchtigen.",
+                
+                h_links: "6. Externe Links und Videoquellen", p_links_1: "Die App kann externe Links zu Inhalten von Drittanbietern, Plattformkanälen, Wegbeschreibungen oder Original-Video-/Audioquellen enthalten:",
+                li_links_1: "Diese Links werden aus Gründen der Quellenangabe sowie zu Bildungs- und Referenzzwecken bereitgestellt.", li_links_2: "Wenn Sie auf einen externen Link klicken, verlassen Sie die Wasl-App zu Plattformen von Drittanbietern (wie YouTube oder Websites externer Inhaltsanbieter).", li_links_3: "Der Entwickler kontrolliert die Inhalte, die Verfügbarkeit, die Datenschutzpraktiken oder die Bedingungen von Websites oder Diensten Dritter nicht und übernimmt dafür keine Verantwortung.",
+                
+                h_wearos: "7. Wear OS-Begleit-App, Widgets und Kacheln", p_wearos_1: "Wasl enthält eine Wear OS-Begleit-App, Startbildschirm-/Sperrbildschirm-Widgets und Schnelleinstellungen-Kacheln:",
+                li_wearos_1: "Die Wear OS-App synchronisiert sich mit Ihrem Telefon, um Gebetszeiten, Kacheln, Komplikationen und Tracking-Daten über die Google Wearable Data Layer API bereitzustellen.", li_wearos_2: "Widgets und Kacheln werden aus Bequemlichkeit bereitgestellt und sind auf Android-Hintergrunddienste angewiesen, um aktuell zu bleiben.",
+                
+                h_permissions: "8. Berechtigungen, Fokusmodus und App-Blocker", p_permissions_1: "Die App benötigt bestimmte Berechtigungen wie exakte Alarme, Standortzugriff und Hintergrundausführung. Bezüglich des Fokusmodus / App-Blockers:",
+                li_permissions_1: "Der Fokusmodus verwendet spezielle Berechtigungen (Nutzungszugriff und System-Overlay), um ablenkende Apps während der Gebetszeiten zu blockieren.", li_permissions_2: "Die Nutzung dieser Funktion ist völlig optional, und Sie bleiben für die Apps verantwortlich, die Sie blockieren möchten.",
+                
+                h_network: "9. Smart Cast und lokales Netzwerk", p_network_1: "Um das Adhan-Audio zu streamen, durchsucht die App Ihr lokales WLAN-Netzwerk nach kompatiblen DLNA/UPnP-Smart-Lautsprechern oder -Fernsehern. Wir sammeln oder übertragen keine Heimnetzwerk- oder Geräteinformationen. Der Erkennungs- und Streaming-Prozess erfolgt vollständig lokal in Ihrem Heimnetzwerk.",
+                
+                h_support: "10. Unterstützung und freiwillige Beiträge", p_support_1: "Wasl bietet eine optionale Funktion 'Projekt unterstützen' über Google Play In-App-Käufe an:",
+                li_support_1: "Diese Beiträge sind freiwillig und dienen der Unterstützung der kontinuierlichen Entwicklung, der Serverwartung und der gemeinnützigen Fortführung der App.", li_support_2: "Alle Transaktionen werden sicher von Google Play verarbeitet.", li_support_3: "Beiträge schalten keine 'Premium'-Inhalte frei oder verbergen Kernfunktionen hinter einer Paywall.", li_support_4: "Rückerstattungen für digitale Beiträge unterliegen den Rückerstattungsrichtlinien von Google Play.",
+                
+                h_ip: "11. Geistiges Eigentum & Eingebettete Medien", p_ip_1: "Alle geistigen Eigentumsrechte liegen ausschließlich beim Entwickler. Eingebettete Medieninhalte, Videoquellenlinks, koranische Texte, Hadith-Sammlungen und religiöse Referenzen werden im Rahmen der fairen Nutzung für gemeinnützige, religiöse und pädagogische Zwecke verwendet. Alle Marken und Inhalte von Drittanbietern gehören ihren jeweiligen Eigentümern.",
+                
+                h_changes: "12. Änderungen der Bedingungen", p_changes_1: "Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu aktualisieren. Ihre fortgesetzte Nutzung der App stellt Ihre Zustimmung zu den aktualisierten Bedingungen dar.",
+                
+                h_contact: "13. Kontakt", p_contact_1: "Wenn Sie Fragen zu diesen Nutzungsbedingungen haben, kontaktieren Sie uns bitte per E-Mail:"
             }
         };
 
