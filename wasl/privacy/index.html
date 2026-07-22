@@ -110,6 +110,9 @@
                 <li data-i18n="li_data_1"></li>
                 <li data-i18n="li_data_2"></li>
                 <li data-i18n="li_data_3"></li>
+                <li data-i18n="li_data_4"></li>
+                <li data-i18n="li_data_5"></li>
+                <li data-i18n="li_data_6"></li>
             </ul>
 
             <h2 data-i18n="h_permissions"></h2>
@@ -119,6 +122,17 @@
                 <li data-i18n="li_permissions_2"></li>
                 <li data-i18n="li_permissions_3"></li>
                 <li data-i18n="li_permissions_4"></li>
+                <li data-i18n="li_permissions_5"></li>
+            </ul>
+            
+            <h2 data-i18n="h_noads"></h2>
+            <p data-i18n="p_noads_1"></p>
+            
+            <h2 data-i18n="h_links"></h2>
+            <p data-i18n="p_links_1"></p>
+            <ul>
+                <li data-i18n="li_links_1"></li>
+                <li data-i18n="li_links_2"></li>
             </ul>
 
             <h2 data-i18n="h_payments"></h2>
@@ -136,6 +150,7 @@
             <ul>
                 <li data-i18n="li_thirdparty_1"></li>
                 <li data-i18n="li_thirdparty_2"></li>
+                <li data-i18n="li_thirdparty_3"></li>
             </ul>
 
             <h2 data-i18n="h_changes"></h2>
@@ -152,68 +167,122 @@
             en: {
                 back_to_wasl: "Back to Wasl App", page_title: "Privacy Policy", last_updated: "Last Updated: July 2026",
                 intro_text: "Developer Ahmad Aldarwish is committed to protecting your privacy. This Privacy Policy clearly explains how we handle information when you use the Wasl app across all supported platforms (Android Phone and Wear OS).",
-                h_data: "1. Data Collection and Usage", p_data_1: "The Wasl app is built on a <strong>Privacy-First</strong> principle. We do not collect, store, sell, or share any personal data with third parties. Data used remains on your device:",
-                li_data_1: "<strong>Location Data:</strong> We require location access to calculate prayer times accurately. This is processed locally and never sent to any server.",
-                li_data_2: "<strong>Local Network:</strong> We use local network access to discover smart devices for casting the Adhan securely within your home network.",
-                li_data_3: "<strong>Wear OS Sync:</strong> Settings and prayer data are synced between your phone and watch using the Google Wearable Data Layer. This communication is encrypted and happens directly between your devices.",
-                h_permissions: "2. Sensitive Permissions", p_permissions_1: "To provide a seamless and reliable experience, the app requires specific permissions used solely for its core functionalities:",
-                li_permissions_1: "<strong>Exact Alarms & Notifications:</strong> Essential to trigger Adhan notifications accurately on time and alert you.",
-                li_permissions_2: "<strong>App Management:</strong> To enable Focus Mode and block distracting apps during prayers, special access is required. This is entirely optional.",
-                li_permissions_3: "<strong>Unrestricted Battery:</strong> To prevent the Android system from killing the app in the background, ensuring you never miss a prayer.",
-                li_permissions_4: "<strong>Nearby Devices (Local Network):</strong> Used exclusively to discover smart TVs/speakers for the casting feature.",
-                h_payments: "3. Payments and Support", p_payments_1: "When you support the project via In-App Purchases:",
-                li_payments_1: "We use the Google Play Billing API. We do not have access to, nor do we store, your credit card or payment information.",
-                li_payments_2: "Google Play may collect data according to their own privacy policies to process the transaction.",
-                h_storage: "4. Storage and Backup", p_storage_1: "All your settings and Ibadah Tracker records are saved locally on your phone's storage. We provide tools for manual and secure data export/import.",
-                h_thirdparty: "5. Third-Party Services", p_thirdparty_1: "Wasl contains absolutely no advertisements and does not use external tracking tools to collect marketing analytics. We use:",
-                li_thirdparty_1: "<strong>Firebase Cloud Messaging:</strong> To deliver occasional important updates or announcements (optional).",
-                li_thirdparty_2: "<strong>Google Play Services:</strong> For billing and wearable synchronization.",
-                h_changes: "6. Changes to Privacy Policy", p_changes_1: "We may update this policy periodically. Continued use of the application constitutes acceptance of any changes.",
-                h_contact: "7. Contact Us", p_contact_1: "If you have any questions regarding our Privacy Policy, please contact us via email:"
+                
+                h_data: "1. Data Collection and Privacy-First Principle", p_data_1: "The Wasl app is built on a strict <strong>Privacy-First</strong> principle. We do not collect, sell, rent, or trade any personal data or usage analytics with third parties or advertising networks. Data used by the app remains strictly on your device:",
+                li_data_1: "<strong>Location Data:</strong> Location access (ACCESS_FINE_LOCATION / ACCESS_COARSE_LOCATION) is requested strictly to calculate accurate prayer times for your coordinates, calculate Qibla direction, and display nearby mosques. Location processing occurs locally or via secure Cloud Functions and is never saved to tracking servers or linked to your identity.",
+                li_data_2: "<strong>Zakat Calculator Inputs:</strong> All numbers, asset values, gold/silver weights, and notes entered into the Zakat Calculator are stored locally on your device. We do not collect, transmit, or monitor your financial inputs.",
+                li_data_3: "<strong>Mosque Suggestions:</strong> When you use the \"Suggest a Mosque\" feature, the information you submit (mosque name and location coordinates) is transmitted securely via Firebase Cloud Functions solely to review and add the mosque to the public database. No personal profile, device ID, or user account is linked to your submission.",
+                li_data_4: "<strong>Ibadah & Quran Tracker Logs:</strong> Your daily prayer records, Quran reading progress, custom agendas, and adhkar favorites are saved strictly in your phone’s local SQLite database (AppDatabase).",
+                li_data_5: "<strong>Local Network Access:</strong> We use local network permissions (ACCESS_LOCAL_NETWORK, CHANGE_WIFI_MULTICAST_STATE) strictly to discover smart TVs/speakers for local Adhan casting within your home network.",
+                li_data_6: "<strong>Wear OS Synchronization:</strong> Data synced between your smartphone and watch (prayer times, settings, tracker logs) uses Google's Wearable Data Layer API, which is encrypted and transmitted directly between your paired devices.",
+                
+                h_permissions: "2. Sensitive Permissions & How They Are Used", p_permissions_1: "To provide core functionality, Wasl requests the following permissions strictly for their stated purpose:",
+                li_permissions_1: "<strong>Location:</strong> To calculate local prayer times, Qibla heading, and query nearby mosques.",
+                li_permissions_2: "<strong>Exact Alarms & Notifications (SCHEDULE_EXACT_ALARM, POST_NOTIFICATIONS):</strong> Essential to deliver precise Adhan audio alerts and prayer reminders on time.",
+                li_permissions_3: "<strong>Usage Access & System Overlay (PACKAGE_USAGE_STATS, SYSTEM_ALERT_WINDOW):</strong> Used exclusively for the optional Focus Mode / App Blocker feature to block distracting applications during prayer times.",
+                li_permissions_4: "<strong>Unrestricted Battery (REQUEST_IGNORE_BATTERY_OPTIMIZATIONS):</strong> Prevents the Android operating system from killing background prayer alarm services.",
+                li_permissions_5: "<strong>Local Network / Nearby Devices:</strong> Used exclusively to discover local smart speakers/TVs for the Adhan casting feature.",
+                
+                h_noads: "3. Absolute No-Ads & No-Tracking Policy", p_noads_1: "Wasl contains zero advertisements and does not collect marketing or behavioral analytics. We explicitly remove the Google Advertising ID (com.google.android.gms.permission.AD_ID) from our app manifest to guarantee that your device cannot be tracked for advertising purposes.",
+                
+                h_links: "4. External Video Links and Media Content", p_links_1: "Wasl provides direct external links to video source references, content channels, and educational media:",
+                li_links_1: "Tapping an external link opens a third-party application or browser (e.g., YouTube or web hosts).",
+                li_links_2: "External websites and platforms operate under their own independent privacy policies and terms of service. Wasl does not monitor your external viewing activity or share personal user data with these services.",
+                
+                h_payments: "5. Financial Privacy & Voluntary Support", p_payments_1: "When you support the project via voluntary In-App Purchases:",
+                li_payments_1: "Transactions are processed entirely by the Google Play Billing API.",
+                li_payments_2: "We do not have access to, nor do we collect or store, your credit card or financial payment credentials.",
+                
+                h_storage: "6. Storage, Backup, and Data Control", p_storage_1: "All app settings, agendas, and tracking records are stored locally in private application storage. Wasl provides manual backup export/import tools allowing you to export your data to a local file and restore it whenever you choose.",
+                
+                h_thirdparty: "7. Third-Party Infrastructure Services", p_thirdparty_1: "To run essential app services, Wasl uses minimal, secure infrastructure services:",
+                li_thirdparty_1: "<strong>Firebase Cloud Functions & Firestore:</strong> To fetch nearby mosques and process user mosque suggestions securely.",
+                li_thirdparty_2: "<strong>Firebase Cloud Messaging (FCM):</strong> To deliver occasional important app update announcements (optional).",
+                li_thirdparty_3: "<strong>Google Play Services:</strong> For location utilities, Wear OS synchronization, and billing.",
+                
+                h_changes: "8. Changes to Privacy Policy", p_changes_1: "We may update this Privacy Policy periodically. Continued use of the application constitutes acceptance of any updated policy terms.",
+                
+                h_contact: "9. Contact Us", p_contact_1: "If you have any questions regarding our Privacy Policy or data practices, please contact us via email:"
             },
             ar: {
                 back_to_wasl: "العودة لتطبيق وصل", page_title: "سياسة الخصوصية", last_updated: "آخر تحديث: يوليو 2026",
                 intro_text: "يلتزم المطور أحمد الدرويش بحماية خصوصيتك واحترام بياناتك الشخصية. توضح سياسة الخصوصية هذه بوضوح وشفافية كيفية تعاملنا مع المعلومات عند استخدامك لتطبيق وصل على جميع المنصات المدعومة (هواتف أندرويد وساعات Wear OS).",
-                h_data: "1. جمع واستخدام البيانات", p_data_1: "تم بناء تطبيق وصل على مبدأ <strong>الخصوصية أولاً (Privacy-First)</strong>. نحن لا نقوم بجمع، أو تخزين، أو بيع، أو مشاركة أي بيانات شخصية مع أطراف خارجية. البيانات المستخدمة داخل التطبيق تظل في جهازك:",
-                li_data_1: "<strong>بيانات الموقع الجغرافي:</strong> نطلب الوصول إلى الموقع الجغرافي لحساب أوقات الصلاة بدقة. تتم هذه العملية الحسابية محلياً داخل جهازك ولا يتم إرسال إحداثياتك لأي خادم.",
-                li_data_2: "<strong>الشبكة المحلية:</strong> نستخدم الوصول للشبكة المحلية لاكتشاف الأجهزة الذكية وبث الأذان (Cast Technology)، وتتم هذه العملية بشكل آمن داخل شبكة منزلك.",
-                li_data_3: "<strong>مزامنة Wear OS:</strong> تتم مزامنة الإعدادات وبيانات الصلاة بين هاتفك وساعتك باستخدام طبقة بيانات Google Wearable. هذا الاتصال مشفر ويحدث مباشرة بين أجهزتك.",
-                h_permissions: "2. الأذونات الحساسة", p_permissions_1: "لتقديم تجربة متكاملة وموثوقة، يتطلب التطبيق أذونات محددة تُستخدم حصرياً لوظائفه الأساسية:",
-                li_permissions_1: "<strong>المنبهات الدقيقة والإشعارات:</strong> ضرورية لضمان إطلاق إشعارات الأذان في وقتها المحدد بدقة وتنبيهك.",
-                li_permissions_2: "<strong>إدارة التطبيقات:</strong> لتفعيل ميزة وضع التركيز وحجب التطبيقات المشتتة وقت الصلاة، يتطلب التطبيق صلاحيات وصول خاصة. هذا الخيار اختياري تماماً.",
-                li_permissions_3: "<strong>عدم تقييد البطارية:</strong> لمنع نظام أندرويد من إغلاق التطبيق في الخلفية، مما يضمن عدم تفويت أي صلاة.",
-                li_permissions_4: "<strong>الأجهزة المجاورة (الشبكة المحلية):</strong> تُستخدم حصرياً لاكتشاف الشاشات الذكية ومكبرات الصوت لميزة البث.",
-                h_payments: "3. المدفوعات والدعم", p_payments_1: "عندما تقوم بدعم المشروع عبر المشتريات داخل التطبيق:",
-                li_payments_1: "نستخدم واجهة Google Play للفوترة. ليس لدينا وصول إلى معلومات بطاقتك الائتمانية أو معلومات الدفع ولا نقوم بتخزينها.",
-                li_payments_2: "قد تقوم Google Play بجمع البيانات وفقاً لسياسات الخصوصية الخاصة بها لمعالجة المعاملة.",
-                h_storage: "4. التخزين والنسخ الاحتياطي", p_storage_1: "يتم حفظ جميع إعداداتك المفضلة وسجلات متتبع العبادات بشكل محلي في ذاكرة التخزين الخاصة بهاتفك. نوفر لك أدوات لإنشاء نسخة احتياطية بشكل يدوي وآمن.",
-                h_thirdparty: "5. خدمات الطرف الثالث", p_thirdparty_1: "تطبيق وصل لا يحتوي على أي إعلانات على الإطلاق ولا يستخدم أدوات تتبع خارجية لجمع التحليلات التسويقية. نحن نستخدم:",
-                li_thirdparty_1: "<strong>خدمة Firebase للمراسلة السحابية:</strong> لتقديم تحديثات أو إعلانات هامة من حين لآخر (اختياري).",
-                li_thirdparty_2: "<strong>خدمات Google Play:</strong> لعمليات الدفع ومزامنة الأجهزة القابلة للارتداء.",
-                h_changes: "6. التغييرات على سياسة الخصوصية", p_changes_1: "قد نقوم بتحديث هذه السياسة من وقت لآخر. استمرار استخدامك للتطبيق يعني موافقتك على أي تغييرات تتم عليها.",
-                h_contact: "7. تواصل معنا", p_contact_1: "إذا كان لديك أي سؤال أو استفسار بخصوص سياسة الخصوصية الخاصة بنا، يسعدنا تواصلك معنا عبر البريد الإلكتروني:"
+                
+                h_data: "1. جمع واستخدام البيانات ومبدأ الخصوصية أولاً", p_data_1: "تم بناء تطبيق وصل على مبدأ صارم يتمثل في <strong>الخصوصية أولاً (Privacy-First)</strong>. نحن لا نقوم بجمع، أو بيع، أو تأجير، أو تداول أي بيانات شخصية أو تحليلات استخدام مع أطراف خارجية أو شبكات إعلانية. البيانات التي يستخدمها التطبيق تظل في جهازك بشكل قاطع:",
+                li_data_1: "<strong>بيانات الموقع الجغرافي:</strong> يُطلب الوصول للموقع (ACCESS_FINE_LOCATION / ACCESS_COARSE_LOCATION) حصريًا لحساب أوقات الصلاة بدقة لإحداثياتك، وحساب اتجاه القبلة، وعرض المساجد القريبة. تتم معالجة الموقع محليًا أو عبر وظائف سحابية آمنة ولا يتم حفظها أبدًا في خوادم التتبع أو ربطها بهويتك.",
+                li_data_2: "<strong>مدخلات حاسبة الزكاة:</strong> يتم تخزين جميع الأرقام وقيم الأصول وأوزان الذهب/الفضة والملاحظات التي تم إدخالها في حاسبة الزكاة محليًا على جهازك. نحن لا نجمع أو ننقل أو نراقب مدخلاتك المالية.",
+                li_data_3: "<strong>اقتراحات المساجد:</strong> عند استخدام ميزة \"اقتراح مسجد\"، يتم نقل المعلومات التي ترسلها (اسم المسجد وإحداثيات الموقع) بشكل آمن عبر وظائف Firebase السحابية لمراجعة وإضافة المسجد إلى قاعدة البيانات العامة فقط. لا يتم ربط ملفك الشخصي أو معرف جهازك أو حسابك بهذه المدخلات.",
+                li_data_4: "<strong>سجلات متتبع العبادات والقرآن:</strong> يتم حفظ سجلات صلاتك اليومية، وتقدم قراءة القرآن، والأجندات المخصصة، والأذكار المفضلة لديك بدقة في قاعدة بيانات SQLite المحلية بهاتفك (AppDatabase).",
+                li_data_5: "<strong>الوصول للشبكة المحلية:</strong> نستخدم أذونات الشبكة المحلية (ACCESS_LOCAL_NETWORK، CHANGE_WIFI_MULTICAST_STATE) حصريًا لاكتشاف أجهزة التلفزيون/مكبرات الصوت الذكية لبث الأذان محليًا داخل شبكتك المنزلية.",
+                li_data_6: "<strong>مزامنة Wear OS:</strong> تستخدم البيانات التي تتم مزامنتها بين هاتفك الذكي وساعتك (أوقات الصلاة، الإعدادات، السجلات) واجهة Google Wearable Data Layer API، والتي تكون مشفرة وتُرسل مباشرة بين أجهزتك المقترنة.",
+                
+                h_permissions: "2. الأذونات الحساسة وكيفية استخدامها", p_permissions_1: "لتوفير الوظائف الأساسية، يطلب تطبيق وصل الأذونات التالية لغرضها المعلن بشكل صارم:",
+                li_permissions_1: "<strong>الموقع:</strong> لحساب أوقات الصلاة المحلية، وتحديد اتجاه القبلة، والاستعلام عن المساجد القريبة.",
+                li_permissions_2: "<strong>المنبهات الدقيقة والإشعارات (SCHEDULE_EXACT_ALARM, POST_NOTIFICATIONS):</strong> ضرورية لتقديم تنبيهات صوتية دقيقة للأذان وتذكيرات بالصلاة في وقتها المحدد.",
+                li_permissions_3: "<strong>الوصول للاستخدام والظهور فوق التطبيقات الأخرى (PACKAGE_USAGE_STATS, SYSTEM_ALERT_WINDOW):</strong> يُستخدم هذا التصريح حصرياً لميزة وضع التركيز / حظر التطبيقات الاختيارية لحظر التطبيقات المشتتة أثناء أوقات الصلاة.",
+                li_permissions_4: "<strong>عدم تقييد البطارية (REQUEST_IGNORE_BATTERY_OPTIMIZATIONS):</strong> لمنع نظام التشغيل أندرويد من إيقاف خدمات منبه الصلاة في الخلفية.",
+                li_permissions_5: "<strong>الشبكة المحلية / الأجهزة المجاورة:</strong> يُستخدم التصريح حصرياً لاكتشاف مكبرات الصوت/التلفزيونات الذكية المحلية لميزة بث الأذان.",
+                
+                h_noads: "3. سياسة صارمة: خالي من الإعلانات ومنع التتبع", p_noads_1: "لا يحتوي تطبيق وصل على أي إعلانات ولا يجمع تحليلات تسويقية أو سلوكية. نقوم بإزالة مُعرف إعلانات جوجل (com.google.android.gms.permission.AD_ID) من ملف بيانات التطبيق (Manifest) بوضوح لضمان عدم إمكانية تتبع جهازك لأغراض إعلانية.",
+                
+                h_links: "4. الروابط الخارجية ومحتوى الوسائط", p_links_1: "يوفر تطبيق وصل روابط خارجية مباشرة لمراجع مصادر الفيديو وقنوات المحتوى والوسائط التعليمية:",
+                li_links_1: "يؤدي النقر على رابط خارجي إلى فتح تطبيق جهة خارجية أو متصفح (مثل YouTube أو مضيفي الويب).",
+                li_links_2: "تعمل المواقع والمنصات الخارجية بموجب سياسات خصوصية وشروط خدمة مستقلة خاصة بها. لا يراقب تطبيق وصل نشاط المشاهدة الخارجي الخاص بك ولا يشارك بيانات المستخدم الشخصية مع هذه الخدمات.",
+                
+                h_payments: "5. الخصوصية المالية والدعم الطوعي", p_payments_1: "عندما تقوم بدعم المشروع عبر المشتريات الطوعية داخل التطبيق:",
+                li_payments_1: "تتم معالجة المعاملات بالكامل بواسطة واجهة Google Play Billing API.",
+                li_payments_2: "ليس لدينا إمكانية الوصول إلى بطاقتك الائتمانية أو بيانات الدفع المالية الخاصة بك ولا نجمعها أو نخزنها.",
+                
+                h_storage: "6. التخزين، النسخ الاحتياطي، والتحكم بالبيانات", p_storage_1: "يتم تخزين جميع إعدادات التطبيق والأجندات والسجلات محليًا في وحدة التخزين الخاصة بالتطبيق. يوفر تطبيق وصل أدوات يدوية لتصدير/استيراد النسخ الاحتياطية تتيح لك تصدير بياناتك إلى ملف محلي واستعادتها وقتما تشاء.",
+                
+                h_thirdparty: "7. خدمات البنية التحتية لجهات خارجية", p_thirdparty_1: "لتشغيل خدمات التطبيق الأساسية، يستخدم تطبيق وصل خدمات بنية تحتية آمنة وبأقل حد ممكن:",
+                li_thirdparty_1: "<strong>Firebase Cloud Functions & Firestore:</strong> لجلب المساجد القريبة ومعالجة اقتراحات مساجد المستخدمين بشكل آمن.",
+                li_thirdparty_2: "<strong>Firebase Cloud Messaging (FCM):</strong> لتقديم إعلانات تحديثات التطبيق الهامة من حين لآخر (اختياري).",
+                li_thirdparty_3: "<strong>خدمات Google Play:</strong> لخدمات تحديد الموقع، ومزامنة Wear OS، وعمليات الدفع.",
+                
+                h_changes: "8. التغييرات على سياسة الخصوصية", p_changes_1: "قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. استمرار استخدامك للتطبيق يُعد موافقة منك على أي شروط محدثة في السياسة.",
+                
+                h_contact: "9. اتصل بنا", p_contact_1: "إذا كان لديك أي سؤال أو استفسار بخصوص سياسة الخصوصية الخاصة بنا أو ممارسات البيانات، يسعدنا تواصلك معنا عبر البريد الإلكتروني:"
             },
             de: {
                 back_to_wasl: "Zurück zur Wasl App", page_title: "Datenschutzerklärung", last_updated: "Letzte Aktualisierung: Juli 2026",
                 intro_text: "Der Entwickler Ahmad Aldarwish verpflichtet sich, Ihre Privatsphäre zu schützen. Diese Datenschutzerklärung erklärt klar, wie wir mit Informationen umgehen, wenn Sie die Wasl-App auf allen unterstützten Plattformen (Android-Telefon und Wear OS) nutzen.",
-                h_data: "1. Datenerhebung und -nutzung", p_data_1: "Die Wasl-App basiert auf dem <strong>Privacy-First</strong>-Prinzip. Wir sammeln, speichern, verkaufen oder teilen keine persönlichen Daten mit Dritten. Die Daten verbleiben auf Ihrem Gerät:",
-                li_data_1: "<strong>Standortdaten:</strong> Wir benötigen den Standortzugriff, um Gebetszeiten genau zu berechnen. Dies wird lokal verarbeitet und nie an Server gesendet.",
-                li_data_2: "<strong>Lokales Netzwerk:</strong> Wir nutzen das lokale Netzwerk, um Smart-Geräte für das sichere Streamen des Adhan innerhalb Ihres Heimnetzwerks zu erkennen.",
-                li_data_3: "<strong>Wear OS-Synchronisierung:</strong> Einstellungen und Gebetsdaten werden über den Google Wearable Data Layer zwischen Ihrem Telefon und Ihrer Uhr synchronisiert. Diese Kommunikation ist verschlüsselt und erfolgt direkt zwischen Ihren Geräten.",
-                h_permissions: "2. Sensible Berechtigungen", p_permissions_1: "Für ein nahtloses und zuverlässiges Erlebnis benötigt die App bestimmte Berechtigungen, die ausschließlich für ihre Kernfunktionen verwendet werden:",
-                li_permissions_1: "<strong>Exakte Alarme & Benachrichtigungen:</strong> Unverzichtbar, um Adhan-Benachrichtigungen pünktlich auszulösen und Sie zu warnen.",
-                li_permissions_2: "<strong>App-Management:</strong> Um den Fokusmodus zu aktivieren und ablenkende Apps während des Gebets zu blockieren, ist ein spezieller Zugriff erforderlich. Dies ist völlig optional.",
-                li_permissions_3: "<strong>Uneingeschränkte Batterie:</strong> Um zu verhindern, dass das Android-System die App im Hintergrund beendet, damit Sie kein Gebet verpassen.",
-                li_permissions_4: "<strong>Geräte in der Nähe (Lokales Netzwerk):</strong> Wird ausschließlich verwendet, um Smart-TVs/Lautsprecher für die Cast-Funktion zu erkennen.",
-                h_payments: "3. Zahlungen und Unterstützung", p_payments_1: "Wenn Sie das Projekt durch In-App-Käufe unterstützen:",
-                li_payments_1: "Wir verwenden die Google Play Billing API. Wir haben keinen Zugriff auf Ihre Kreditkarten- oder Zahlungsinformationen und speichern diese auch nicht.",
-                li_payments_2: "Google Play kann Daten gemäß den eigenen Datenschutzrichtlinien sammeln, um die Transaktion zu verarbeiten.",
-                h_storage: "4. Speicherung und Backup", p_storage_1: "Alle Ihre Einstellungen und Ibadah-Tracker-Aufzeichnungen werden lokal auf dem Speicher Ihres Telefons gespeichert. Wir bieten Werkzeuge für den manuellen und sicheren Export/Import.",
-                h_thirdparty: "5. Dienste von Drittanbietern", p_thirdparty_1: "Wasl enthält absolut keine Werbung und verwendet keine externen Tracking-Tools zur Erfassung von Marketinganalysen. Wir verwenden:",
-                li_thirdparty_1: "<strong>Firebase Cloud Messaging:</strong> Um gelegentlich wichtige Updates oder Ankündigungen zu senden (optional).",
-                li_thirdparty_2: "<strong>Google Play Services:</strong> Für die Abrechnung und Synchronisierung mit Wearables.",
-                h_changes: "6. Änderungen der Datenschutzerklärung", p_changes_1: "Wir können diese Richtlinie gelegentlich aktualisieren. Die weitere Nutzung der Anwendung gilt als Zustimmung zu etwaigen Änderungen.",
-                h_contact: "7. Kontakt", p_contact_1: "Wenn Sie Fragen zu unserer Datenschutzerklärung haben, kontaktieren Sie uns bitte per E-Mail:"
+                
+                h_data: "1. Datenerhebung und Privacy-First-Prinzip", p_data_1: "Die Wasl-App basiert auf einem strengen <strong>Privacy-First</strong>-Prinzip. Wir sammeln, verkaufen, vermieten oder tauschen keine persönlichen Daten oder Nutzungsanalysen mit Dritten oder Werbenetzwerken. Die von der App verwendeten Daten verbleiben strikt auf Ihrem Gerät:",
+                li_data_1: "<strong>Standortdaten:</strong> Der Standortzugriff (ACCESS_FINE_LOCATION / ACCESS_COARSE_LOCATION) wird ausschließlich angefordert, um genaue Gebetszeiten für Ihre Koordinaten zu berechnen, die Qibla-Richtung zu ermitteln und nahegelegene Moscheen anzuzeigen. Die Standortverarbeitung erfolgt lokal oder über sichere Cloud-Funktionen und wird niemals auf Tracking-Servern gespeichert oder mit Ihrer Identität verknüpft.",
+                li_data_2: "<strong>Zakat-Rechner Eingaben:</strong> Alle Zahlen, Vermögenswerte, Gold-/Silbergewichte und Notizen, die in den Zakat-Rechner eingegeben werden, werden lokal auf Ihrem Gerät gespeichert. Wir sammeln, übertragen oder überwachen Ihre finanziellen Eingaben nicht.",
+                li_data_3: "<strong>Moschee-Vorschläge:</strong> Wenn Sie die Funktion \"Moschee vorschlagen\" nutzen, werden die von Ihnen übermittelten Informationen (Moscheename und Standortkoordinaten) sicher über Firebase Cloud Functions übertragen, ausschließlich um die Moschee zu überprüfen und zur öffentlichen Datenbank hinzuzufügen. Mit Ihrer Einreichung ist kein persönliches Profil, keine Geräte-ID und kein Benutzerkonto verknüpft.",
+                li_data_4: "<strong>Ibadah & Quran Tracker Logs:</strong> Ihre täglichen Gebetsaufzeichnungen, der Lesefortschritt des Korans, benutzerdefinierte Agenden und Adhkar-Favoriten werden streng in der lokalen SQLite-Datenbank Ihres Telefons (AppDatabase) gespeichert.",
+                li_data_5: "<strong>Zugriff auf lokales Netzwerk:</strong> Wir verwenden Berechtigungen für das lokale Netzwerk (ACCESS_LOCAL_NETWORK, CHANGE_WIFI_MULTICAST_STATE) ausschließlich, um Smart-TVs/Lautsprecher für das lokale Adhan-Casting innerhalb Ihres Heimnetzwerks zu erkennen.",
+                li_data_6: "<strong>Wear OS-Synchronisierung:</strong> Die zwischen Ihrem Smartphone und Ihrer Uhr synchronisierten Daten (Gebetszeiten, Einstellungen, Tracker-Protokolle) verwenden die Wearable Data Layer API von Google, die verschlüsselt ist und direkt zwischen Ihren gekoppelten Geräten übertragen wird.",
+                
+                h_permissions: "2. Sensible Berechtigungen & wie sie verwendet werden", p_permissions_1: "Um die Kernfunktionen bereitzustellen, fordert Wasl die folgenden Berechtigungen ausschließlich für den angegebenen Zweck an:",
+                li_permissions_1: "<strong>Standort:</strong> Zur Berechnung lokaler Gebetszeiten, des Qibla-Kurses und zur Abfrage nahegelegener Moscheen.",
+                li_permissions_2: "<strong>Exakte Alarme & Benachrichtigungen (SCHEDULE_EXACT_ALARM, POST_NOTIFICATIONS):</strong> Unerlässlich, um präzise Adhan-Audio-Alarme und Gebetserinnerungen pünktlich zu liefern.",
+                li_permissions_3: "<strong>Nutzungszugriff & System-Overlay (PACKAGE_USAGE_STATS, SYSTEM_ALERT_WINDOW):</strong> Wird exklusiv für die optionale Fokusmodus-/App-Blocker-Funktion verwendet, um ablenkende Anwendungen während der Gebetszeiten zu blockieren.",
+                li_permissions_4: "<strong>Uneingeschränkte Batterie (REQUEST_IGNORE_BATTERY_OPTIMIZATIONS):</strong> Verhindert, dass das Android-Betriebssystem Hintergrunddienste für Gebetsalarme beendet.",
+                li_permissions_5: "<strong>Lokales Netzwerk / Geräte in der Nähe:</strong> Wird ausschließlich verwendet, um lokale Smart-Lautsprecher/TVs für die Adhan-Casting-Funktion zu erkennen.",
+                
+                h_noads: "3. Absolute No-Ads- & No-Tracking-Richtlinie", p_noads_1: "Wasl enthält keinerlei Werbung und sammelt keine Marketing- oder Verhaltensanalysen. Wir entfernen die Google-Werbe-ID (com.google.android.gms.permission.AD_ID) ausdrücklich aus unserem App-Manifest, um zu garantieren, dass Ihr Gerät nicht zu Werbezwecken verfolgt werden kann.",
+                
+                h_links: "4. Externe Videolinks und Medieninhalte", p_links_1: "Wasl bietet direkte externe Links zu Videoquellen-Referenzen, Inhaltskanälen und Bildungsmedien:",
+                li_links_1: "Durch Tippen auf einen externen Link wird eine Anwendung eines Drittanbieters oder ein Browser (z. B. YouTube oder Web-Hosts) geöffnet.",
+                li_links_2: "Externe Websites und Plattformen arbeiten unter ihren eigenen, unabhängigen Datenschutzrichtlinien und Nutzungsbedingungen. Wasl überwacht Ihre externe Sehaktivität nicht und gibt keine persönlichen Benutzerdaten an diese Dienste weiter.",
+                
+                h_payments: "5. Finanzielle Privatsphäre & Freiwillige Unterstützung", p_payments_1: "Wenn Sie das Projekt durch freiwillige In-App-Käufe unterstützen:",
+                li_payments_1: "Die Transaktionen werden vollständig über die Google Play Billing API abgewickelt.",
+                li_payments_2: "Wir haben keinen Zugriff auf Ihre Kreditkarten- oder Finanzzahlungsdaten und wir sammeln oder speichern diese auch nicht.",
+                
+                h_storage: "6. Speicherung, Backup und Datenkontrolle", p_storage_1: "Alle App-Einstellungen, Agenden und Tracking-Aufzeichnungen werden lokal im privaten Anwendungsspeicher gespeichert. Wasl bietet manuelle Tools für den Export/Import von Backups, mit denen Sie Ihre Daten in eine lokale Datei exportieren und jederzeit wiederherstellen können.",
+                
+                h_thirdparty: "7. Infrastrukturdienste von Drittanbietern", p_thirdparty_1: "Um wesentliche App-Dienste auszuführen, verwendet Wasl minimale, sichere Infrastrukturdienste:",
+                li_thirdparty_1: "<strong>Firebase Cloud Functions & Firestore:</strong> Um nahegelegene Moscheen abzurufen und Moscheevorschläge von Benutzern sicher zu verarbeiten.",
+                li_thirdparty_2: "<strong>Firebase Cloud Messaging (FCM):</strong> Um gelegentlich wichtige App-Update-Ankündigungen bereitzustellen (optional).",
+                li_thirdparty_3: "<strong>Google Play Services:</strong> Für Standortdienstprogramme, Wear OS-Synchronisierung und Abrechnung.",
+                
+                h_changes: "8. Änderungen der Datenschutzerklärung", p_changes_1: "Wir können diese Datenschutzerklärung regelmäßig aktualisieren. Die fortgesetzte Nutzung der Anwendung stellt die Annahme aller aktualisierten Richtlinienbedingungen dar.",
+                
+                h_contact: "9. Kontakt", p_contact_1: "Wenn Sie Fragen zu unserer Datenschutzerklärung oder unseren Datenpraktiken haben, kontaktieren Sie uns bitte per E-Mail:"
             }
         };
 
