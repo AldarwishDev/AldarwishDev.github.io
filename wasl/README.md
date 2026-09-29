@@ -2,6 +2,8 @@
 
 The overview, Privacy Policy, and Terms of Use share `assets/wasl.css` and `assets/wasl.js`. They are static pages served by GitHub Pages; no server or dependency installation is required.
 
+The visual design follows the Wasl app references: amber accents, cream/white surfaces, dark navy text, rounded Material 3 Expressive containers, pastel icon tiles, and a blue prayer-inspired hero. All text uses self-hosted Almarai (400, 700, 800), sourced from [Google Fonts](https://github.com/google/fonts/tree/main/ofl/almarai). Font files and the SIL Open Font License are bundled in `assets/fonts/`. No visitor request to a third-party font service is required. Shape transitions respect reduced-motion preferences.
+
 ## Editing
 
 - Edit legal wording in `content/en.txt`, `content/ar.txt`, and `content/de.txt`. Each file contains the Privacy Policy followed by the Terms of Use. Keep numbered headings and standalone bullet markers (`•`) in the existing format.

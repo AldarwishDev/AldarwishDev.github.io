@@ -8,7 +8,7 @@
   function setTheme(theme) {
     root.dataset.theme = theme;
     themeButton.setAttribute('aria-pressed', String(theme === 'dark'));
-    document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#151e1a' : '#f5f4ee';
+    document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#141820' : '#f3efe4';
   }
   const savedTheme = get('preferredTheme');
   setTheme(['light', 'dark'].includes(savedTheme) ? savedTheme : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
