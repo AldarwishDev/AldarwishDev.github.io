@@ -2,7 +2,7 @@
 
 The overview, Privacy Policy, and Terms of Use share `assets/wasl.css` and `assets/wasl.js`. They are static pages served by GitHub Pages; no server or dependency installation is required.
 
-The visual design follows the Wasl app references: amber accents, cream/white surfaces, dark navy text, rounded Material 3 Expressive containers, pastel icon tiles, and a blue hero in light mode with subdued charcoal surfaces in dark mode. Mobile uses a compact introduction and full-width feature cards. All text uses self-hosted Almarai (400, 700, 800), sourced from [Google Fonts](https://github.com/google/fonts/tree/main/ofl/almarai). Font files and the SIL Open Font License are bundled in `assets/fonts/`. No visitor request to a third-party font service is required. Shape transitions respect reduced-motion preferences.
+The visual design follows the Wasl app references: amber accents, cream/white surfaces, dark navy text, rounded Material 3 Expressive containers, pastel icon tiles, and an Islamic-inspired green and gold overview hero with subtle geometry and a compact arch frame for the logo. Mobile uses a compact introduction and full-width feature cards. All text uses self-hosted Almarai (400, 700, 800), sourced from [Google Fonts](https://github.com/google/fonts/tree/main/ofl/almarai). Font files and the SIL Open Font License are bundled in `assets/fonts/`. No visitor request to a third-party font service is required. Shape transitions respect reduced-motion preferences.
 
 ## Editing
 

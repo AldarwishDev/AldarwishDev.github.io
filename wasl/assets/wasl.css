@@ -69,7 +69,7 @@ svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width:
 .icon-button:active { transform: scale(.94); }
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--on-primary-container); background: var(--primary-container); padding: 7px 15px; border-radius: 100px; font-size: 11px; font-weight: 700; letter-spacing: .25px; line-height: 1.7; }
 .home-main, .legal-main { max-width: 1320px; padding: 0 40px; margin: auto; }
-.hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 35px; align-items: center; background: linear-gradient(145deg, #165fba, #2d91df); padding: 50px 48px; border-radius: 48px; margin-top: 14px; overflow: hidden; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: 35px; align-items: center; background: linear-gradient(145deg, #165fba, #2d91df); padding: 50px 48px; border-radius: 48px; margin-top: 14px; overflow: hidden; }
 .hero .eyebrow { background: #ffffffde; color: #182b43; }
 .hero h1 { font-size: clamp(40px, 4.5vw, 62px); font-weight: 800; line-height: 1.25; color: #ffffff; letter-spacing: -.5px; margin: 24px 0 22px; }
 .hero h1 em { color: #fff0c8; }
@@ -82,10 +82,6 @@ svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width:
 .explore-link { background: #ffffff; color: #123c62; }
 .explore-link:hover { background: #e0f1ff; border-radius: 18px; }
 .platforms { color: #ffffff; font-size: 11px; line-height: 1.9; margin-top: 22px; text-align: start; }
-.hero-art { min-width: 0; min-height: 410px; position: relative; overflow: hidden; isolation: isolate; border-radius: 42px; background: #ffffff12; border: 1px solid #ffffff30; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #ffffff; }
-.hero-art img { width: 126px; height: 126px; border-radius: 34px; box-shadow: 0 8px 25px #092f6430; margin-top: 0; }
-.hero-art p { margin-top: 25px; font-size: 19px; font-weight: 700; text-align: center; padding: 0 20px; color: #082339; }
-.art-caption { margin-top: 15px; font-size: 30px; font-weight: 800; color: #fff0c8; }
 .features { background: var(--surface); border-radius: 40px; padding: 36px; margin-top: 28px; }
 .section-heading h2 { display: flex; align-items: center; gap: 13px; font-size: clamp(25px, 3vw, 36px); font-weight: 800; line-height: 1.5; margin: 17px 0 8px; }
 .section-heading h2::before { content: ''; width: 6px; height: 32px; border-radius: 100px; background: var(--primary); flex-shrink: 0; }
@@ -148,7 +144,6 @@ html[dir='rtl'] .platforms { text-align: right; }
   .nav-wrap { gap: 16px; }
   .brand-ar { display: none; }
   .hero { gap: 26px; padding: 36px; }
-  .hero-art { min-height: 400px; }
   .document-grid { grid-template-columns: 230px minmax(0, 1fr); gap: 18px; }
   .document-body { padding: 26px; }
   .site-footer { margin-inline: 40px; }
@@ -162,9 +157,6 @@ html[dir='rtl'] .platforms { text-align: right; }
   .hero { margin-top: 4px; padding: 30px; gap: 26px; border-radius: 32px; }
   .hero h1 { font-size: 40px; }
   .hero-intro { font-size: 15px; }
-  .hero-art { min-height: 360px; border-radius: 28px; }
-  .hero-art img { width: 100px; height: 100px; border-radius: 28px; }
-  .hero-art p { font-size: 16px; }
   .features { padding: 28px; border-radius: 32px; }
   .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .feature { padding: 22px; }
@@ -194,10 +186,6 @@ html[dir='rtl'] .platforms { text-align: right; }
   .hero-intro { max-width: 400px; }
   .hero-actions { align-items: stretch; }
   .button, .explore-link { flex: 1 1 auto; padding-inline: 17px; font-size: 12px; }
-  .hero-art { min-height: 290px; width: 100%; }
-  .hero-art img { margin-top: 0; }
-  .hero-art p { margin-top: 18px; }
-  .art-caption { margin-top: 6px; font-size: 26px; }
   .features { padding: 24px 18px; margin-top: 18px; }
   .features-grid { gap: 10px; margin-top: 22px; }
   .feature { padding: 17px 14px; border-radius: 24px; }
@@ -244,9 +232,6 @@ html[dir='rtl'] .platforms { text-align: right; }
 [data-theme='dark'] .hero h1 em { color: var(--primary); }
 [data-theme='dark'] .hero-intro, [data-theme='dark'] .platforms { color: var(--muted); }
 [data-theme='dark'] .hero .eyebrow { background: var(--primary-container); color: var(--on-primary-container); }
-[data-theme='dark'] .hero-art { background: var(--surface-low); border-color: var(--line); }
-[data-theme='dark'] .hero-art p { color: var(--ink); }
-[data-theme='dark'] .art-caption { color: var(--primary); }
 [data-theme='dark'] .explore-link { background: var(--surface-low); color: var(--ink); }
 @media (max-width: 600px) { .controls select { min-width: 98px; max-width: 110px; } }
 
@@ -264,7 +249,6 @@ html[dir='rtl'] .platforms { text-align: right; }
   .hero-copy { color: #fff; }
   [data-theme='dark'] .hero-copy { color: var(--ink); }
   .platforms { margin-top: 12px; font-size: 10px; }
-  .hero-art { display: none; }
   .features { padding: 24px 16px 16px; border-radius: 28px; }
   .section-heading h2 { font-size: 25px; line-height: 1.5; }
   .section-heading > p:last-child { font-size: 14px; line-height: 1.8; }
@@ -293,3 +277,40 @@ html[dir='rtl'] .platforms { text-align: right; }
   .feature h3 { align-self: center; }
   .feature p { grid-column: 1 / -1; margin-top: 4px; }
 }
+
+/* A compact introduction without a separate decorative panel. */
+.hero-copy { width: 100%; max-width: 860px; margin-inline: auto; text-align: center; }
+.hero-intro { margin-inline: auto; max-width: 680px; }
+.hero-actions { justify-content: center; }
+.hero .platforms, html[dir='rtl'] .hero .platforms { text-align: center; }
+@media screen and (min-width: 601px) {
+  .hero { padding-block: 36px; }
+  .hero h1 { font-size: clamp(36px, 4vw, 54px); margin-block: 18px; }
+  .hero-actions { margin-top: 24px; }
+  .platforms { margin-top: 16px; }
+}
+
+/* Islamic geometry and a compact arch frame, limited to the overview hero. */
+body[data-page='overview'] .hero { position: relative; isolation: isolate; grid-template-columns: minmax(0, 1fr) 170px; gap: 32px; background: linear-gradient(135deg, #133f36, #246052); color: #fff; }
+body[data-page='overview'] .hero::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: .09; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cpath d='M80 16 99 61 144 80 99 99 80 144 61 99 16 80 61 61Z M35 35H125V125H35Z' fill='none' stroke='%23f4d58b' stroke-width='1'/%3E%3C/svg%3E"); }
+body[data-page='overview'] .hero-copy { text-align: start; margin: 0; }
+body[data-page='overview'] .hero-intro { margin: 0; }
+body[data-page='overview'] .hero .eyebrow { background: #f4e3b5; color: #3f3519; }
+body[data-page='overview'] .hero h1 em { color: #f4d58b; }
+body[data-page='overview'] .hero-actions { justify-content: start; }
+body[data-page='overview'] .hero .platforms { text-align: start; }
+.hero-brand { width: 170px; height: 210px; border-radius: 90px 90px 28px 28px; border: 1px solid #e7c77c80; background: #f4d58b0a; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 8px #f4d58b05; }
+.hero-brand img { width: 112px; height: 112px; border-radius: 30px; }
+body[data-page='overview'][data-theme='dark'] .hero, [data-theme='dark'] body[data-page='overview'] .hero { background: linear-gradient(135deg, #1b2925, #253b32); border-color: #526052; }
+body[data-page='overview'] .explore-link { color: #183f34; }
+[data-theme='dark'] body[data-page='overview'] .explore-link { color: var(--ink); }
+@media screen and (max-width: 600px) {
+  body[data-page='overview'] .hero { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .hero-brand { order: -1; width: 88px; height: 104px; border-radius: 48px 48px 18px 18px; margin-inline: auto; }
+  .hero-brand img { width: 62px; height: 62px; border-radius: 18px; }
+  body[data-page='overview'] .hero-copy { text-align: center; }
+  body[data-page='overview'] .hero-actions { justify-content: center; }
+  body[data-page='overview'] .hero .platforms { text-align: center; }
+}
+
+@media screen and (max-width: 600px) { body[data-page='overview'] .hero .explore-link { color: #fff; } }
