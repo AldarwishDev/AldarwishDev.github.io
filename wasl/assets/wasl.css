@@ -258,3 +258,48 @@ html[dir='rtl'] .platforms { text-align: right; }
 [data-theme='dark'] .art-caption { color: var(--primary); }
 [data-theme='dark'] .explore-link { background: var(--surface-low); color: var(--ink); }
 @media (max-width: 600px) { .controls select { min-width: 98px; max-width: 110px; } }
+
+/* Mobile uses a compact introduction and full-width feature rows. */
+@media screen and (max-width: 600px) {
+  html { scroll-padding-top: 145px; }
+  .nav-wrap { padding-block: 10px; gap: 8px; }
+  .primary-nav a { font-size: 11px; min-height: 40px; padding-block: 8px; }
+  .hero { padding: 24px 20px; border-radius: 28px; gap: 0; }
+  .hero h1 { font-size: 34px; line-height: 1.3; margin: 18px 0 16px; }
+  html[dir='rtl'] .hero h1 { line-height: 1.45; }
+  .hero-intro { font-size: 15px; line-height: 1.8; }
+  .hero-actions { margin-top: 22px; gap: 10px; }
+  .hero-actions .button { width: 100%; flex-basis: 100%; }
+  .hero-actions .explore-link { min-height: 44px; padding: 8px 12px; background: transparent; color: inherit; flex: 0 1 auto; }
+  .hero-copy { color: #fff; }
+  [data-theme='dark'] .hero-copy { color: var(--ink); }
+  .platforms { margin-top: 12px; font-size: 10px; }
+  .hero-art { display: none; }
+  .features { padding: 24px 16px 16px; border-radius: 28px; }
+  .section-heading h2 { font-size: 25px; line-height: 1.5; }
+  .section-heading > p:last-child { font-size: 14px; line-height: 1.8; }
+  .features-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 20px; }
+  .feature { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 12px; row-gap: 6px; padding: 18px 14px; border-radius: 22px; }
+  .feature-top { grid-column: 1; grid-row: 1 / 3; margin: 0; align-items: start; }
+  .feature-top svg { width: 44px; height: 44px; padding: 11px; }
+  .feature h3 { grid-column: 2; margin: 0; font-size: 16px; overflow-wrap: normal; }
+  .feature p { grid-column: 2; font-size: 14px; line-height: 1.85; overflow-wrap: normal; }
+  .privacy-banner { padding: 24px 20px; gap: 18px; border-radius: 28px; }
+  .privacy-banner h2 { font-size: 30px; }
+  .privacy-banner p:not(.eyebrow) { font-size: 14px; line-height: 1.9; }
+  .document-heading { padding: 22px 18px; border-radius: 24px; }
+  .document-heading h1 { font-size: 30px; margin: 14px 0 18px; }
+  .document-body { padding: 22px 18px; border-radius: 24px; font-size: 15px; line-height: 1.95; }
+  .document-body .intro { background: none; padding: 0; font-size: 15px; }
+  .legal-section { margin-top: 24px; padding-top: 24px; }
+  .legal-section h2 { font-size: 18px; line-height: 1.7; }
+  .legal-section ul { padding-inline-start: 18px; }
+  .legal-section li { padding-inline-start: 0; }
+  .site-footer { gap: 14px; padding-bottom: 24px; }
+}
+
+@media screen and (max-width: 600px) {
+  .feature-top { grid-row: 1; }
+  .feature h3 { align-self: center; }
+  .feature p { grid-column: 1 / -1; margin-top: 4px; }
+}

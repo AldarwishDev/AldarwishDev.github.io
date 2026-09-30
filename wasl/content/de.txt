@@ -1,6 +1,6 @@
 Datenschutzerklärung
 Zuletzt aktualisiert: September 2026
-Entwickler Ahmad Aldarwish setzt sich für den Schutz Ihrer Privatsphäre ein. Diese Datenschutzerklärung erläutert, wie wir Informationen verarbeiten, wenn Sie die Wasl-App auf allen unterstützten Plattformen nutzen (Android-Smartphones, Wear OS-Uhren, Android TV und Automotive).
+Entwickler Ahmad Aldarwish setzt sich für den Schutz Ihrer Privatsphäre ein. Diese Datenschutzerklärung erläutert, wie wir Informationen verarbeiten, wenn Sie die Wasl-App auf allen unterstützten Plattformen nutzen (Android-Smartphones und Wear OS-Uhren).
 1. Datenerhebung und Grundsatz „Datenschutz zuerst“
 Wasl basiert auf dem strikten Grundsatz „Datenschutz zuerst“. Wir verkaufen, vermieten oder tauschen Ihre personenbezogenen Daten nicht mit Dritten oder Werbenetzwerken. Daten werden standardmäßig lokal auf Ihrem Gerät gespeichert, mit klaren Wahlmöglichkeiten für die Kontoerstellung, Cloud-Sicherung und Synchronisierung mehrerer Geräte:
 •
@@ -69,7 +69,7 @@ Nutzungsbedingungen
 Zuletzt aktualisiert: September 2026
 Durch das Herunterladen, Installieren oder Nutzen der Wasl-Anwendung gelten diese Bedingungen automatisch für Sie. Bitte lesen Sie sie sorgfältig, bevor Sie die App verwenden.
 1. Lizenz und Nutzung
-Entwickler Ahmad Aldarwish gewährt Ihnen eine persönliche, nicht ausschließliche, nicht übertragbare, widerrufliche Lizenz zur Nutzung der Wasl-App auf kompatiblen Geräten, einschließlich Android-Smartphones, Wear OS-Smartwatches, Android TV und Automotive-Headunits.
+Entwickler Ahmad Aldarwish gewährt Ihnen eine persönliche, nicht ausschließliche, nicht übertragbare, widerrufliche Lizenz zur Nutzung der Wasl-App auf kompatiblen Geräten, einschließlich Android-Smartphones und Wear OS-Smartwatches.
 •
 Sie dürfen die App nicht kopieren, dekompilieren, rückentwickeln oder versuchen, ihren Quellcode zu extrahieren.
 •

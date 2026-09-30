@@ -1,6 +1,6 @@
 Privacy Policy
 Last Updated: September 2026
-Developer Ahmad Aldarwish is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use the Wasl app across all supported platforms (Android Smartphones, Wear OS watches, Android TV, and Automotive).
+Developer Ahmad Aldarwish is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use the Wasl app across all supported platforms (Android smartphones and Wear OS watches).
 1. Data Collection and Privacy-First Principle
 Wasl is built on a strict Privacy-First principle. We do not sell, rent, or trade your personal data with third parties or advertising networks. Data remains stored locally on your device by default, with clear user options for account creation, cloud backup, and multi-device synchronization:
 •
@@ -69,7 +69,7 @@ Terms of Use
 Last Updated: September 2026
 By downloading, installing, or using the Wasl application, these terms automatically apply to you. Please read them carefully before using the app.
 1. License and Usage
-Developer Ahmad Aldarwish grants you a personal, non-exclusive, non-transferable, revocable license to use the Wasl app on compatible devices, including Android smartphones, Wear OS smartwatches, Android TV, and Automotive head units.
+Developer Ahmad Aldarwish grants you a personal, non-exclusive, non-transferable, revocable license to use the Wasl app on compatible devices, including Android smartphones and Wear OS smartwatches.
 •
 You are not permitted to copy, decompile, reverse-engineer, or attempt to extract the source code of the app.
 •

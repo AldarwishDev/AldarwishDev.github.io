@@ -40,7 +40,7 @@
     document.querySelector('.primary-nav').setAttribute('aria-label', labels.brand);
     if (data.documents) {
       const doc = data.documents[lang];
-      document.title = `${doc.title} | Wasl`;
+      document.title = `${doc.title} | ${labels.brand}`;
       document.getElementById('document-title').textContent = doc.title;
       document.getElementById('updated').textContent = doc.updated;
       document.getElementById('document-body').innerHTML = doc.body + `<a class="top-link" href="#top">${labels.top} ↑</a>`;
@@ -49,7 +49,7 @@
       watchSections();
     } else {
       document.getElementById('main').innerHTML = data.home[lang];
-      document.title = `${labels.overview} | Wasl`;
+      document.title = `${labels.overview} | ${labels.brand}`;
     }
     document.querySelectorAll('[data-label]').forEach(el => { el.textContent = labels[el.dataset.label]; });
     themeButton.setAttribute('aria-label', labels.theme);
