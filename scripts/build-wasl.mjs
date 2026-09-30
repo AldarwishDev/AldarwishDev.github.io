@@ -1,9 +1,11 @@
 import { readFileSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { resolve, dirname } from 'node:path';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = path => readFileSync(resolve(root, path), 'utf8');
+const assetVersion = path => createHash('sha256').update(read(path)).digest('hex').slice(0, 12);
 const write = (path, text) => writeFileSync(resolve(root, path), text + '\n');
 const esc = text => text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 const inline = text => esc(text).replace(/contact@ahmadaldarwish\.com/g, '<a href="mailto:contact@ahmadaldarwish.com" dir="ltr">contact@ahmadaldarwish.com</a>');
@@ -64,8 +66,8 @@ function shell(page, title, description, content, data) {
   <link rel="icon" href="/logo.png">
   <link rel="canonical" href="https://ahmadaldarwish.com/wasl/${page === 'overview' ? '' : page + '/'}">
   <link rel="preload" href="/wasl/assets/fonts/Almarai-Regular.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="/wasl/assets/wasl.css">
-  <script src="/wasl/assets/wasl.js" defer></script>
+  <link rel="stylesheet" href="/wasl/assets/wasl.css?v=${assetVersion('wasl/assets/wasl.css')}">
+  <script src="/wasl/assets/wasl.js?v=${assetVersion('wasl/assets/wasl.js')}" defer></script>
 </head>
 <body id="top" data-page="${page}">
 ${header(page)}
