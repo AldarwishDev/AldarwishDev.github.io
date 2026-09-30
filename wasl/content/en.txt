@@ -1,0 +1,152 @@
+Privacy Policy
+Last Updated: September 2026
+Developer Ahmad Aldarwish is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use the Wasl app across all supported platforms (Android smartphones and Wear OS watches).
+1. Data Collection and Privacy-First Principle
+Wasl is built on a strict Privacy-First principle. We do not sell, rent, or trade your personal data with third parties or advertising networks. Data remains stored locally on your device by default, with clear user options for account creation, cloud backup, and multi-device synchronization:
+•
+Location Data (Optional): Location access (Approximate/Precise) is requested solely to calculate accurate prayer times, determine Qibla direction, and display nearby mosques and Islamic places. This is strictly optional: Users can choose to grant GPS access or manually select their city/region to avoid GPS usage entirely. Location processing occurs locally or via secure Cloud Functions and is never sold or linked to advertising profiles.
+•
+User Accounts & Profile Data (Optional): You may optionally create a Wasl account using Email/Password or Google Sign-In (via Google Credential Manager). When you create an account, we collect basic profile metadata (email address, display name, and optional profile avatar picture). Profile pictures uploaded by users are stored securely in Firebase Storage (users/{userId}/profile_avatar.jpg).
+•
+Cloud Backup & Realtime Sync (Optional): If logged in, Wasl backs up your app settings, tracker records (prayer logs, Quran reading progress, adhkar progress), and custom adhkar to our secure Firebase Firestore database (users/{userId}/backups/app_data). This enables Realtime Synchronization across your connected devices. You can enable or disable Auto Cloud Backup and Realtime Sync at any time in the app settings.
+•
+Android System Backup (Optional): If enabled, the app also utilizes the standard Android Backup Service (Google Drive) to securely back up local settings and databases to your personal Google Drive account.
+•
+Anonymous Activity Heartbeat (Optional): To monitor app service availability and active usage volume, the app sends a randomly generated unique identifier (UUID) and a "last seen" timestamp to our secure Firestore database when opened. This identifier is generated locally, stored in private app storage, and is never linked to your identity, phone number, or hardware IDs (such as IMEI). You can disable this feature at any time via the "Anonymous Analytics" toggle in Settings > About.
+•
+Custom Adhkar & Local Tracker Records: All custom adhkar, tasbeeh counters, and worship logs are saved in your phone’s local database (AppDatabase). If signed in, custom adhkar are backed up to your private cloud storage document.
+•
+Mosque & Place Suggestions: Submissions made via the "Suggest a Mosque / Place" feature (name, category, coordinates, phone) are transmitted securely via Firebase Cloud Functions solely to review and add to the public community database.
+•
+Zakat Calculator Inputs: Financial values entered into the Zakat Calculator are stored strictly on your device. We do not collect, monitor, or transmit your financial inputs.
+•
+Downloaded Media Caching: Downloaded reciter audio files and Quran font packages are cached locally in private app storage for offline playback.
+2. Account Deletion & Right to Erase
+You have full ownership and control over your account and data:
+•
+You can request full account deletion at any time directly within the app (Settings > Account > Delete Account).
+•
+Account deletion immediately and permanently deletes your profile avatar from Firebase Storage, erases all cloud backups and settings from Firebase Firestore, and deletes your Firebase Authentication account.
+3. Sensitive Permissions & Usage
+•
+Location (ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION): Used for local prayer times, Qibla compass, and nearby mosques (replaceable by manual city selection).
+•
+Notifications (POST_NOTIFICATIONS, POST_PROMOTED_NOTIFICATIONS): Delivers Adhan audio alerts, Iqamah alerts, prayer countdowns, and optional community broadcast announcements.
+•
+Exact Alarms (SCHEDULE_EXACT_ALARM, USE_EXACT_ALARM): Required to trigger precise Adhan audio playback and reminders at exact prayer times across battery-saving modes.
+•
+Usage Access & System Overlay (PACKAGE_USAGE_STATS, SYSTEM_ALERT_WINDOW): Used exclusively for the optional Focus Mode / App Blocker feature to block selected distracting applications during prayer times.
+•
+Local Network & Nearby Devices (ACCESS_LOCAL_NETWORK, NEARBY_WIFI_DEVICES): Used to discover smart TVs/speakers and cast Adhan audio/video over your local Wi-Fi network.
+•
+Foreground Services (FOREGROUND_SERVICE): Used for continuous audio playback of Quran recitations, persistent live prayer countdown notifications, and local cast streaming.
+4. Absolute No-Ads & No-Tracking Policy
+Wasl contains zero advertisements and does not conduct behavioral tracking. We explicitly remove the Google Advertising ID permission (com.google.android.gms.permission.AD_ID) from our app manifest to guarantee that your device cannot be tracked for advertising purposes. Local crash reporting cleans up logs older than 24 hours automatically.
+5. Smart Cast & Local Web Server Privacy
+To stream Adhan audio/video to local smart TVs or DLNA/Chromecast speakers, Wasl runs a lightweight, temporary local HTTP web server (LocalWebServer) strictly on your device during the cast session. All media streaming occurs directly within your local home network. We do not collect or monitor your home network topology, Wi-Fi credentials, or connected local device details.
+6. Financial Privacy
+In-app contributions to support project development are processed entirely through the Google Play Billing API. We do not collect, process, or store your credit card details or financial payment credentials.
+7. Third-Party Infrastructure Services
+To provide essential functionality, Wasl integrates minimal, trusted cloud infrastructure:
+•
+Firebase Authentication & Google Identity: For secure Email/Password and Google Sign-In.
+•
+Firebase Firestore & Storage: For user cloud backups, realtime sync, and profile avatar storage.
+•
+Firebase Cloud Functions: To process nearby mosque/place queries and community suggestions securely.
+•
+Firebase Cloud Messaging (FCM): To deliver broadcast notifications and update announcements (configurable by topic in settings).
+•
+Google Play Services: For location utilities, Wear OS synchronization, and Play Billing.
+•
+Android Backup Service (Google Drive): For optional Android system data backup.
+8. Changes to Privacy Policy
+We may update this Privacy Policy periodically. Continued use of the Wasl application constitutes acceptance of any updated terms.
+9. Contact Us
+If you have questions regarding this Privacy Policy or data practices, please contact us at:
+Email: contact@ahmadaldarwish.com
+Terms of Use
+Last Updated: September 2026
+By downloading, installing, or using the Wasl application, these terms automatically apply to you. Please read them carefully before using the app.
+1. License and Usage
+Developer Ahmad Aldarwish grants you a personal, non-exclusive, non-transferable, revocable license to use the Wasl app on compatible devices, including Android smartphones and Wear OS smartwatches.
+•
+You are not permitted to copy, decompile, reverse-engineer, or attempt to extract the source code of the app.
+•
+You are not permitted to modify trademarks, branding, or app assets without prior written consent.
+2. User Accounts & Security
+•
+Creating an account is optional.
+•
+If you create an account (via Email or Google Sign-In), you are responsible for maintaining the confidentiality of your login credentials.
+•
+You can delete your account and associated cloud data at any time through Settings > Account > Delete Account.
+3. Timing Accuracy & Calculations (Disclaimer)
+Wasl calculates prayer times and Hijri calendar dates based on your location coordinates using global calculation standards and recognized regional methods (e.g., Umm Al-Qura, Muslim World League, Egyptian General Authority, Diyanet, Moroccan Ministry, Iraqi Sunni/Shia methods):
+•
+Slight variations may occur due to geographical features, atmospheric conditions, or local jurisprudential conventions.
+•
+You agree that verifying prayer times with local religious authorities is your personal responsibility. The developer assumes no liability for timing discrepancies or missed prayers.
+4. Zakat Calculator (Disclaimer)
+Wasl includes a Zakat Calculator to assist in estimating Zakat obligations based on your manual financial entries (cash, gold, silver, investments, or business assets):
+•
+Calculations are provided for informational and estimation guidance only.
+•
+Zakat rules and Nisab thresholds vary by currency exchange rates, precious metal valuations, and Islamic jurisprudence.
+•
+You are responsible for verifying values with qualified Islamic scholars or local religious authorities. The developer assumes no liability for financial decisions or calculation discrepancies.
+5. Nearby Mosques, Places & Community Suggestions
+Wasl provides tools to locate nearby mosques and community prayer areas:
+•
+Locations and navigation routes are provided for convenience and reference.
+•
+When using the "Suggest a Mosque / Place" feature, you agree to submit truthful, accurate, and appropriate information.
+•
+The developer reserves the right to review, edit, publish, or reject any mosque or place suggestions submitted through the app.
+6. Qibla Compass & Sensor Calibration
+The Qibla direction feature relies on device GPS coordinates and hardware sensors (magnetometer and accelerometer):
+•
+Accuracy depends on hardware quality and proper sensor calibration (such as performing a figure-8 motion).
+•
+Magnetic interference from surrounding metal objects or electronic devices may affect readings.
+7. Smart Cast, Local Web Server & Local Network
+The Smart Cast feature allows streaming Adhan media to DLNA/UPnP or Chromecast devices on your local network:
+•
+The app runs a temporary local HTTP server on your device to stream selected audio/video files to cast targets.
+•
+An optional Wake-on-LAN (WOL) feature sends standard magic network packets to wake compatible smart TVs on your local network.
+•
+Use of local network streaming is at your discretion; the developer is not responsible for local Wi-Fi network configurations or third-party hardware incompatibilities.
+8. Focus Mode & App Blocker
+Focus Mode uses Android Usage Access and System Overlay permissions to temporarily block selected apps during prayer times:
+•
+Enabling Focus Mode is entirely optional.
+•
+You remain responsible for selecting which applications to block and for managing emergency contact exceptions on your device.
+9. Cloud Backup & Multi-Device Synchronization
+Wasl offers optional Cloud Backup and Realtime Sync via Firebase Firestore and standard Android Backup Service:
+•
+Account Security: You are responsible for maintaining the security of your logged-in Google or Email account.
+•
+Data Availability: While cloud backup facilitates data recovery across devices, the developer does not guarantee uninterrupted service or immunity against data loss during network interruptions.
+10. Wear OS Companion, Widgets, Tiles & Cross-Platform Features
+Wasl includes a Wear OS companion app, Home Screen/Lock Screen Widgets (including Samsung One UI ServiceBox and Now Bar integrations), and Quick Settings Tiles:
+•
+Data synchronization between your phone and Wear OS watch utilizes the Google Wearable Data Layer API.
+•
+Widgets and Tiles rely on background Android system execution to stay updated.
+11. Intellectual Property & Embedded Media
+All proprietary rights in the Wasl application belong exclusively to developer Ahmad Aldarwish. Embedded Quranic texts, Hadith collections, Islamic books (Encyclopedia PDFs), and audio recitations are included for non-profit, religious, and educational purposes under fair use. All third-party trademarks belong to their respective owners.
+12. Voluntary Support & Contributions
+Wasl offers an optional "Support the Project" feature via Google Play In-App Purchases:
+•
+Contributions are purely voluntary and support server maintenance, API costs, and ongoing development.
+•
+Contributions do not place core app features behind a paywall or grant commercial privileges.
+•
+Refunds are handled according to standard Google Play Store refund policies.
+13. Changes to Terms
+We reserve the right to update these terms at any time. Continued use of the Wasl application constitutes acceptance of the updated terms.
+14. Contact Us
+If you have any questions regarding these Terms of Use, please contact us at:
+Email: contact@ahmadaldarwish.com

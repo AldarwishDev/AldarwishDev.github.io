@@ -1,0 +1,152 @@
+Datenschutzerklärung
+Zuletzt aktualisiert: September 2026
+Entwickler Ahmad Aldarwish setzt sich für den Schutz Ihrer Privatsphäre ein. Diese Datenschutzerklärung erläutert, wie wir Informationen verarbeiten, wenn Sie die Wasl-App auf allen unterstützten Plattformen nutzen (Android-Smartphones und Wear OS-Uhren).
+1. Datenerhebung und Grundsatz „Datenschutz zuerst“
+Wasl basiert auf dem strikten Grundsatz „Datenschutz zuerst“. Wir verkaufen, vermieten oder tauschen Ihre personenbezogenen Daten nicht mit Dritten oder Werbenetzwerken. Daten werden standardmäßig lokal auf Ihrem Gerät gespeichert, mit klaren Wahlmöglichkeiten für die Kontoerstellung, Cloud-Sicherung und Synchronisierung mehrerer Geräte:
+•
+Standortdaten (optional): Der Zugriff auf den ungefähren oder genauen Standort wird ausschließlich angefordert, um genaue Gebetszeiten und die Qibla-Richtung zu berechnen sowie nahegelegene Moscheen und islamische Orte anzuzeigen. Dies ist vollständig optional: Sie können GPS-Zugriff erlauben oder Ihre Stadt/Region manuell auswählen, um GPS vollständig zu vermeiden. Die Standortverarbeitung erfolgt lokal oder über sichere Cloud Functions; Standortdaten werden niemals verkauft oder mit Werbeprofilen verknüpft.
+•
+Benutzerkonten und Profildaten (optional): Sie können optional ein Wasl-Konto mit E-Mail/Passwort oder Google Sign-In (über Google Credential Manager) erstellen. Bei der Kontoerstellung erheben wir grundlegende Profilmetadaten (E-Mail-Adresse, Anzeigename und optionales Profilbild). Hochgeladene Profilbilder werden sicher in Firebase Storage gespeichert (users/{userId}/profile_avatar.jpg).
+•
+Cloud-Sicherung und Echtzeit-Synchronisierung (optional): Wenn Sie angemeldet sind, sichert Wasl Ihre App-Einstellungen, Tracker-Einträge (Gebetsprotokolle, Koran-Lesefortschritt, Adhkar-Fortschritt) und eigenen Adhkar in unserer sicheren Firebase Firestore-Datenbank (users/{userId}/backups/app_data). Dies ermöglicht die Echtzeit-Synchronisierung zwischen Ihren verbundenen Geräten. Sie können die automatische Cloud-Sicherung und Echtzeit-Synchronisierung jederzeit in den App-Einstellungen aktivieren oder deaktivieren.
+•
+Android-Systemsicherung (optional): Falls aktiviert, nutzt die App auch den standardmäßigen Android Backup Service (Google Drive), um lokale Einstellungen und Datenbanken sicher in Ihrem persönlichen Google Drive-Konto zu sichern.
+•
+Anonymes Aktivitätssignal (optional): Zur Überwachung der Verfügbarkeit des App-Dienstes und des Umfangs der aktiven Nutzung sendet die App beim Öffnen eine zufällig erzeugte eindeutige Kennung (UUID) und einen Zeitstempel der letzten Aktivität an unsere sichere Firestore-Datenbank. Diese Kennung wird lokal erzeugt, im privaten App-Speicher gespeichert und niemals mit Ihrer Identität, Telefonnummer oder Hardware-IDs (wie IMEI) verknüpft. Sie können diese Funktion jederzeit über den Schalter „Anonyme Analysen“ unter Einstellungen > Über deaktivieren.
+•
+Eigene Adhkar und lokale Tracker-Einträge: Alle eigenen Adhkar, Tasbeeh-Zähler und Andachtsprotokolle werden in der lokalen Datenbank Ihres Telefons (AppDatabase) gespeichert. Wenn Sie angemeldet sind, werden eigene Adhkar in Ihrem privaten Cloud-Speicherdokument gesichert.
+•
+Vorschläge für Moscheen und Orte: Über die Funktion „Moschee / Ort vorschlagen“ übermittelte Angaben (Name, Kategorie, Koordinaten, Telefon) werden sicher über Firebase Cloud Functions übertragen, ausschließlich zur Prüfung und Aufnahme in die öffentliche Community-Datenbank.
+•
+Eingaben im Zakat-Rechner: Im Zakat-Rechner eingegebene finanzielle Werte werden ausschließlich auf Ihrem Gerät gespeichert. Wir erheben, überwachen oder übertragen Ihre finanziellen Eingaben nicht.
+•
+Zwischenspeicherung heruntergeladener Medien: Heruntergeladene Rezitations-Audiodateien und Koran-Schriftpakete werden für die Offline-Wiedergabe lokal im privaten App-Speicher zwischengespeichert.
+2. Kontolöschung und Recht auf Löschung
+Sie behalten das volle Eigentum an und die Kontrolle über Ihr Konto und Ihre Daten:
+•
+Sie können jederzeit direkt in der App die vollständige Kontolöschung anfordern (Einstellungen > Konto > Konto löschen).
+•
+Durch die Kontolöschung werden Ihr Profilbild aus Firebase Storage, sämtliche Cloud-Sicherungen und Einstellungen aus Firebase Firestore sowie Ihr Firebase Authentication-Konto sofort und dauerhaft gelöscht.
+3. Sensible Berechtigungen und ihre Verwendung
+•
+Standort (ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION): Für lokale Gebetszeiten, den Qibla-Kompass und nahegelegene Moscheen (durch manuelle Stadtauswahl ersetzbar).
+•
+Benachrichtigungen (POST_NOTIFICATIONS, POST_PROMOTED_NOTIFICATIONS): Für Adhan-Audiobenachrichtigungen, Iqamah-Erinnerungen, Gebets-Countdowns und optionale Community-Mitteilungen.
+•
+Exakte Alarme (SCHEDULE_EXACT_ALARM, USE_EXACT_ALARM): Erforderlich, um Adhan-Audiowiedergabe und Erinnerungen auch in Energiesparmodi zu den genauen Gebetszeiten auszulösen.
+•
+Nutzungszugriff und System-Overlay (PACKAGE_USAGE_STATS, SYSTEM_ALERT_WINDOW): Ausschließlich für den optionalen Fokusmodus / App-Blocker, um ausgewählte ablenkende Anwendungen während der Gebetszeiten zu blockieren.
+•
+Lokales Netzwerk und Geräte in der Nähe (ACCESS_LOCAL_NETWORK, NEARBY_WIFI_DEVICES): Zum Erkennen von Smart-TVs/Lautsprechern und zum Übertragen von Adhan-Audio/-Video über Ihr lokales WLAN.
+•
+Vordergrunddienste (FOREGROUND_SERVICE): Für kontinuierliche Koran-Audiowiedergabe, dauerhafte Live-Benachrichtigungen mit Gebets-Countdowns und lokales Cast-Streaming.
+4. Strikter Verzicht auf Werbung und Tracking
+Wasl enthält keinerlei Werbung und führt kein Verhaltenstracking durch. Wir entfernen die Google Advertising ID-Berechtigung (com.google.android.gms.permission.AD_ID) ausdrücklich aus unserem App-Manifest, um sicherzustellen, dass Ihr Gerät nicht zu Werbezwecken verfolgt werden kann. Die lokale Absturzprotokollierung entfernt Protokolle, die älter als 24 Stunden sind, automatisch.
+5. Datenschutz bei Smart Cast und lokalem Webserver
+Um Adhan-Audio/-Video an lokale Smart-TVs oder DLNA-/Chromecast-Lautsprecher zu übertragen, betreibt Wasl ausschließlich während der Cast-Sitzung einen schlanken, temporären lokalen HTTP-Webserver (LocalWebServer) direkt auf Ihrem Gerät. Das gesamte Medienstreaming erfolgt innerhalb Ihres lokalen Heimnetzwerks. Wir erheben oder überwachen weder Ihre Heimnetzwerktopologie noch WLAN-Zugangsdaten oder Details zu verbundenen lokalen Geräten.
+6. Datenschutz bei Zahlungen
+In-App-Beiträge zur Unterstützung der Projektentwicklung werden vollständig über die Google Play Billing API abgewickelt. Wir erheben, verarbeiten oder speichern keine Kreditkartendaten oder finanziellen Zahlungszugangsdaten.
+7. Infrastrukturdienste von Drittanbietern
+Für wesentliche Funktionen integriert Wasl eine minimale, vertrauenswürdige Cloud-Infrastruktur:
+•
+Firebase Authentication und Google Identity: Für sichere Anmeldung mit E-Mail/Passwort und Google Sign-In.
+•
+Firebase Firestore und Storage: Für Cloud-Sicherungen, Echtzeit-Synchronisierung und die Speicherung von Profilbildern.
+•
+Firebase Cloud Functions: Für die sichere Verarbeitung von Anfragen zu nahegelegenen Moscheen/Orten und Community-Vorschlägen.
+•
+Firebase Cloud Messaging (FCM): Zur Zustellung allgemeiner Benachrichtigungen und Update-Mitteilungen (in den Einstellungen nach Thema konfigurierbar).
+•
+Google Play Services: Für Standortfunktionen, Wear OS-Synchronisierung und Play Billing.
+•
+Android Backup Service (Google Drive): Für die optionale Android-Systemdatensicherung.
+8. Änderungen der Datenschutzerklärung
+Wir können diese Datenschutzerklärung regelmäßig aktualisieren. Die fortgesetzte Nutzung der Wasl-Anwendung gilt als Zustimmung zu den aktualisierten Bedingungen.
+9. Kontakt
+Bei Fragen zu dieser Datenschutzerklärung oder unseren Datenpraktiken kontaktieren Sie uns bitte unter:
+E-Mail: contact@ahmadaldarwish.com
+Nutzungsbedingungen
+Zuletzt aktualisiert: September 2026
+Durch das Herunterladen, Installieren oder Nutzen der Wasl-Anwendung gelten diese Bedingungen automatisch für Sie. Bitte lesen Sie sie sorgfältig, bevor Sie die App verwenden.
+1. Lizenz und Nutzung
+Entwickler Ahmad Aldarwish gewährt Ihnen eine persönliche, nicht ausschließliche, nicht übertragbare, widerrufliche Lizenz zur Nutzung der Wasl-App auf kompatiblen Geräten, einschließlich Android-Smartphones und Wear OS-Smartwatches.
+•
+Sie dürfen die App nicht kopieren, dekompilieren, rückentwickeln oder versuchen, ihren Quellcode zu extrahieren.
+•
+Sie dürfen Marken, Branding oder App-Assets nicht ohne vorherige schriftliche Zustimmung verändern.
+2. Benutzerkonten und Sicherheit
+•
+Die Erstellung eines Kontos ist optional.
+•
+Wenn Sie ein Konto erstellen (per E-Mail oder Google Sign-In), sind Sie für die Geheimhaltung Ihrer Anmeldedaten verantwortlich.
+•
+Sie können Ihr Konto und die zugehörigen Cloud-Daten jederzeit unter Einstellungen > Konto > Konto löschen entfernen.
+3. Zeitgenauigkeit und Berechnungen (Haftungsausschluss)
+Wasl berechnet Gebetszeiten und Daten des Hijri-Kalenders anhand Ihrer Standortkoordinaten nach globalen Berechnungsstandards und anerkannten regionalen Methoden (z. B. Umm Al-Qura, Muslim World League, Egyptian General Authority, Diyanet, marokkanisches Ministerium, irakische sunnitische/schiitische Methoden):
+•
+Geringfügige Abweichungen können durch geografische Besonderheiten, atmosphärische Bedingungen oder lokale religionsrechtliche Konventionen entstehen.
+•
+Sie stimmen zu, dass die Überprüfung der Gebetszeiten bei örtlichen religiösen Autoritäten in Ihrer eigenen Verantwortung liegt. Der Entwickler übernimmt keine Haftung für zeitliche Abweichungen oder versäumte Gebete.
+4. Zakat-Rechner (Haftungsausschluss)
+Wasl enthält einen Zakat-Rechner, der Sie bei der Schätzung Ihrer Zakat-Pflichten anhand Ihrer manuellen finanziellen Eingaben (Bargeld, Gold, Silber, Investitionen oder Geschäftsvermögen) unterstützt:
+•
+Die Berechnungen dienen ausschließlich der Information und als Schätzungshilfe.
+•
+Zakat-Regeln und Nisab-Schwellenwerte variieren je nach Wechselkursen, Edelmetallbewertungen und islamischer Rechtsprechung.
+•
+Sie sind für die Überprüfung der Werte bei qualifizierten islamischen Gelehrten oder örtlichen religiösen Autoritäten verantwortlich. Der Entwickler übernimmt keine Haftung für finanzielle Entscheidungen oder Berechnungsabweichungen.
+5. Nahegelegene Moscheen, Orte und Community-Vorschläge
+Wasl stellt Funktionen zum Auffinden nahegelegener Moscheen und gemeinschaftlicher Gebetsorte bereit:
+•
+Standorte und Navigationsrouten dienen der Orientierung und Referenz.
+•
+Bei der Nutzung der Funktion „Moschee / Ort vorschlagen“ verpflichten Sie sich, wahrheitsgemäße, genaue und angemessene Informationen zu übermitteln.
+•
+Der Entwickler behält sich das Recht vor, über die App eingereichte Vorschläge für Moscheen oder Orte zu prüfen, zu bearbeiten, zu veröffentlichen oder abzulehnen.
+6. Qibla-Kompass und Sensorkalibrierung
+Die Qibla-Richtungsfunktion nutzt die GPS-Koordinaten des Geräts und Hardwaresensoren (Magnetometer und Beschleunigungssensor):
+•
+Die Genauigkeit hängt von der Hardwarequalität und einer ordnungsgemäßen Sensorkalibrierung ab (z. B. durch eine Bewegung in Form einer Acht).
+•
+Magnetische Störungen durch umgebende Metallgegenstände oder elektronische Geräte können die Messwerte beeinflussen.
+7. Smart Cast, lokaler Webserver und lokales Netzwerk
+Smart Cast ermöglicht die Übertragung von Adhan-Medien an DLNA-/UPnP- oder Chromecast-Geräte in Ihrem lokalen Netzwerk:
+•
+Die App betreibt einen temporären lokalen HTTP-Server auf Ihrem Gerät, um ausgewählte Audio-/Videodateien an Cast-Ziele zu übertragen.
+•
+Eine optionale Wake-on-LAN-Funktion (WOL) sendet standardmäßige Magic Packets, um kompatible Smart-TVs in Ihrem lokalen Netzwerk aufzuwecken.
+•
+Die Nutzung des lokalen Netzwerkstreamings liegt in Ihrem Ermessen; der Entwickler ist nicht für lokale WLAN-Konfigurationen oder Inkompatibilitäten mit Hardware von Drittanbietern verantwortlich.
+8. Fokusmodus und App-Blocker
+Der Fokusmodus verwendet die Android-Berechtigungen für Nutzungszugriff und System-Overlay, um ausgewählte Apps während der Gebetszeiten vorübergehend zu blockieren:
+•
+Die Aktivierung des Fokusmodus ist vollständig optional.
+•
+Sie bleiben für die Auswahl der zu blockierenden Anwendungen und die Verwaltung von Ausnahmen für Notfallkontakte auf Ihrem Gerät verantwortlich.
+9. Cloud-Sicherung und Synchronisierung mehrerer Geräte
+Wasl bietet optionale Cloud-Sicherung und Echtzeit-Synchronisierung über Firebase Firestore und den standardmäßigen Android Backup Service:
+•
+Kontosicherheit: Sie sind für die Sicherheit Ihres angemeldeten Google- oder E-Mail-Kontos verantwortlich.
+•
+Datenverfügbarkeit: Obwohl die Cloud-Sicherung die Datenwiederherstellung auf mehreren Geräten erleichtert, garantiert der Entwickler weder einen unterbrechungsfreien Dienst noch Schutz vor Datenverlust bei Netzwerkunterbrechungen.
+10. Wear OS-Begleit-App, Widgets, Kacheln und plattformübergreifende Funktionen
+Wasl umfasst eine Wear OS-Begleit-App, Startbildschirm-/Sperrbildschirm-Widgets (einschließlich Samsung One UI ServiceBox- und Now Bar-Integrationen) sowie Schnelleinstellungen-Kacheln:
+•
+Die Datensynchronisierung zwischen Ihrem Telefon und Ihrer Wear OS-Uhr nutzt die Google Wearable Data Layer API.
+•
+Widgets und Kacheln sind für ihre Aktualisierung auf die Ausführung im Hintergrund durch das Android-System angewiesen.
+11. Geistiges Eigentum und eingebettete Medien
+Alle Eigentumsrechte an der Wasl-Anwendung gehören ausschließlich Entwickler Ahmad Aldarwish. Eingebettete Korantexte, Hadith-Sammlungen, islamische Bücher (Enzyklopädie-PDFs) und Audiorezitationen werden zu gemeinnützigen, religiösen und pädagogischen Zwecken im Rahmen von Fair Use eingebunden. Alle Marken Dritter gehören ihren jeweiligen Eigentümern.
+12. Freiwillige Unterstützung und Beiträge
+Wasl bietet eine optionale Funktion „Projekt unterstützen“ über Google Play-In-App-Käufe:
+•
+Beiträge sind vollständig freiwillig und unterstützen die Serverwartung, API-Kosten und die laufende Entwicklung.
+•
+Beiträge führen weder dazu, dass Kernfunktionen hinter einer Bezahlschranke liegen, noch gewähren sie kommerzielle Privilegien.
+•
+Rückerstattungen werden gemäß den üblichen Erstattungsrichtlinien des Google Play Store abgewickelt.
+13. Änderungen der Bedingungen
+Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu aktualisieren. Die fortgesetzte Nutzung der Wasl-Anwendung gilt als Zustimmung zu den aktualisierten Bedingungen.
+14. Kontakt
+Bei Fragen zu diesen Nutzungsbedingungen kontaktieren Sie uns bitte unter:
+E-Mail: contact@ahmadaldarwish.com
