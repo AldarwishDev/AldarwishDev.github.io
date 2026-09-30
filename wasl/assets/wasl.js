@@ -36,6 +36,8 @@
     root.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.getElementById('language').value = lang;
     const labels = data.labels[lang];
+    document.querySelector('.brand').setAttribute('aria-label', labels.brand);
+    document.querySelector('.primary-nav').setAttribute('aria-label', labels.brand);
     if (data.documents) {
       const doc = data.documents[lang];
       document.title = `${doc.title} | Wasl`;

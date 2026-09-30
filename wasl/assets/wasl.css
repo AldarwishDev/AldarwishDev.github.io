@@ -87,9 +87,7 @@ svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width:
 .explore-link:hover { background: #e0f1ff; border-radius: 18px; }
 .platforms { color: #ffffff; font-size: 11px; line-height: 1.9; margin-top: 22px; text-align: start; }
 .hero-art { min-width: 0; min-height: 410px; position: relative; overflow: hidden; isolation: isolate; border-radius: 42px; background: #ffffff12; border: 1px solid #ffffff30; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #ffffff; }
-.hero-art::before { content: ''; position: absolute; width: 310px; height: 155px; top: 50px; border: 24px solid #ffffff25; border-bottom: 0; border-radius: 190px 190px 0 0; z-index: -1; }
-.hero-art::after { content: ''; position: absolute; width: 42px; height: 42px; border-radius: 50%; top: 127px; left: calc(50% - 165px); background: #ffb31a; box-shadow: 0 0 0 10px #ffb31a30; z-index: -1; }
-.hero-art img { width: 126px; height: 126px; border-radius: 34px; box-shadow: 0 8px 25px #092f6430; margin-top: 65px; }
+.hero-art img { width: 126px; height: 126px; border-radius: 34px; box-shadow: 0 8px 25px #092f6430; margin-top: 0; }
 .hero-art p { margin-top: 25px; font-size: 19px; font-weight: 700; text-align: center; padding: 0 20px; color: #082339; }
 .art-caption { margin-top: 15px; font-size: 30px; font-weight: 800; color: #fff0c8; }
 .features { background: var(--surface); border-radius: 40px; padding: 36px; margin-top: 28px; }
@@ -156,8 +154,6 @@ html[dir='rtl'] .platforms { text-align: right; }
   .primary-nav a { padding-inline: 14px; font-size: 12px; }
   .hero { gap: 26px; padding: 36px; }
   .hero-art { min-height: 400px; }
-  .hero-art::before { width: 260px; height: 130px; }
-  .hero-art::after { left: calc(50% - 135px); }
   .document-grid { grid-template-columns: 230px minmax(0, 1fr); gap: 18px; }
   .document-body { padding: 26px; }
   .site-footer { margin-inline: 40px; }
@@ -176,8 +172,6 @@ html[dir='rtl'] .platforms { text-align: right; }
   .hero-art { min-height: 360px; border-radius: 28px; }
   .hero-art img { width: 100px; height: 100px; border-radius: 28px; }
   .hero-art p { font-size: 16px; }
-  .hero-art::before { width: 190px; height: 95px; border-width: 18px; }
-  .hero-art::after { width: 32px; height: 32px; top: 104px; left: calc(50% - 98px); }
   .features { padding: 28px; border-radius: 32px; }
   .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .feature { padding: 22px; }
@@ -210,9 +204,7 @@ html[dir='rtl'] .platforms { text-align: right; }
   .hero-actions { align-items: stretch; }
   .button, .explore-link { flex: 1 1 auto; padding-inline: 17px; font-size: 12px; }
   .hero-art { min-height: 290px; width: 100%; }
-  .hero-art img { margin-top: 44px; }
-  .hero-art::before { top: 22px; width: 230px; height: 115px; }
-  .hero-art::after { top: 90px; left: calc(50% - 118px); }
+  .hero-art img { margin-top: 0; }
   .hero-art p { margin-top: 18px; }
   .art-caption { margin-top: 6px; font-size: 26px; }
   .features { padding: 24px 18px; margin-top: 18px; }
@@ -250,3 +242,19 @@ html[dir='rtl'] .platforms { text-align: right; }
   .legal-section h2 { font-size: 13pt; break-after: avoid; }
   .legal-section p, .legal-section li { orphans: 3; widows: 3; }
 }
+
+/* Native selection remains keyboard accessible; its chevron follows text direction. */
+.language-control { position: relative; display: flex; align-items: center; }
+.controls select { appearance: none; -webkit-appearance: none; padding-inline-end: 34px; min-width: 110px; text-align: start; }
+.language-chevron { position: absolute; inset-inline-end: 11px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; pointer-events: none; }
+.privacy-banner p:not(.eyebrow) { margin-bottom: 0; }
+[data-theme='dark'] .hero { background: linear-gradient(145deg, #202630, #2b3036); border: 1px solid var(--line); }
+[data-theme='dark'] .hero h1 { color: var(--ink); }
+[data-theme='dark'] .hero h1 em { color: var(--primary); }
+[data-theme='dark'] .hero-intro, [data-theme='dark'] .platforms { color: var(--muted); }
+[data-theme='dark'] .hero .eyebrow { background: var(--primary-container); color: var(--on-primary-container); }
+[data-theme='dark'] .hero-art { background: var(--surface-low); border-color: var(--line); }
+[data-theme='dark'] .hero-art p { color: var(--ink); }
+[data-theme='dark'] .art-caption { color: var(--primary); }
+[data-theme='dark'] .explore-link { background: var(--surface-low); color: var(--ink); }
+@media (max-width: 600px) { .controls select { min-width: 98px; max-width: 110px; } }

@@ -8,9 +8,9 @@ const write = (path, text) => writeFileSync(resolve(root, path), text + '\n');
 const esc = text => text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 const inline = text => esc(text).replace(/contact@ahmadaldarwish\.com/g, '<a href="mailto:contact@ahmadaldarwish.com" dir="ltr">contact@ahmadaldarwish.com</a>');
 const labels = {
-  en: { overview: 'Overview', privacy: 'Privacy Policy', terms: 'Terms of Use', language: 'Language', theme: 'Toggle dark mode', skip: 'Skip to content', legal: 'WASL / LEGAL', contents: 'On this page', print: 'Print document', back: 'Back to Wasl', contact: 'Get in touch', top: 'Back to top', by: 'Made by Ahmad Aldarwish', home: 'Ahmad Aldarwish', updated: 'Last Updated: September 2026' },
-  de: { overview: 'Übersicht', privacy: 'Datenschutzerklärung', terms: 'Nutzungsbedingungen', language: 'Sprache', theme: 'Dunkelmodus umschalten', skip: 'Zum Inhalt springen', legal: 'WASL / RECHTLICHES', contents: 'Auf dieser Seite', print: 'Dokument drucken', back: 'Zurück zu Wasl', contact: 'Kontakt aufnehmen', top: 'Nach oben', by: 'Entwickelt von Ahmad Aldarwish', home: 'Ahmad Aldarwish', updated: 'Zuletzt aktualisiert: September 2026' },
-  ar: { overview: 'نظرة عامة', privacy: 'سياسة الخصوصية', terms: 'شروط الاستخدام', language: 'اللغة', theme: 'تبديل الوضع الداكن', skip: 'انتقل إلى المحتوى', legal: 'وصل / المعلومات القانونية', contents: 'في هذه الصفحة', print: 'طباعة المستند', back: 'العودة إلى وصل', contact: 'تواصل معنا', top: 'العودة إلى الأعلى', by: 'من تطوير أحمد الدرويش', home: 'أحمد الدرويش', updated: 'آخر تحديث: سبتمبر 2026' }
+  en: { brand: 'Wasl', features: 'Features', download: 'Download', overview: 'Overview', privacy: 'Privacy Policy', terms: 'Terms of Use', language: 'Language', theme: 'Toggle dark mode', skip: 'Skip to content', legal: 'WASL / LEGAL', contents: 'On this page', print: 'Print document', back: 'Back to Wasl', contact: 'Get in touch', top: 'Back to top', by: 'Made by Ahmad Aldarwish', home: 'Ahmad Aldarwish', updated: 'Last Updated: September 2026' },
+  de: { brand: 'Wasl', features: 'Funktionen', download: 'Download', overview: 'Übersicht', privacy: 'Datenschutzerklärung', terms: 'Nutzungsbedingungen', language: 'Sprache', theme: 'Dunkelmodus umschalten', skip: 'Zum Inhalt springen', legal: 'WASL / RECHTLICHES', contents: 'Auf dieser Seite', print: 'Dokument drucken', back: 'Zurück zu Wasl', contact: 'Kontakt aufnehmen', top: 'Nach oben', by: 'Entwickelt von Ahmad Aldarwish', home: 'Ahmad Aldarwish', updated: 'Zuletzt aktualisiert: September 2026' },
+  ar: { brand: 'وصل', features: 'الميزات', download: 'تحميل', overview: 'نظرة عامة', privacy: 'سياسة الخصوصية', terms: 'شروط الاستخدام', language: 'اللغة', theme: 'تبديل الوضع الداكن', skip: 'انتقل إلى المحتوى', legal: 'وصل / المعلومات القانونية', contents: 'في هذه الصفحة', print: 'طباعة المستند', back: 'العودة إلى وصل', contact: 'تواصل معنا', top: 'العودة إلى الأعلى', by: 'من تطوير أحمد الدرويش', home: 'أحمد الدرويش', updated: 'آخر تحديث: سبتمبر 2026' }
 };
 
 function parse(text, lang) {
@@ -47,10 +47,10 @@ function tocHtml(doc) {
 }
 const l = (key, cls = '') => `<span${cls ? ` class="${cls}"` : ''} data-label="${key}">${labels.en[key]}</span>`;
 function header(page) {
-  return `<a class="skip-link" href="#main">${l('skip')}</a><header class="site-header"><div class="nav-wrap"><a class="brand" href="/wasl/" aria-label="Wasl"><img src="/logo.png" width="38" height="38" alt=""><span>Wasl<span class="brand-ar" lang="ar">وَصْل</span></span></a><nav class="primary-nav" aria-label="Wasl">${['overview', 'privacy', 'terms'].map(k => `<a href="/wasl/${k === 'overview' ? '' : k + '/'}"${page === k ? ' aria-current="page"' : ''}>${l(k)}</a>`).join('')}</nav><div class="controls"><label class="sr-only" for="language">${l('language')}</label><select id="language" disabled><option value="en" lang="en">English</option><option value="ar" lang="ar">العربية</option><option value="de" lang="de">Deutsch</option></select><button id="theme-toggle" class="icon-button js-only" aria-label="Toggle dark mode" aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.3 15.6A8.5 8.5 0 0 1 8.4 3.7a8.5 8.5 0 1 0 11.9 11.9Z"/></svg></button></div></div></header>`;
+  return `<a class="skip-link" href="#main">${l('skip')}</a><header class="site-header"><div class="nav-wrap"><a class="brand" href="/wasl/" aria-label="Wasl"><img src="/logo.png" width="38" height="38" alt="">${l('brand')}</a><nav class="primary-nav" aria-label="Wasl">${(page === 'overview' ? ['overview', 'features', 'download'] : ['overview', 'privacy', 'terms']).map(k => `<a href="${k === 'features' || k === 'download' ? '#' + k : '/wasl/' + (k === 'overview' ? '' : k + '/')}"${page === k ? ' aria-current="page"' : ''}>${l(k)}</a>`).join('')}</nav><div class="controls"><label class="sr-only" for="language">${l('language')}</label><div class="language-control"><select id="language" disabled><option value="en" lang="en">English</option><option value="ar" lang="ar">العربية</option><option value="de" lang="de">Deutsch</option></select><svg class="language-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></div><button id="theme-toggle" class="icon-button js-only" aria-label="Toggle dark mode" aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.3 15.6A8.5 8.5 0 0 1 8.4 3.7a8.5 8.5 0 1 0 11.9 11.9Z"/></svg></button></div></div></header>`;
 }
 function footer() {
-  return `<footer class="site-footer"><div><a href="/" class="footer-name">${l('home')}</a><p>${l('by')} · © 2026</p></div><nav aria-label="Footer"><a href="/wasl/privacy/">${l('privacy')}</a><a href="/wasl/terms/">${l('terms')}</a><a href="mailto:contact@ahmadaldarwish.com">${l('contact')} <span aria-hidden="true">↗</span></a></nav></footer>`;
+  return `<footer class="site-footer"><div><a href="/" class="footer-name">${l('home')}</a><p>© 2026</p></div><nav aria-label="Footer"><a href="/wasl/privacy/">${l('privacy')}</a><a href="/wasl/terms/">${l('terms')}</a><a href="mailto:contact@ahmadaldarwish.com">${l('contact')} <span aria-hidden="true">↗</span></a></nav></footer>`;
 }
 function shell(page, title, description, content, data) {
   return `<!DOCTYPE html>
@@ -87,9 +87,138 @@ const home = {
   de: { eyebrow: 'DEIN TÄGLICHER ISLAMISCHER BEGLEITER', title: 'Ein Stück näher.<br><em>Jeden Tag.</em>', intro: 'Schaffe Raum für das Wesentliche. Gebetszeiten, Koran, Adhkar und hilfreiche Erinnerungen — vereint in Wasl.', download: 'Bei Google Play herunterladen', explore: 'Funktionen entdecken', platform: 'Android · Wear OS · Android TV · Automotive', art: 'Ein Moment der Verbundenheit.', featuresLabel: 'BEWUSST VERBUNDEN', featuresTitle: 'Glaube, der deinen Alltag begleitet.', featuresIntro: 'Vom ersten Adhan bis zu einem stillen Moment der Besinnung.', features: [['Smart Cast', 'Bringe den Adhan in dein Zuhause. Streame Audio und Video auf kompatible Smart-TVs und Lautsprecher.'], ['Gebetszeiten & Qibla', 'Finde Gebetszeiten für deinen Standort, wähle eine Berechnungsmethode und bestimme deine Qibla-Richtung.'], ['Koran & Adhkar', 'Begleite deine Lektüre und dein tägliches Gedenken mit Fortschrittsübersicht und eigenen Adhkar.'], ['Mehr Konzentration', 'Pausiere ablenkende Apps während der Gebetszeiten mit dem optionalen Fokusmodus.'], ['Auf deinen Geräten', 'Bleibe verbunden mit Wear OS, Widgets sowie optionaler Cloud-Sicherung und Echtzeit-Synchronisierung.'], ['Helfer für den Alltag', 'Finde Moscheen und islamische Orte in der Nähe, führe Andachtsprotokolle und schätze deine Zakat.']], privacyLabel: 'DEINE ENTSCHEIDUNGEN ZÄHLEN', privacyTitle: 'Deine Daten.<br><em>Deine Wahl.</em>', privacyText: 'Nutze Wasl ohne Konto oder melde dich für optionale Cloud-Sicherung und Synchronisierung an. Verwalte Berechtigungen und Einstellungen in der App.', privacyLink: 'Datenschutzerklärung lesen', termsLink: 'Nutzungsbedingungen' },
   ar: { eyebrow: 'رفيقك الإسلامي كل يوم', title: 'أقرب قليلاً.<br><em>كل يوم.</em>', intro: 'امنح ما يهمك مساحة في يومك. أوقات الصلاة والقرآن والأذكار والتذكيرات المدروسة، معاً في وصل.', download: 'حمّل من Google Play', explore: 'اكتشف الميزات', platform: 'Android · Wear OS · Android TV · Automotive', art: 'لحظة تعيد إليك الوصل.', featuresLabel: 'تواصل بعناية', featuresTitle: 'إيمان يرافق تفاصيل يومك.', featuresIntro: 'من أول أذان إلى لحظة هادئة للتأمل.', features: [['البث الذكي', 'اجعل الأذان حاضراً في منزلك. ابث الصوت والفيديو إلى أجهزة التلفاز الذكية ومكبرات الصوت المتوافقة.'], ['أوقات الصلاة والقبلة', 'اعرف أوقات الصلاة لموقعك، واختر طريقة الحساب، وحدد اتجاه القبلة.'], ['القرآن والأذكار', 'حافظ على وردك وذكرك اليومي مع متابعة التقدم وإضافة أذكارك المخصصة.'], ['مساحة للتركيز', 'اختر إيقاف التطبيقات المشتتة أثناء أوقات الصلاة عبر وضع التركيز الاختياري.'], ['عبر أجهزتك', 'ابقَ متصلاً عبر Wear OS والويدجت والنسخ الاحتياطي السحابي والمزامنة الفورية الاختياريين.'], ['أدوات ليومك', 'اعثر على المساجد والأماكن الإسلامية القريبة، وسجّل عباداتك، وقدّر زكاتك.']], privacyLabel: 'خياراتك أولاً', privacyTitle: 'بياناتك.<br><em>قرارك.</em>', privacyText: 'استخدم وصل دون حساب، أو سجّل الدخول للنسخ الاحتياطي السحابي والمزامنة الاختياريين. تحكم في أذوناتك وتفضيلاتك من التطبيق.', privacyLink: 'اقرأ سياسة الخصوصية', termsLink: 'شروط الاستخدام' }
 };
+const featureSets = {
+  "en": [
+    [
+      "Prayer times & reminders",
+      "Prayer times, Adhan playback, pre- and post-prayer reminders, Iqamah alerts, and reminders for your latest prayer."
+    ],
+    [
+      "The Holy Quran",
+      "Read with adjustable fonts, listen to reciters or Quran radio, download audio for offline listening, and keep bookmarks and reading goals."
+    ],
+    [
+      "Adhkar & worship",
+      "Morning, evening, and daily adhkar, custom dhikr, a tasbeeh counter, and worship progress with streaks and calendar history."
+    ],
+    [
+      "Zakat calculators",
+      "Estimate Zakat for cash, savings, crypto, livestock, and agricultural yields, along with Zakat al-Fitr."
+    ],
+    [
+      "Islamic knowledge",
+      "Explore Islamic books, an integrated PDF reader, Hadith collections, the Hijri calendar, and Islamic events."
+    ],
+    [
+      "Smart Cast",
+      "Cast the Adhan to compatible TVs and speakers, with automatic prayer casting and controls for devices and schedules."
+    ],
+    [
+      "Agenda & focus",
+      "Plan daily tasks and events, pause distracting apps, and use optional prayer Focus Mode and automatic Do Not Disturb."
+    ],
+    [
+      "Wear OS companion",
+      "A native watch app with phone-watch synchronization, prayer alerts, watch face complications, and interactive tiles."
+    ],
+    [
+      "Home & lock screen widgets",
+      "Quick access to prayer times and countdowns, Quran playback and progress, daily Ayahs, worship trackers, and Hijri dates."
+    ],
+    [
+      "Make Wasl your own",
+      "Choose themes, app icons, and languages. Use optional cloud backup, notification history, the Qibla compass, and nearby mosque maps."
+    ]
+  ],
+  "de": [
+    [
+      "Gebetszeiten & Erinnerungen",
+      "Gebetszeiten, Adhan-Wiedergabe, Erinnerungen vor und nach dem Gebet, Iqamah-Hinweise und Erinnerungen an das letzte Gebet."
+    ],
+    [
+      "Der Heilige Koran",
+      "Lies mit anpassbaren Schriften, höre Rezitatoren oder Koranradio, lade Audio zum Offline-Hören herunter und verwalte Lesezeichen und Leseziele."
+    ],
+    [
+      "Adhkar & Andacht",
+      "Morgen-, Abend- und Alltags-Adhkar, eigene Dhikr, ein Tasbeeh-Zähler und Andachtsfortschritte mit Serien und Kalenderverlauf."
+    ],
+    [
+      "Zakat-Rechner",
+      "Schätze Zakat für Bargeld, Ersparnisse, Kryptowährungen, Vieh und Ernteerträge sowie Zakat al-Fitr."
+    ],
+    [
+      "Islamisches Wissen",
+      "Entdecke islamische Bücher, einen integrierten PDF-Reader, Hadith-Sammlungen, den Hijri-Kalender und islamische Ereignisse."
+    ],
+    [
+      "Smart Cast",
+      "Übertrage den Adhan an kompatible Fernseher und Lautsprecher, mit automatischem Gebets-Casting und Einstellungen für Geräte und Zeitpläne."
+    ],
+    [
+      "Agenda & Fokus",
+      "Plane tägliche Aufgaben und Termine, pausiere ablenkende Apps und nutze den optionalen Gebets-Fokusmodus und automatische Nicht-stören-Einstellungen."
+    ],
+    [
+      "Wear OS-Begleiter",
+      "Eine native Watch-App mit Telefon-Uhr-Synchronisierung, Gebetshinweisen, Zifferblatt-Komplikationen und interaktiven Kacheln."
+    ],
+    [
+      "Start- & Sperrbildschirm-Widgets",
+      "Schneller Zugriff auf Gebetszeiten und Countdowns, Koranwiedergabe und Fortschritt, tägliche Ayahs, Andachtstracker und Hijri-Daten."
+    ],
+    [
+      "Wasl nach deinen Wünschen",
+      "Wähle Designs, App-Symbole und Sprachen. Nutze optionale Cloud-Sicherung, den Benachrichtigungsverlauf, den Qibla-Kompass und Karten mit Moscheen in der Nähe."
+    ]
+  ],
+  "ar": [
+    [
+      "أوقات الصلاة والتنبيهات",
+      "أوقات الصلاة وتشغيل الأذان والتذكيرات قبل الصلاة وبعدها وتنبيهات الإقامة والتذكير بآخر صلاة."
+    ],
+    [
+      "القرآن الكريم",
+      "اقرأ بخطوط قابلة للتعديل، واستمع إلى القراء أو إذاعة القرآن، ونزّل الصوت للاستماع دون اتصال، واحفظ العلامات المرجعية وأهداف القراءة."
+    ],
+    [
+      "الأذكار والعبادات",
+      "أذكار الصباح والمساء ومواقف الحياة اليومية، وأذكارك المخصصة، وعداد التسبيح، ومتابعة العبادات والاستمرارية وسجل التقويم."
+    ],
+    [
+      "حاسبات الزكاة",
+      "قدّر زكاة النقد والمدخرات والعملات الرقمية والأنعام والمحاصيل الزراعية، بالإضافة إلى زكاة الفطر."
+    ],
+    [
+      "المعرفة الإسلامية",
+      "استكشف الكتب الإسلامية وقارئ PDF المدمج ومجموعات الأحاديث والتقويم الهجري والمناسبات الإسلامية."
+    ],
+    [
+      "البث الذكي",
+      "ابث الأذان إلى أجهزة التلفاز ومكبرات الصوت المتوافقة، مع البث التلقائي للصلاة والتحكم في الأجهزة والجداول."
+    ],
+    [
+      "الأجندة والتركيز",
+      "خطط لمهامك ومواعيدك اليومية، وأوقف التطبيقات المشتتة مؤقتاً، واستخدم وضع تركيز الصلاة وعدم الإزعاج التلقائي الاختياريين."
+    ],
+    [
+      "رفيق Wear OS",
+      "تطبيق أصلي للساعة مع مزامنة الهاتف والساعة وتنبيهات الصلاة وإضافات واجهة الساعة والبلاطات التفاعلية."
+    ],
+    [
+      "ويدجت الشاشة الرئيسية والقفل",
+      "وصول سريع إلى أوقات الصلاة والعد التنازلي وتشغيل القرآن وتقدم القراءة والآيات اليومية ومتتبعات العبادات والتاريخ الهجري."
+    ],
+    [
+      "وصل كما تحب",
+      "اختر المظهر وأيقونة التطبيق واللغة، واستخدم النسخ الاحتياطي السحابي الاختياري وسجل الإشعارات وبوصلة القبلة وخرائط المساجد القريبة."
+    ]
+  ]
+};
+for (const lang of Object.keys(home)) home[lang].features = featureSets[lang];
 const paths = ['M4 6h16v12H4z M8 21h8 M12 18v3', 'M12 3l7 18-7-4-7 4z', 'M12 6v15 M12 6C9 3 5 3 2 4v15c3-1 7-1 10 2 3-3 7-3 10-2V4c-3-1-7-1-10 2Z', 'M8 3H5v3 M16 3h3v3 M8 21H5v-3 M16 21h3v-3 M8 12h8', 'M4 3h10v18H4z M17 7h4v10h-4 M8 18h2', 'M4 4h16v16H4z M8 8h8 M8 12h2 M14 12h2 M8 16h2 M14 16h2'];
 function homeHtml(t) {
-  return `<section class="hero"><div class="hero-copy"><p class="eyebrow">${t.eyebrow}</p><h1>${t.title}</h1><p class="hero-intro">${t.intro}</p><div class="hero-actions"><a class="button" href="https://play.google.com/store/apps/details?id=com.ahmadaldarwish.wasl">${t.download} <span aria-hidden="true">↗</span></a><a class="explore-link" href="#features">${t.explore} <span aria-hidden="true">↓</span></a></div><p class="platforms" dir="ltr">${t.platform}</p></div><div class="hero-art"><img src="/logo.png" width="200" height="200" alt="Wasl" fetchpriority="high"><p>${t.art}</p><span class="art-caption" aria-hidden="true">وَصْل</span></div></section><section id="features" class="features"><div class="section-heading"><p class="eyebrow">${t.featuresLabel}</p><h2>${t.featuresTitle}</h2><p>${t.featuresIntro}</p></div><div class="features-grid">${t.features.map(([title, text], i) => `<article class="feature"><div class="feature-top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${paths[i]}"/></svg><span aria-hidden="true">0${i + 1}</span></div><h3>${title}</h3><p>${text}</p></article>`).join('')}</div></section><section class="privacy-banner"><div><p class="eyebrow">${t.privacyLabel}</p><h2>${t.privacyTitle}</h2></div><div><p>${t.privacyText}</p><a href="/wasl/privacy/">${t.privacyLink} <span aria-hidden="true">↗</span></a><a href="/wasl/terms/">${t.termsLink} <span aria-hidden="true">↗</span></a></div></section>`;
+  return `<section class="hero"><div class="hero-copy"><p class="eyebrow">${t.eyebrow}</p><h1>${t.title}</h1><p class="hero-intro">${t.intro}</p><div class="hero-actions"><a id="download" class="button" href="https://play.google.com/store/apps/details?id=com.ahmadaldarwish.wasl">${t.download} <span aria-hidden="true">↗</span></a><a class="explore-link" href="#features">${t.explore} <span aria-hidden="true">↓</span></a></div><p class="platforms" dir="ltr">${t.platform}</p></div><div class="hero-art"><img src="/logo.png" width="200" height="200" alt="Wasl" fetchpriority="high"><p>${t.art}</p><span class="art-caption" aria-hidden="true">وَصْل</span></div></section><section id="features" class="features"><div class="section-heading"><p class="eyebrow">${t.featuresLabel}</p><h2>${t.featuresTitle}</h2><p>${t.featuresIntro}</p></div><div class="features-grid">${t.features.map(([title, text], i) => `<article class="feature"><div class="feature-top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${paths[i % paths.length]}"/></svg><span aria-hidden="true">0${i + 1}</span></div><h3>${title}</h3><p>${text}</p></article>`).join('')}</div></section><section class="privacy-banner"><div><p class="eyebrow">${t.privacyLabel}</p><h2>${t.privacyTitle}</h2></div><div><p>${t.privacyText}</p></div></section>`;
 }
 write('wasl/index.html', shell('overview', 'Your daily Islamic companion', home.en.intro, `<main id="main" class="home-main">${homeHtml(home.en)}</main>`, { home: Object.fromEntries(Object.entries(home).map(([lang, t]) => [lang, homeHtml(t)])) }));
 console.log('Built Wasl overview, privacy and terms in English, Arabic and German.');
