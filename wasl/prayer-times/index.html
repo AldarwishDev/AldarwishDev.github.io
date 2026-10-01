@@ -5,9 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#1769be">
 <title>مواقيت الصلاة | وَصْل</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="icon" href="/logo.png">
-<link rel="stylesheet" href="./prayer-times.css?v=0bfb7f9069dc">
-<script src="./prayer-times.js?v=4aa4845c22ad" defer></script>
+<link rel="stylesheet" href="./prayer-times.css?v=e10b1a8a2561">
+<script src="./prayer-times.js?v=cc30f86aaa3b" defer></script>
 </head>
 <body>
 <main class="prayer-app">
@@ -43,20 +46,22 @@
       <div class="prayer-row"><span class="prayer-icon" aria-hidden="true">☀</span><h3>المغرب</h3><time>—:—</time></div>
       <div class="prayer-row"><span class="prayer-icon" aria-hidden="true">☾</span><h3>العشاء</h3><time>—:—</time></div>
     </div>
-    <footer><a id="back-link" href="/wasl/">العودة إلى وَصْل</a><span id="city-credit">بيانات المدن: </span><a href="https://www.geonames.org/" target="_blank" rel="noopener">GeoNames</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></footer>
+    <footer><button id="install-button" class="gps-button" type="button">ثبّت تطبيق الويب</button><p id="install-help" class="dialog-note" role="status"></p><a id="back-link" href="/wasl/">العودة إلى وَصْل</a><span id="city-credit">بيانات المدن: </span><a href="https://www.geonames.org/" target="_blank" rel="noopener">GeoNames</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></footer>
   </section>
 </main>
 <dialog id="location-dialog" aria-labelledby="location-title">
   <div class="dialog-heading"><h2 id="location-title">اختر مدينتك</h2><button class="close-dialog" aria-label="إغلاق">×</button></div>
+  <button id="gps-button" class="gps-button" type="button">استخدم موقعي الحالي</button><p id="gps-note" class="dialog-note">يُرسل موقعك إلى خادم وَصْل لحساب المواقيت. لا يُحفظ في سجل الخادم.</p>
   <form id="search-form"><label for="city-search" id="search-label">اسم المدينة</label><div class="search-row"><input id="city-search" type="search" minlength="2" maxlength="80" required autocomplete="off"><button id="search-submit" type="submit">بحث</button></div></form>
   <p id="search-status" role="status"></p><div id="city-results"></div><div id="popular-cities" class="popular-cities"></div>
-  <p class="dialog-note" id="location-note">يُرسل اسم المدينة إلى خدمة البحث. تُحسب المواقيت على خادم وَصْل، دون نشر قواعد الحساب.</p>
+  <p class="dialog-note" id="location-note">يجري البحث عن المدن وحساب المواقيت على خادم وَصْل، دون نشر قواعد الحساب.</p>
 </dialog>
 <dialog id="settings-dialog" aria-labelledby="settings-title">
   <div class="dialog-heading"><h2 id="settings-title">الإعدادات</h2><button class="close-dialog" aria-label="إغلاق">×</button></div>
   <label for="language" id="language-label">اللغة</label><select id="language"><option value="ar">العربية</option><option value="en">English</option><option value="de">Deutsch</option></select>
   <label for="appearance" id="appearance-label">المظهر</label><select id="appearance"><option value="light">فاتح</option><option value="dark">داكن</option></select>
   <label for="clock-format" id="clock-label">تنسيق الوقت</label><select id="clock-format"><option value="12">12 ساعة</option><option value="24">24 ساعة</option></select>
+  
   <p id="settings-note" class="dialog-note">المواقيت حسب الموقع المختار. قد تختلف عن التطبيق إذا غيّرت إعدادات الحساب فيه.</p>
 </dialog>
 <noscript><p class="noscript-note">فعّل JavaScript لعرض مواقيت الصلاة. Enable JavaScript to view prayer times.</p></noscript>
