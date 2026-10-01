@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1769be">
+<title>مواقيت الصلاة | وَصْل</title>
+<link rel="icon" href="/logo.png">
+<link rel="stylesheet" href="./prayer-times.css?v=0bfb7f9069dc">
+<script src="./prayer-times.js?v=4aa4845c22ad" defer></script>
+</head>
+<body>
+<main class="prayer-app">
+  <header class="app-header">
+    <a class="brand" href="/wasl/"><img src="/logo.png" width="42" height="42" alt=""><span>وَصْل</span></a>
+    <div class="header-controls"><button id="location-button" class="location"><span id="city-label">اختر مدينتك</span><span aria-hidden="true">⌖</span></button><button id="settings-button" class="round-button" aria-label="الإعدادات">⚙</button></div>
+  </header>
+  <section class="prayer-hero" aria-labelledby="next-title">
+    <svg class="prayer-arc" viewBox="0 0 400 220" aria-hidden="true">
+      <path d="M35 190 A165 165 0 0 1 365 190" class="arc-track"/>
+      <path d="M35 190 A165 165 0 0 1 365 190" class="arc-fill" pathLength="1" style="stroke-dasharray:0 1"/>
+      <circle cx="35" cy="190" r="12" class="dot" data-prayer="fajr"/>
+      <circle cx="94" cy="63" r="12" class="dot" data-prayer="dhuhr"/>
+      <circle cx="200" cy="25" r="12" class="dot" data-prayer="asr"/>
+      <circle cx="306" cy="63" r="12" class="dot" data-prayer="maghrib"/>
+      <circle cx="365" cy="190" r="12" class="dot" data-prayer="isha"/>
+    </svg>
+    <div class="next-prayer">
+      <p id="next-title">الصلاة القادمة</p>
+      <h1 id="next-name">مواقيت الصلاة</h1>
+      <div class="next-time" dir="ltr">—:—</div>
+      <p class="countdown">اختر مدينتك لعرض المواقيت</p>
+    </div>
+  </section>
+  <section class="schedule" aria-labelledby="day-title">
+    <div class="date-row"><button id="previous-day" class="date-icon" aria-label="اليوم السابق">‹</button><div class="date-heading"><h2 id="day-title">مواقيت اليوم</h2><p id="gregorian-date"></p></div><button id="next-day" class="date-icon" aria-label="اليوم التالي">›</button></div>
+    <div class="status-wrap"><p id="status" class="preview-note" role="status">اختر مدينتك لعرض مواقيت الصلاة.</p><button id="retry" hidden>إعادة المحاولة</button><button id="today-button" hidden>اليوم</button></div>
+    <div class="prayer-list">
+      <div class="prayer-row"><span class="prayer-icon" aria-hidden="true">☀</span><h3>الفجر</h3><time>—:—</time></div>
+      <div class="prayer-row"><span class="prayer-icon" aria-hidden="true">☀</span><h3>الشروق</h3><time>—:—</time></div>
+      <div class="prayer-row"><span class="prayer-icon" aria-hidden="true">☀</span><h3>الظهر</h3><time>—:—</time></div>
+      <div class="prayer-row"><span class="prayer-icon" aria-hidden="true">☀</span><h3>العصر</h3><time>—:—</time></div>
+      <div class="prayer-row"><span class="prayer-icon" aria-hidden="true">☀</span><h3>المغرب</h3><time>—:—</time></div>
+      <div class="prayer-row"><span class="prayer-icon" aria-hidden="true">☾</span><h3>العشاء</h3><time>—:—</time></div>
+    </div>
+    <footer><a id="back-link" href="/wasl/">العودة إلى وَصْل</a><span id="city-credit">بيانات المدن: </span><a href="https://www.geonames.org/" target="_blank" rel="noopener">GeoNames</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></footer>
+  </section>
+</main>
+<dialog id="location-dialog" aria-labelledby="location-title">
+  <div class="dialog-heading"><h2 id="location-title">اختر مدينتك</h2><button class="close-dialog" aria-label="إغلاق">×</button></div>
+  <form id="search-form"><label for="city-search" id="search-label">اسم المدينة</label><div class="search-row"><input id="city-search" type="search" minlength="2" maxlength="80" required autocomplete="off"><button id="search-submit" type="submit">بحث</button></div></form>
+  <p id="search-status" role="status"></p><div id="city-results"></div><div id="popular-cities" class="popular-cities"></div>
+  <p class="dialog-note" id="location-note">يُرسل اسم المدينة إلى خدمة البحث. تُحسب المواقيت على خادم وَصْل، دون نشر قواعد الحساب.</p>
+</dialog>
+<dialog id="settings-dialog" aria-labelledby="settings-title">
+  <div class="dialog-heading"><h2 id="settings-title">الإعدادات</h2><button class="close-dialog" aria-label="إغلاق">×</button></div>
+  <label for="language" id="language-label">اللغة</label><select id="language"><option value="ar">العربية</option><option value="en">English</option><option value="de">Deutsch</option></select>
+  <label for="appearance" id="appearance-label">المظهر</label><select id="appearance"><option value="light">فاتح</option><option value="dark">داكن</option></select>
+  <label for="clock-format" id="clock-label">تنسيق الوقت</label><select id="clock-format"><option value="12">12 ساعة</option><option value="24">24 ساعة</option></select>
+  <p id="settings-note" class="dialog-note">المواقيت حسب الموقع المختار. قد تختلف عن التطبيق إذا غيّرت إعدادات الحساب فيه.</p>
+</dialog>
+<noscript><p class="noscript-note">فعّل JavaScript لعرض مواقيت الصلاة. Enable JavaScript to view prayer times.</p></noscript>
+</body>
+</html>
