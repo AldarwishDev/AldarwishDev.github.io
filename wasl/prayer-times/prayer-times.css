@@ -64,3 +64,28 @@ dialog label{display:block;font-size:14px;font-weight:700;margin:16px 0 8px}dial
 footer #install-button{width:auto;margin:0 0 6px;font-size:12px;padding:8px 14px}footer #install-help:empty{display:none}footer #install-help{flex-basis:100%;margin:0 0 8px}footer #install-button{flex-basis:auto}footer #city-credit{align-self:center}
 
 @media(max-width:899px){.location span[aria-hidden]{font-size:18px}.location{line-height:20px}.next-prayer{inset:54px 12px 0}.next-prayer .countdown{margin-top:6px}}
+
+/* Let phone height distribute space between the arc and the six prayer rows. */
+@media(max-width:899px){
+ .prayer-app{display:flex;flex-direction:column;min-height:100dvh;padding-top:env(safe-area-inset-top);--hero-size:clamp(160px,24dvh,280px)}
+ .app-header{width:100%;flex:none;padding:clamp(8px,1.4dvh,16px) clamp(12px,4vw,24px)}
+ .brand{font-size:clamp(18px,5vw,24px)}
+ .location{max-width:clamp(120px,38vw,220px)}
+ .prayer-hero{flex:none;height:var(--hero-size);width:min(92%,calc(var(--hero-size)*1.68));max-width:480px;margin:0 auto}
+ .prayer-arc{height:100%}
+ .next-prayer{inset:29% 10px 0}
+ .next-prayer p{font-size:clamp(11px,1.5dvh,15px)}
+ .next-prayer h1{font-size:clamp(20px,2.8dvh,30px)}
+ .next-time{font-size:clamp(32px,4.7dvh,50px)}
+ .next-prayer .countdown{font-size:clamp(10px,1.35dvh,13px);margin-top:clamp(4px,.7dvh,8px)}
+ .schedule{flex:1;display:flex;flex-direction:column;padding:clamp(10px,1.5dvh,18px) clamp(12px,3.6vw,28px) max(12px,env(safe-area-inset-bottom))}
+ .date-heading h2{font-size:clamp(14px,1.9dvh,19px)}
+ .date-heading p{font-size:clamp(10px,1.3dvh,12px)}
+ .prayer-list{flex:1;display:flex;flex-direction:column;padding:4px clamp(12px,4vw,24px)}
+ .prayer-row{flex:1;min-height:44px;gap:clamp(8px,2.5vw,16px)}
+ .prayer-row h3{font-size:clamp(15px,2dvh,21px)}
+ .prayer-row time{font-size:clamp(17px,2.3dvh,24px)}
+ .prayer-icon{width:clamp(30px,4.3dvh,44px);height:clamp(30px,4.3dvh,44px);font-size:clamp(18px,2.6dvh,25px)}
+ .schedule footer{flex:none;padding-top:clamp(8px,1.2dvh,16px)}
+}
+@media(max-width:899px) and (orientation:landscape){.prayer-app{--hero-size:160px}.prayer-row{min-height:48px}}
